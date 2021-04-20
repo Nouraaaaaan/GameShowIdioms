@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class Idiom : MonoBehaviour
 {
+    public string CorrectPhrase;
+
     [SerializeField]
     public List<Word> Words;
+
+    public GameObject EnteredText;
 }
 
 [System.Serializable]

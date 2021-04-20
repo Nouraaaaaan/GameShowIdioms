@@ -26,6 +26,12 @@ public class KeyboardScript : MonoBehaviour
 
         if(TextField.text.Length>0) TextField.text= TextField.text.Remove(TextField.text.Length-1);
 
+        //SFX
+        SFXManager.Instance.PlaySoundEffect(0);
+
+        //Event
+        IdiomsGameManager.Instance.BackSpacePressed();
+
     }
 
     public void CloseAllLayouts()
