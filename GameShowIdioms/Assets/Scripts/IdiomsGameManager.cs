@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DentedPixel;
+using UnityEngine.UI;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class IdiomsGameManager : MonoBehaviour
     [Header("VFX")]
     public ParticleSystem ConfettiShower;
     //--------------------------------------------------------------------------------------------------------------------------------//
-    //Regions.
+    //Methods.
 
     #region Singelton Region
     public static IdiomsGameManager Instance;
@@ -165,7 +166,6 @@ public class IdiomsGameManager : MonoBehaviour
     #endregion
 
     #region Result Region
-
     public void ShowResult()
     {
         StartCoroutine(ShowResultCorotinue());
@@ -173,21 +173,26 @@ public class IdiomsGameManager : MonoBehaviour
 
     private IEnumerator ShowResultCorotinue()
     {
-        //1.Disable Unneeded UI.
+        //1.Color Text.
+        ColorText();
+        SFXManager.Instance.PlaySoundEffect(3);
+        yield return new WaitForSeconds(1f);
+
+        //2.Disable Unneeded UI.
         UIManager.KeyboardCanvas.SetActive(false);
         UIManager.SubmitButtonCanvas.SetActive(false);
         CurrentIdiom.EnteredText.SetActive(false);
 
-        //2.Translate Camera To Presenter, Show Correct Answer.
-        TranslateCamera(PresenterCameraTransform, 1f);
+        //3.Translate Camera To Presenter, Show Correct Answer.
+        TranslateCamera(PresenterCameraTransform, 0.5f);
         UIManager.PresenterSpeechBubbleText.text = "The Answer is ....";
         UIManager.PopupPresenterSpeechBubble();
 
-        //3.Translate Camera To Player.
+        //4.Translate Camera To Player.
         yield return new WaitForSeconds(2);
         TranslateCamera(PlayerCameraTransform, 0.5f);
 
-        //3.Check Result
+        //5.Check Result
         yield return new WaitForSeconds(0.5f);
         if (StringMatch(EnterText, CurrentIdiom.CorrectPhrase))//Correct Phrase.
         {
@@ -200,6 +205,31 @@ public class IdiomsGameManager : MonoBehaviour
             CurrentPlayerAnimator.SetBool("sad", true);
             SFXManager.Instance.PlaySoundEffect(1);
         }
+    }
+
+    private void ColorText()
+    {
+        int currentCharIndex = 0;
+
+       
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
+        {
+            for (int j = 0; j < CurrentIdiom.Words[i].Char.Count; j++)
+            {
+                if (string.Equals(EnterText[currentCharIndex].ToString(), CurrentIdiom.CorrectPhrase[currentCharIndex].ToString()))
+                {
+                    //Debug.Log("Match "+ EnterText[currentCharIndex].ToString()+"And "+ CurrentIdiom.Words[i].Char[j].text.ToString());
+                    CurrentIdiom.Words[i].Char[j].color = Color.green;
+                }
+                else
+                {
+                    //Debug.Log("Miss");
+                    CurrentIdiom.Words[i].Char[j].color = Color.red;
+                }
+                currentCharIndex++;
+            }
+        }
+        
     }
     #endregion
 }
