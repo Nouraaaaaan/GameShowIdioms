@@ -14,11 +14,14 @@ public class KeyboardScript : MonoBehaviour
         TextField.text=TextField.text + alphabet;
 
         //SFX
-        SFXManager.Instance.PlaySoundEffect(0);
+        if (!IdiomsGameManager.Instance.Finished)
+        {
+            SFXManager.Instance.PlaySoundEffect(0);
+        }
+        
 
         //Event
         IdiomsGameManager.Instance.AlphabetPressed(alphabet[0]);
-
     }
 
     public void BackSpace()

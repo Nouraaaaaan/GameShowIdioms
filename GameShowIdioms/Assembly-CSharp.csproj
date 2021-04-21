@@ -74,7 +74,7 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanSmooth.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTest.cs" />
-    <Compile Include="Assets\Scripts\SFXManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SFXManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTween.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanAudio.cs" />
@@ -84,17 +84,18 @@
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathBezier.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
-    <Compile Include="Assets\Scripts\IdiomsGameManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\IdiomsGameManager.cs" />
     <Compile Include="Assets\Packages\OSK\Assets\Scripts\KeyboardDragHandler.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTweenExt.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSplines.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
+    <Compile Include="Assets\Scripts\Idiom.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\Scripts\Idiom.cs" />
+    <Compile Include="Assets\Scripts\Managers\KeyboardManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Packages\LeanTween\ReadMe.txt" />

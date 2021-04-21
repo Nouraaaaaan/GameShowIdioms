@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Idiom
     - IdiomsGameManager
     - KeyboardDragHandler
+    - KeyboardManager
     - KeyboardScript
     - SFXManager
     - UIManager
@@ -12,10 +13,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -98,6 +97,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13908}
     - Class: 114
       Script: {instanceID: 13962}
+    - Class: 114
+      Script: {instanceID: 223098}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -108,6 +109,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
@@ -115,6 +120,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
@@ -547,7 +554,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: 7bfd63204754ad3df21b49fcc48f97b4
+      Hash: ea60135f80645084d8b80d2c2cbf5d21
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -637,7 +644,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 3ee762b0d14ba24074234e85086491b2
+      Hash: a145fe199fffcbe4c8ffee584c775aae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Idiom
@@ -703,7 +710,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: d0449b1a86a5aea2d315ca66e84be083
+      Hash: c2be3368a077c252c183aab50a1d4e5e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -725,6 +732,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 11bdd61587db747672b66c52442395d8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KeyboardManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game Show scene.unity
