@@ -805,21 +805,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CorrectPhrase: pieceofcake
-  Words:
-  - Char:
-    - {fileID: 1183235350}
-    - {fileID: 1968340745}
-    - {fileID: 1502843891}
-    - {fileID: 1085298016}
-    - {fileID: 2039813906}
-  - Char:
-    - {fileID: 640912307}
-    - {fileID: 1817291129}
-  - Char:
-    - {fileID: 589265787}
-    - {fileID: 1398665730}
-    - {fileID: 519522247}
-    - {fileID: 2079469757}
+  Char:
+  - {fileID: 1183235350}
+  - {fileID: 1968340745}
+  - {fileID: 1502843891}
+  - {fileID: 1085298016}
+  - {fileID: 2039813906}
+  - {fileID: 640912307}
+  - {fileID: 1817291129}
+  - {fileID: 589265787}
+  - {fileID: 1398665730}
+  - {fileID: 519522247}
+  - {fileID: 2079469757}
   EnteredText: {fileID: 1290354057}
 --- !u!1 &272033758
 GameObject:

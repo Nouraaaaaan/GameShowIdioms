@@ -8,7 +8,7 @@ public class Idiom : MonoBehaviour
     public string CorrectPhrase;
 
     [SerializeField]
-    public List<Word> Words;
+    public List<Text> Char;
 
     public GameObject EnteredText;
 }

@@ -21,7 +21,6 @@ public class IdiomsGameManager : MonoBehaviour
 
     [Header("Current Idiom Attributes")]
     public Idiom CurrentIdiom;
-    private int CurrentWordIndex; //words
     private int CurrenCharIndex;  //chars
     public bool Finished;
 
@@ -106,25 +105,24 @@ public class IdiomsGameManager : MonoBehaviour
         if (Finished)
             return;
 
-        //Debug.Log("A new alphabet was pressed !");
+        //Move to first unfilled letter.
+        while (CurrentIdiom.Char[CurrenCharIndex].text != "")
+        {
+            EnterText += CurrentIdiom.Char[CurrenCharIndex].text.ToString();
+            CurrenCharIndex++;
+        }
 
         //Set Char.
-        CurrentIdiom.Words[CurrentWordIndex].Char[CurrenCharIndex].text = enteredChar.ToString();
+        CurrentIdiom.Char[CurrenCharIndex].text = enteredChar.ToString();
         EnterText += enteredChar.ToString();
 
         //Update Current Char Index.
         CurrenCharIndex++;
 
         //Check if we finished current word.
-        if (CurrenCharIndex >= CurrentIdiom.Words[CurrentWordIndex].Char.Count)
+        if (CurrenCharIndex >= CurrentIdiom.Char.Count)
         {
             CurrenCharIndex = 0;
-            CurrentWordIndex++;
-        }
-
-        //Check if we finished all words.
-        if (CurrentWordIndex >= CurrentIdiom.Words.Count)
-        {
             Debug.Log("Finished !");
             Finished = true;
             ShowResult();
@@ -132,28 +130,16 @@ public class IdiomsGameManager : MonoBehaviour
     }
 
     public void BackSpacePressed()
-    {
+    {     
         if (EnterText.Length <= 0)
             return;
 
         //Update Current Char Index.
         CurrenCharIndex--;
 
-        if (CurrenCharIndex < 0)
-        {
-            //Update Current Word Index.
-            CurrentWordIndex--;
-
-            if (CurrentWordIndex < 0)
-            {
-                CurrentWordIndex = 0;
-            }
-
-            CurrenCharIndex = CurrentIdiom.Words[CurrentWordIndex].Char.Count;
-        }
-
+        
         //Set Char.
-        CurrentIdiom.Words[CurrentWordIndex].Char[CurrenCharIndex].text = "";
+        CurrentIdiom.Char[CurrenCharIndex].text = "";
 
         Debug.Log(EnterText.Length);
         if (EnterText.Length > 0)
@@ -188,14 +174,17 @@ public class IdiomsGameManager : MonoBehaviour
     #region Hint Region
     public void OnclickHintButton()
     {
-        //Get random letter.
-        int randomWordIndex = Random.Range(0, CurrentIdiom.Words.Count);
-        int randomLetterIndex = Random.Range(0, CurrentIdiom.Words[randomWordIndex].Char.Count);
+        //Get random letter & it must be not previously filled.
+        int randomLetterIndex = Random.Range(0, CurrentIdiom.Char.Count);
+        while (CurrentIdiom.Char[randomLetterIndex].text != "")
+        {
+            randomLetterIndex = Random.Range(0, CurrentIdiom.Char.Count);
+        }
 
+        
         //Set Letter.
-        CurrentIdiom.Words[randomWordIndex].Char[randomLetterIndex].text = "R";
+        CurrentIdiom.Char[randomLetterIndex].text = CurrentIdiom.CorrectPhrase[randomLetterIndex].ToString();
     }
-
 
     #endregion
 
@@ -249,28 +238,18 @@ public class IdiomsGameManager : MonoBehaviour
     }
 
     private void ColorText()
-    {
-        int currentCharIndex = 0;
-
-       
-        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
+    {       
+        for (int j = 0; j < CurrentIdiom.Char.Count; j++)
         {
-            for (int j = 0; j < CurrentIdiom.Words[i].Char.Count; j++)
+            if (string.Equals(EnterText[j].ToString(), CurrentIdiom.CorrectPhrase[j].ToString()))
             {
-                if (string.Equals(EnterText[currentCharIndex].ToString(), CurrentIdiom.CorrectPhrase[currentCharIndex].ToString()))
-                {
-                    //Debug.Log("Match "+ EnterText[currentCharIndex].ToString()+"And "+ CurrentIdiom.Words[i].Char[j].text.ToString());
-                    CurrentIdiom.Words[i].Char[j].color = Color.green;
-                }
-                else
-                {
-                    //Debug.Log("Miss");
-                    CurrentIdiom.Words[i].Char[j].color = Color.red;
-                }
-                currentCharIndex++;
+                 CurrentIdiom.Char[j].color = Color.green; //Mtach.
+            }
+            else
+            {
+                 CurrentIdiom.Char[j].color = Color.red;  //MissMatch.
             }
         }
-        
     }
     #endregion
 }
