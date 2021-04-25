@@ -22,7 +22,6 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -83,25 +82,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12686}
     - Class: 114
-      Script: {instanceID: 12738}
+      Script: {instanceID: 13036}
     - Class: 114
-      Script: {instanceID: 13038}
+      Script: {instanceID: 13182}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13412}
     - Class: 114
-      Script: {instanceID: 13414}
+      Script: {instanceID: 13514}
     - Class: 114
-      Script: {instanceID: 13516}
+      Script: {instanceID: 13838}
     - Class: 114
-      Script: {instanceID: 13840}
+      Script: {instanceID: 13860}
     - Class: 114
-      Script: {instanceID: 13862}
+      Script: {instanceID: 13908}
     - Class: 114
-      Script: {instanceID: 13864}
+      Script: {instanceID: 13962}
     - Class: 114
-      Script: {instanceID: 13910}
-    - Class: 114
-      Script: {instanceID: 13964}
+      Script: {instanceID: 223098}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -425,12 +422,6 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 47cc510766f6eb3fb07ad42042529317
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: KeyboardManager
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -563,7 +554,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: a2f0742f7970a003c2acf3e64d86b238
+      Hash: ea60135f80645084d8b80d2c2cbf5d21
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -653,7 +644,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 31b1c56dc24f866a76be596524c9a452
+      Hash: a145fe199fffcbe4c8ffee584c775aae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Idiom
@@ -741,6 +732,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 11bdd61587db747672b66c52442395d8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KeyboardManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game Show scene.unity

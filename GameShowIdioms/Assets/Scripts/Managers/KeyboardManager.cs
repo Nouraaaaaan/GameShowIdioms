@@ -6,31 +6,31 @@ using UnityEngine.UI;
 public class KeyboardManager : MonoBehaviour
 {
     TouchScreenKeyboard TouchScreenKeyboard;
-    public Text TestingText;
-    private string KeyboardText;
-    
+    public Text Text;
+    string pesudo;
+
+    private void Start()
+    {
+        TouchScreenKeyboard.hideInput = true;
+    }
+
     public void OpenKeyboard()
     {
-        TouchScreenKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        TouchScreenKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NamePhonePad);
     }
 
     private void Update()
     {
+        /*
         if ((TouchScreenKeyboard.visible == false) && (TouchScreenKeyboard != null))
         {
             if (TouchScreenKeyboard.status == TouchScreenKeyboard.Status.Done)
             {
-                OnclickDoneButton();
+                pesudo = TouchScreenKeyboard.text;
+                Text.text = "Hi " + pesudo;
+                TouchScreenKeyboard = null;
             }
         }
-    }
-
-    public void OnclickDoneButton()
-    {
-        KeyboardText = TouchScreenKeyboard.text;
-        //TestingText.text = "Hi" + KeyboardText;
-        IdiomsGameManager.Instance.EnterText = KeyboardText;
-        IdiomsGameManager.Instance.ShowResult();
-        TouchScreenKeyboard = null;
+        */
     }
 }
