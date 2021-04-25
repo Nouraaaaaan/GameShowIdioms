@@ -49,7 +49,7 @@ public class IdiomsGameManager : MonoBehaviour
     #region CallBacks Region
     private void Start()
     {
-        
+        ColorText();
     }
     #endregion
 
@@ -92,8 +92,8 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
-        UIManager.KeyboardCanvas.SetActive(true);     //Open Keyboard.
-        //keyboardManager.OpenKeyboard();             //Open Keyboard.
+        //UIManager.KeyboardCanvas.SetActive(true);     //Open Keyboard.
+        //keyboardManager.OpenKeyboard();                 //Open Keyboard.
         CurrentIdiom.EnteredText.SetActive(true);
         //UIManager.SubmitButtonCanvas.SetActive(true);
         UIManager.HintButtonCanvas.SetActive(true);
@@ -122,10 +122,13 @@ public class IdiomsGameManager : MonoBehaviour
         //Check if we finished current word.
         if (CurrenCharIndex >= CurrentIdiom.Char.Count)
         {
-            CurrenCharIndex = 0;
             Debug.Log("Finished !");
             Finished = true;
-            ShowResult();
+
+            CurrenCharIndex = 0;             //Reset.
+            //keyboardManager.CloseKeyboard(); //Close KB.
+
+            ShowResult();                    //Show Result.
         }
     }
 
@@ -207,17 +210,12 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.HintButtonCanvas.SetActive(false);
         CurrentIdiom.EnteredText.SetActive(false);
 
-        //3.Translate Camera To Presenter, Show Correct Answer.
-        //TranslateCamera(PresenterCameraTransform, 0.5f);
-        //UIManager.PresenterSpeechBubbleText.text = "The Answer is ....";
-        //UIManager.PopupPresenterSpeechBubble();
-
-        //4.Translate Camera To Player.
+        //3.Translate Camera To Player.
         TranslateCamera(PlayerCameraTransform, 0.3f);
 
-        //5.Check Result
+        //4.Check Result
         yield return new WaitForSeconds(0.3f);
-        if (StringMatch(EnterText, CurrentIdiom.CorrectPhrase))//Correct Phrase.
+        if (StringMatch(EnterText.ToLower(), CurrentIdiom.CorrectPhrase))//Correct Phrase.
         {
             ConfettiShower.Play();
             CurrentPlayerAnimator.SetBool("dance", true);
@@ -237,17 +235,22 @@ public class IdiomsGameManager : MonoBehaviour
 
     }
 
+    public Text TempText;
     private void ColorText()
     {       
-        for (int j = 0; j < CurrentIdiom.Char.Count; j++)
+        for (int j = 0; j < TempText.text.Length; j++)
         {
-            if (string.Equals(EnterText[j].ToString(), CurrentIdiom.CorrectPhrase[j].ToString()))
+            if (string.Equals(TempText.text[j].ToString().ToLower(), CurrentIdiom.CorrectPhrase[j].ToString()))
             {
-                 CurrentIdiom.Char[j].color = Color.green; //Mtach.
+                //CurrentIdiom.Char[j].color = Color.green; //Mtach.
+                Debug.Log("Match");
+                TempText.text = TempText.text.Replace(TempText.text[j].ToString(), "<color=#22ff00>" + TempText.text[j].ToString() + "</color>");
             }
             else
             {
-                 CurrentIdiom.Char[j].color = Color.red;  //MissMatch.
+                //CurrentIdiom.Char[j].color = Color.red;  //MissMatch.
+                Debug.Log("MissMatch");
+                TempText.text = TempText.text.Replace(TempText.text[j].ToString(), "<color=#ff0000>" + TempText.text[j].ToString() + "</color>");
             }
         }
     }
