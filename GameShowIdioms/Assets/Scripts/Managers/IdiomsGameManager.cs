@@ -4,6 +4,7 @@ using UnityEngine;
 using DentedPixel;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Text;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -27,11 +28,18 @@ public class IdiomsGameManager : MonoBehaviour
     [Header("Text Matching Attributes")]
     public string EnterText;
 
+    [Header("Hints Atrributes")]
+    public Text HintsNumberText;
+    public int HintsNumber;
+    public Image HintsNumberBackGroundImage;
+    public Button HintsButton;
+
     [Header("Current Player")]
     public Animator CurrentPlayerAnimator;
 
     [Header("VFX")]
     public ParticleSystem ConfettiShower;
+
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
 
@@ -92,10 +100,11 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
-        UIManager.KeyboardCanvas.SetActive(true);     //Open Keyboard.
-        //keyboardManager.OpenKeyboard();             //Open Keyboard.
-        CurrentIdiom.EnteredText.SetActive(true);
-        //UIManager.SubmitButtonCanvas.SetActive(true);
+        //UIManager.KeyboardCanvas.SetActive(true);      //Open Keyboard.
+        //keyboardManager.OpenKeyboard();               //Open Keyboard.
+        //CurrentIdiom.EnteredText.SetActive(true);
+        IdiomTextCanvas.SetActive(true);
+        UIManager.SubmitButtonCanvas.SetActive(true);
         UIManager.HintButtonCanvas.SetActive(true);
     }
     #endregion
@@ -197,27 +206,23 @@ public class IdiomsGameManager : MonoBehaviour
     private IEnumerator ShowResultCorotinue()
     {
         //1.Color Text.
-        ColorText();
+        ColorAllTextTest();
         SFXManager.Instance.PlaySoundEffect(3);
         yield return new WaitForSeconds(1f);
 
         //2.Disable Unneeded UI.
-        UIManager.KeyboardCanvas.SetActive(false);
+        //UIManager.KeyboardCanvas.SetActive(false);
         UIManager.SubmitButtonCanvas.SetActive(false);
         UIManager.HintButtonCanvas.SetActive(false);
-        CurrentIdiom.EnteredText.SetActive(false);
+        IdiomTextCanvas.SetActive(false);
+        //CurrentIdiom.EnteredText.SetActive(false);
 
-        //3.Translate Camera To Presenter, Show Correct Answer.
-        //TranslateCamera(PresenterCameraTransform, 0.5f);
-        //UIManager.PresenterSpeechBubbleText.text = "The Answer is ....";
-        //UIManager.PopupPresenterSpeechBubble();
-
-        //4.Translate Camera To Player.
+        //3.Translate Camera To Player.
         TranslateCamera(PlayerCameraTransform, 0.3f);
 
-        //5.Check Result
+        //4.Check Result
         yield return new WaitForSeconds(0.3f);
-        if (StringMatch(EnterText, CurrentIdiom.CorrectPhrase))//Correct Phrase.
+        if (StringMatch(InputField.text, CurrentIdiom.CorrectPhrase))//Correct Phrase.
         {
             ConfettiShower.Play();
             CurrentPlayerAnimator.SetBool("dance", true);
@@ -229,7 +234,7 @@ public class IdiomsGameManager : MonoBehaviour
             SFXManager.Instance.PlaySoundEffect(1);
         }
 
-        //6.Fadeout & Reload.
+        //5.Fadeout & Reload.
         yield return new WaitForSeconds(2f);
         UIManager.StartScreenFadeout(0.05f);
         yield return new WaitForSeconds(3f);
@@ -251,5 +256,90 @@ public class IdiomsGameManager : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    [Header("Testing")]
+    public Text ColorableText;
+    public Text InputFieldText;
+    public InputField InputField;
+    public Text HintsText;
+    public GameObject IdiomTextCanvas;
+
+    public void ColorAllTextTest()
+    {
+        //1.Copy Inputfieldtext to temptext.
+        ColorableText.text = InputFieldText.text;
+        while (ColorableText.text.Length < CurrentIdiom.CorrectPhrase.Length)
+        {
+            ColorableText.text += "  ";
+        }
+        
+        //2.Disable inputfieldtext, Enable temptext.
+        InputFieldText.gameObject.SetActive(false);
+        ColorableText.gameObject.SetActive(true);
+
+        //3.Loop over Char, Color them
+        StartCoroutine(ColorCoroutine());
+    }
+
+    private IEnumerator ColorCoroutine()
+    {
+        int length = ColorableText.text.Length;
+        int charIndex = 0;
+        int correctCharIndex = 0;
+
+        while (charIndex < ColorableText.text.Length)
+        {
+            if (ColorableText.text[charIndex] == ' ')
+            {
+                charIndex += 1;
+            }
+            else
+            {
+                if(ColorableText.text[charIndex] == CurrentIdiom.CorrectPhrase[correctCharIndex])
+                   ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#00ff00>" + ColorableText.text[charIndex].ToString() + "</color>");
+                else
+                    ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#FF0000>" + ColorableText.text[charIndex].ToString() + "</color>");
+
+                yield return new WaitForSeconds(0f);
+                charIndex += 24;
+            }
+
+            correctCharIndex++;
+        }
+
+        Debug.Log("Finished");
+        yield return new WaitForSeconds(0f);
+    }
+
+    #region HintsRegion
+
+    public void OnclickHintsButton()
+    {
+        //1.Decrease hints number, update hints text.
+        HintsNumber--;
+        HintsNumberText.text = HintsNumber.ToString();
+
+        //2.check if hints == 0, change sprite color to red, disable hints button.
+        if (HintsNumber == 0)
+        {
+            HintsNumberBackGroundImage.color = Color.red;
+            HintsButton.interactable = false;
+        }
+
+        //3.Show hints char.
+        int InputFieldTextLength = InputField.text.Length;
+        if (CurrentIdiom.CorrectPhrase[InputFieldTextLength] != ' ')
+        {
+            InputField.text += CurrentIdiom.CorrectPhrase[InputFieldTextLength];
+        }
+        else
+        {
+            InputField.text += ' ';
+            InputField.text += CurrentIdiom.CorrectPhrase[InputField.text.Length];
+        }
+        
+    }
+
     #endregion
 }

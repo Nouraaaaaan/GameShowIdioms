@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class KeyboardManager : MonoBehaviour
 {
     TouchScreenKeyboard TouchScreenKeyboard;
-    public Text Text;
-    string pesudo;
+    private int index;
+    private string EnteredText = "";
+    private string pesudo = "";
 
+    public Text Text;
+    
     private void Start()
     {
         TouchScreenKeyboard.hideInput = true;
@@ -21,16 +24,5 @@ public class KeyboardManager : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if ((TouchScreenKeyboard.visible == false) && (TouchScreenKeyboard != null))
-        {
-            if (TouchScreenKeyboard.status == TouchScreenKeyboard.Status.Done)
-            {
-                pesudo = TouchScreenKeyboard.text;
-                Text.text = "Hi " + pesudo;
-                TouchScreenKeyboard = null;
-            }
-        }
-        */
     }
 }
