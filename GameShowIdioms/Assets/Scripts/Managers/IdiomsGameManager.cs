@@ -5,6 +5,7 @@ using DentedPixel;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Text;
+using TMPro;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -260,9 +261,10 @@ public class IdiomsGameManager : MonoBehaviour
 
     [Header("Testing")]
     public Text ColorableText;
-    public Text InputFieldText;
-    public InputField InputField;
-    public Text HintsText;
+    //public Text InputFieldText;
+    public TextMeshProUGUI InputFieldText;
+    //public InputField InputField;
+    public TMP_InputField InputField;
     public GameObject IdiomTextCanvas;
 
     public void ColorAllTextTest()
