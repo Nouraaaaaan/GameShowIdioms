@@ -160,10 +160,8 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
-        //UIManager.KeyboardCanvas.SetActive(true);      //Open Keyboard.
-        //keyboardManager.OpenKeyboard();               //Open Keyboard.
-        //CurrentIdiom.EnteredText.SetActive(true);
         IdiomTextCanvas.SetActive(true);
+        CurrentIdiom.Words[0].InputField.Select();
         UIManager.SubmitButtonCanvas.SetActive(true);
         UIManager.HintButtonCanvas.SetActive(true);
     }
@@ -172,6 +170,7 @@ public class IdiomsGameManager : MonoBehaviour
     #region Keyboard Callbacks Region
     public void AlphabetPressed(char enteredChar)
     {
+        /*
         if (Finished)
             return;
 
@@ -197,10 +196,12 @@ public class IdiomsGameManager : MonoBehaviour
             Finished = true;
             ShowResult();
         }
+        */
     }
 
     public void BackSpacePressed()
     {
+        /*
         if (EnterText.Length <= 0)
             return;
 
@@ -216,6 +217,7 @@ public class IdiomsGameManager : MonoBehaviour
         {
             EnterText = EnterText.Remove(EnterText.Length - 1);
         }
+        */
     }
     #endregion
 
@@ -242,23 +244,6 @@ public class IdiomsGameManager : MonoBehaviour
 
     #endregion
 
-    #region Hint Region
-    public void OnclickHintButton()
-    {
-        //Get random letter & it must be not previously filled.
-        int randomLetterIndex = Random.Range(0, CurrentIdiom.Char.Count);
-        while (CurrentIdiom.Char[randomLetterIndex].text != "")
-        {
-            randomLetterIndex = Random.Range(0, CurrentIdiom.Char.Count);
-        }
-
-
-        //Set Letter.
-        CurrentIdiom.Char[randomLetterIndex].text = CurrentIdiom.CorrectPhrase[randomLetterIndex].ToString();
-    }
-
-    #endregion
-
     #region Result Region
     public void ShowResult()
     {
@@ -270,7 +255,7 @@ public class IdiomsGameManager : MonoBehaviour
         //1.Color Text.
         ColorAllTextTest();
         SFXManager.Instance.PlaySoundEffect(3);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
 
         //2.Disable Unneeded UI.
         UIManager.SubmitButtonCanvas.SetActive(false);
@@ -282,10 +267,10 @@ public class IdiomsGameManager : MonoBehaviour
 
         //4.Popup Prize Images.
         yield return new WaitForSeconds(0.5f);
-        UIManager.PrizeImagesCanvas.SetActive(true);
-        SetRandomPrizeDegree();
+        //UIManager.PrizeImagesCanvas.SetActive(true);
+        //SetRandomPrizeDegree();
         //SettingPrizesSprites();
-        StartCoroutine(PopupPrizesSprites());
+        //StartCoroutine(PopupPrizesSprites());
 
         //3.Translate Camera To Player.
         yield return new WaitForSeconds(3f);
@@ -330,23 +315,28 @@ public class IdiomsGameManager : MonoBehaviour
 
     #region Testing Region
     [Header("Testing")]
-    public TextMeshProUGUI ColorableText;
-    public TextMeshProUGUI InputFieldText;
-    public TMP_InputField InputField;
     public GameObject IdiomTextCanvas;
 
     public void ColorAllTextTest()
     {
         //1.Copy Inputfieldtext to temptext.
-        ColorableText.text = InputFieldText.text;
-        while (ColorableText.text.Length < CurrentIdiom.CorrectPhrase.Length)
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
         {
-            ColorableText.text += "  ";
+            CurrentIdiom.Words[i].ColorableText.text = CurrentIdiom.Words[i].InputFieldText.text;
+            while (CurrentIdiom.Words[i].ColorableText.text.Length < CurrentIdiom.CorrectPhrase.Length)
+            {
+                CurrentIdiom.Words[i].ColorableText.text += "  ";
+            }
         }
 
+
         //2.Disable inputfieldtext, Enable temptext.
-        InputFieldText.gameObject.SetActive(false);
-        ColorableText.gameObject.SetActive(true);
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
+        {
+            CurrentIdiom.Words[i].InputFieldText.gameObject.SetActive(false);
+            CurrentIdiom.Words[i].ColorableText.gameObject.SetActive(true);
+        }
+        
 
         //3.Loop over Char, Color them
         StartCoroutine(ColorCoroutine());
@@ -354,36 +344,33 @@ public class IdiomsGameManager : MonoBehaviour
 
     private IEnumerator ColorCoroutine()
     {
-        int charIndex = 0;
-        int correctCharIndex = 0;
-
-        while (charIndex < ColorableText.text.Length)
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
         {
-            if (ColorableText.text[charIndex] == ' ')
+            int charIndex = 0;
+            int correctCharIndex = 0;
+
+            while ((charIndex < CurrentIdiom.Words[i].ColorableText.text.Length) && (correctCharIndex < CurrentIdiom.Words[i].WordCorrectPhrase.Length))
             {
-                charIndex += 1;
-            }
-            else
-            {
-                if (ColorableText.text[charIndex] == CurrentIdiom.CorrectPhrase[correctCharIndex])
-                    ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#00ff00>" + ColorableText.text[charIndex].ToString() + "</color>");
+                if (CurrentIdiom.Words[i].ColorableText.text[charIndex] == CurrentIdiom.Words[i].WordCorrectPhrase[correctCharIndex])
+                {
+                    CurrentIdiom.Words[i].ColorableText.text = CurrentIdiom.Words[i].ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#00ff00>" + CurrentIdiom.Words[i].ColorableText.text[charIndex].ToString() + "</color>");
+                }
                 else
-                    ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#FF0000>" + ColorableText.text[charIndex].ToString() + "</color>");
-
-                yield return new WaitForSeconds(0f);
+                {
+                    CurrentIdiom.Words[i].ColorableText.text = CurrentIdiom.Words[i].ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#FF0000>" + CurrentIdiom.Words[i].ColorableText.text[charIndex].ToString() + "</color>");
+                }
                 charIndex += 24;
+                correctCharIndex++;
             }
 
-            correctCharIndex++;
+            Debug.Log("Finished");
+            yield return new WaitForSeconds(0f);
         }
-
-        Debug.Log("Finished");
-        yield return new WaitForSeconds(0f);
+        
     }
     #endregion
 
-    #region HintsRegion
-
+    #region Hints Region
     public void OnclickHintsButton()
     {
         //1.Decrease hints number, update hints text.
@@ -398,15 +385,47 @@ public class IdiomsGameManager : MonoBehaviour
         }
 
         //3.Show hints char.
-        int InputFieldTextLength = InputField.text.Length;
-        if (CurrentIdiom.CorrectPhrase[InputFieldTextLength] != ' ')
+        int randomWordIndex = Random.Range(0, CurrentIdiom.Words.Count);
+        int randomCharIndex = Random.Range(0, CurrentIdiom.Words[randomWordIndex].WordCorrectPhrase.Length);
+        //Debug.Log("randomWordIndex : " + randomWordIndex + "randomCharIndex : " + randomCharIndex);
+        //int randomWordIndex = 0;
+        //int randomCharIndex = 1;
+        Debug.Log("randomWordIndex : " + randomWordIndex + "randomCharIndex : " + randomCharIndex);
+
+        if (CurrentIdiom.Words[randomWordIndex].InputField.text == "")
         {
-            InputField.text += CurrentIdiom.CorrectPhrase[InputFieldTextLength];
-        }
+            for (int i = 0; i < randomCharIndex; i++)
+            {
+                CurrentIdiom.Words[randomWordIndex].InputField.text += " ";
+            }
+
+            CurrentIdiom.Words[randomWordIndex].InputField.text += CurrentIdiom.Words[randomWordIndex].WordCorrectPhrase[randomCharIndex];
+        }  //if word is empty
         else
         {
-            InputField.text += ' ';
-            InputField.text += CurrentIdiom.CorrectPhrase[InputField.text.Length];
+            if (randomCharIndex < CurrentIdiom.Words[randomWordIndex].InputField.text.Length)
+            {
+                string temp = "";
+                
+                for (int i = 0; i < CurrentIdiom.Words[randomWordIndex].InputField.text.Length; i++)
+                {
+                    if (i == randomCharIndex)
+                    {
+                        temp += CurrentIdiom.Words[randomWordIndex].WordCorrectPhrase[randomCharIndex];
+                    }
+                    else
+                    {
+                        temp += CurrentIdiom.Words[randomWordIndex].InputField.text[i];
+                    }
+                    
+                }
+
+                CurrentIdiom.Words[randomWordIndex].InputField.text = temp;
+            }
+            else
+            {
+                Debug.Log("Unhandled Case !");
+            }
         }
 
     }

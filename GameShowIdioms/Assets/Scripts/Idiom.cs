@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Idiom : MonoBehaviour
 {
     public string CorrectPhrase;
 
     [SerializeField]
-    public List<Text> Char;
-
-    public GameObject EnteredText;
+    public List<Word> Words;
 }
 
 [System.Serializable]
 public class Word
 {
-    [SerializeField]
-    public List<Text> Char;
+    public TMP_InputField InputField;
+    public TextMeshProUGUI InputFieldText;
+    public TextMeshProUGUI ColorableText;
+    public string WordCorrectPhrase;
 }

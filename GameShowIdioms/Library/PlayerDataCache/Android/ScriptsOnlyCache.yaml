@@ -616,7 +616,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: ea6ee7a7cc826584199a1bf0b418c66b
+      Hash: bce91b7812dec8bddf74b67f8dc47be6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -706,7 +706,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 31b1c56dc24f866a76be596524c9a452
+      Hash: 0825d0e9f4740e68c963d185716f79a9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Idiom
