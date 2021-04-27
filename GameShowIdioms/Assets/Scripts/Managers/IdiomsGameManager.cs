@@ -35,7 +35,7 @@ public class IdiomsGameManager : MonoBehaviour
     public Button HintsButton;
 
     [Header("Current Player")]
-    public Animator CurrentPlayerAnimator;
+    private Animator CurrentPlayerAnimator;
 
     [Header("Characters Atrributes")]
     public Character[] Characters;
@@ -70,7 +70,7 @@ public class IdiomsGameManager : MonoBehaviour
     private void Start()
     {
         //Testing.
-        SetRandomPrizeDegree();
+        //SetRandomPrizeDegree();
         //SettingPrizesSprites();
     }
     #endregion
@@ -91,6 +91,7 @@ public class IdiomsGameManager : MonoBehaviour
                 character.transform.position = CharactersPositions[0].transform.position;
                 character.transform.eulerAngles = CharactersPositions[0].transform.eulerAngles;
                 character.CharacterIndex = 0;
+                CurrentPlayerAnimator = character.gameObject.GetComponent<Animator>();
             }
             else
             {
@@ -282,13 +283,19 @@ public class IdiomsGameManager : MonoBehaviour
         //4.Popup Prize Images.
         yield return new WaitForSeconds(0.5f);
         UIManager.PrizeImagesCanvas.SetActive(true);
-        SettingPrizesSprites();
+        SetRandomPrizeDegree();
+        //SettingPrizesSprites();
         StartCoroutine(PopupPrizesSprites());
 
         //3.Translate Camera To Player.
         yield return new WaitForSeconds(3f);
         UIManager.PrizeImagesCanvas.SetActive(false);
         TranslateCamera(PlayerCameraTransform, 0.3f);
+
+        //4.
+        ConfettiShower.Play();
+        CurrentPlayerAnimator.SetBool("dance", true);
+
 
         #region Archive
         /*
@@ -423,6 +430,8 @@ public class IdiomsGameManager : MonoBehaviour
 
             Characters[i].characterPrizeDegree = characterPrizeDegree;
         }
+
+        SettingPrizesSprites();
     }
 
     private bool ChechForPrizeDegreeRepetition(int index, Character.CharacterPrizeDegree characterPrizeDegree)
