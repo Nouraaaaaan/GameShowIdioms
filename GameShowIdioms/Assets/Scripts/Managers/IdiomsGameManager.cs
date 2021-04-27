@@ -2,6 +2,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -255,7 +257,7 @@ public class IdiomsGameManager : MonoBehaviour
         //1.Color Text.
         ColorAllTextTest();
         SFXManager.Instance.PlaySoundEffect(3);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
 
         //2.Disable Unneeded UI.
         UIManager.SubmitButtonCanvas.SetActive(false);
@@ -267,10 +269,10 @@ public class IdiomsGameManager : MonoBehaviour
 
         //4.Popup Prize Images.
         yield return new WaitForSeconds(0.5f);
-        //UIManager.PrizeImagesCanvas.SetActive(true);
-        //SetRandomPrizeDegree();
+        UIManager.PrizeImagesCanvas.SetActive(true);
+        SetRandomPrizeDegree();
         //SettingPrizesSprites();
-        //StartCoroutine(PopupPrizesSprites());
+        StartCoroutine(PopupPrizesSprites());
 
         //3.Translate Camera To Player.
         yield return new WaitForSeconds(3f);
@@ -281,6 +283,11 @@ public class IdiomsGameManager : MonoBehaviour
         ConfettiShower.Play();
         CurrentPlayerAnimator.SetBool("dance", true);
 
+        //5.Fadeout & Reload.    
+        yield return new WaitForSeconds(2f);
+        UIManager.StartScreenFadeout(0.05f);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
 
         #region Archive
         /*
@@ -363,7 +370,7 @@ public class IdiomsGameManager : MonoBehaviour
                 correctCharIndex++;
             }
 
-            Debug.Log("Finished");
+            //Debug.Log("Finished");
             yield return new WaitForSeconds(0f);
         }
         
@@ -437,36 +444,29 @@ public class IdiomsGameManager : MonoBehaviour
     //Setting RandomPrizeDegree.
     private void SetRandomPrizeDegree()
     {
-        Character.CharacterPrizeDegree characterPrizeDegree;
+        int randomIndex = Random.Range(0, 2);
+        Characters[0].characterPrizeDegree = (Character.CharacterPrizeDegree)randomIndex;
 
-        for (int i = 0; i < Characters.Length; i++)
+        switch (Characters[0].characterPrizeDegree)
         {
-            characterPrizeDegree = (Character.CharacterPrizeDegree)Random.Range(0, 3);
-            while (ChechForPrizeDegreeRepetition(i, characterPrizeDegree))
-            {
-                characterPrizeDegree = (Character.CharacterPrizeDegree)Random.Range(0, 2);
-            }
-
-            Characters[i].characterPrizeDegree = characterPrizeDegree;
+            case Character.CharacterPrizeDegree.First:
+                Characters[1].characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+                Characters[2].characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                break;
+            case Character.CharacterPrizeDegree.Second:
+                Characters[1].characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+                Characters[2].characterPrizeDegree = Character.CharacterPrizeDegree.First;
+                break;
+            case Character.CharacterPrizeDegree.Third:
+                Characters[1].characterPrizeDegree = Character.CharacterPrizeDegree.First;
+                Characters[2].characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                break;
         }
-
         SettingPrizesSprites();
     }
 
-    private bool ChechForPrizeDegreeRepetition(int index, Character.CharacterPrizeDegree characterPrizeDegree)
-    {
-        bool found = false;
 
-        for (int i = 0; i < index; i++)
-        {
-            if (Characters[i].characterPrizeDegree == characterPrizeDegree)
-            {
-                return true;
-            }
-        }
 
-        return found;
-    }
     //---------------------------------------------//
     //Setting Prizes Sprites.
     private void SettingPrizesSprites()
