@@ -29,6 +29,12 @@ public class UIManager : MonoBehaviour
 
     [Header("Fadeout Canvas")]
     public CanvasGroup FadeoutCanvas;
+
+    [Header("Choose Characters Canvas")]
+    public GameObject PrizeImagesCanvas;
+
+    [Header("Choose Characters Canvas")]
+    public GameObject ChooseCharactersCanvas;
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()

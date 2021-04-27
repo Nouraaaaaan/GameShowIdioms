@@ -1,11 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using DentedPixel;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Text;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -13,13 +9,16 @@ public class IdiomsGameManager : MonoBehaviour
     //Fields.
     [Header("Camera Attributes")]
     public GameObject Camera;
+    public Transform InitialCameraTransform;
     public Transform PresenterCameraTransform;
     public Transform ScreenCameraTransform;
     public Transform PlayerCameraTransform;
-
+    
     [Header("Managers Attributes")]
     public UIManager UIManager;
     public KeyboardManager keyboardManager;
+    public GameSceneManager GameSceneManager;
+    public CharacterChoosingManager CharacterChoosingManager;
 
     [Header("Current Idiom Attributes")]
     public Idiom CurrentIdiom;
@@ -38,8 +37,20 @@ public class IdiomsGameManager : MonoBehaviour
     [Header("Current Player")]
     public Animator CurrentPlayerAnimator;
 
+    [Header("Characters Atrributes")]
+    public Character[] Characters;
+    public Character.CharacterType ChoosenCharacterType;
+    public Transform[] CharactersPositions;            //from right to left.
+    public Text[] CharactersNamesText;                 //from right to left.
+    public Image[] CharactersPrizeImages;
+
     [Header("VFX")]
     public ParticleSystem ConfettiShower;
+
+    [Header("Prizes Stage Attributes")]
+    public Sprite GoldenPrizeSprite;
+    public Sprite SliverPrizeSprite;
+    public Sprite BronzePrizeSprite;
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -58,7 +69,54 @@ public class IdiomsGameManager : MonoBehaviour
     #region CallBacks Region
     private void Start()
     {
-        
+        //Testing.
+        SetRandomPrizeDegree();
+        //SettingPrizesSprites();
+    }
+    #endregion
+
+    #region Setting Characters Region
+    public void SetChoosenCharacterType(Character.CharacterType characterType)
+    {
+        ChoosenCharacterType = characterType;
+    }
+    public void SetCharactersPostions()
+    {
+        int otherCharactersIndex = 1;
+
+        foreach (var character in Characters)
+        {
+            if (character.characterType == this.ChoosenCharacterType)
+            {
+                character.transform.position = CharactersPositions[0].transform.position;
+                character.transform.eulerAngles = CharactersPositions[0].transform.eulerAngles;
+                character.CharacterIndex = 0;
+            }
+            else
+            {
+                character.transform.position = CharactersPositions[otherCharactersIndex].transform.position;
+                character.transform.eulerAngles = CharactersPositions[otherCharactersIndex].transform.eulerAngles;
+                character.CharacterIndex = otherCharactersIndex;
+                otherCharactersIndex++;
+            }
+        }
+    }
+    public void SetCharactersNames()
+    {
+        int otherCharactersIndex = 1;
+
+        foreach (var character in Characters)
+        {
+            if (character.characterType == this.ChoosenCharacterType)
+            {
+                CharactersNamesText[0].text = CharacterChoosingManager.EnteredName;
+            }
+            else
+            {
+                CharactersNamesText[otherCharactersIndex].text = "Player";
+                otherCharactersIndex++;
+            }
+        }
     }
     #endregion
 
@@ -110,6 +168,7 @@ public class IdiomsGameManager : MonoBehaviour
     }
     #endregion
 
+    #region Keyboard Callbacks Region
     public void AlphabetPressed(char enteredChar)
     {
         if (Finished)
@@ -140,14 +199,14 @@ public class IdiomsGameManager : MonoBehaviour
     }
 
     public void BackSpacePressed()
-    {     
+    {
         if (EnterText.Length <= 0)
             return;
 
         //Update Current Char Index.
         CurrenCharIndex--;
 
-        
+
         //Set Char.
         CurrentIdiom.Char[CurrenCharIndex].text = "";
 
@@ -157,6 +216,7 @@ public class IdiomsGameManager : MonoBehaviour
             EnterText = EnterText.Remove(EnterText.Length - 1);
         }
     }
+    #endregion
 
     #region Text Matching Region
 
@@ -191,7 +251,7 @@ public class IdiomsGameManager : MonoBehaviour
             randomLetterIndex = Random.Range(0, CurrentIdiom.Char.Count);
         }
 
-        
+
         //Set Letter.
         CurrentIdiom.Char[randomLetterIndex].text = CurrentIdiom.CorrectPhrase[randomLetterIndex].ToString();
     }
@@ -212,12 +272,26 @@ public class IdiomsGameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         //2.Disable Unneeded UI.
-        //UIManager.KeyboardCanvas.SetActive(false);
         UIManager.SubmitButtonCanvas.SetActive(false);
         UIManager.HintButtonCanvas.SetActive(false);
         IdiomTextCanvas.SetActive(false);
-        //CurrentIdiom.EnteredText.SetActive(false);
 
+        //3.Translate Camera To Competitors.
+        TranslateCamera(InitialCameraTransform, 0.3f);
+
+        //4.Popup Prize Images.
+        yield return new WaitForSeconds(0.5f);
+        UIManager.PrizeImagesCanvas.SetActive(true);
+        SettingPrizesSprites();
+        StartCoroutine(PopupPrizesSprites());
+
+        //3.Translate Camera To Player.
+        yield return new WaitForSeconds(3f);
+        UIManager.PrizeImagesCanvas.SetActive(false);
+        TranslateCamera(PlayerCameraTransform, 0.3f);
+
+        #region Archive
+        /*
         //3.Translate Camera To Player.
         TranslateCamera(PlayerCameraTransform, 0.3f);
 
@@ -235,35 +309,22 @@ public class IdiomsGameManager : MonoBehaviour
             SFXManager.Instance.PlaySoundEffect(1);
         }
 
-        //5.Fadeout & Reload.
+        //5.Fadeout & Reload.    
         yield return new WaitForSeconds(2f);
         UIManager.StartScreenFadeout(0.05f);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
-
+        */
+        #endregion
     }
 
-    private void ColorText()
-    {       
-        for (int j = 0; j < CurrentIdiom.Char.Count; j++)
-        {
-            if (string.Equals(EnterText[j].ToString(), CurrentIdiom.CorrectPhrase[j].ToString()))
-            {
-                 CurrentIdiom.Char[j].color = Color.green; //Mtach.
-            }
-            else
-            {
-                 CurrentIdiom.Char[j].color = Color.red;  //MissMatch.
-            }
-        }
-    }
+
     #endregion
 
+    #region Testing Region
     [Header("Testing")]
-    public Text ColorableText;
-    //public Text InputFieldText;
+    public TextMeshProUGUI ColorableText;
     public TextMeshProUGUI InputFieldText;
-    //public InputField InputField;
     public TMP_InputField InputField;
     public GameObject IdiomTextCanvas;
 
@@ -275,7 +336,7 @@ public class IdiomsGameManager : MonoBehaviour
         {
             ColorableText.text += "  ";
         }
-        
+
         //2.Disable inputfieldtext, Enable temptext.
         InputFieldText.gameObject.SetActive(false);
         ColorableText.gameObject.SetActive(true);
@@ -286,7 +347,6 @@ public class IdiomsGameManager : MonoBehaviour
 
     private IEnumerator ColorCoroutine()
     {
-        int length = ColorableText.text.Length;
         int charIndex = 0;
         int correctCharIndex = 0;
 
@@ -298,8 +358,8 @@ public class IdiomsGameManager : MonoBehaviour
             }
             else
             {
-                if(ColorableText.text[charIndex] == CurrentIdiom.CorrectPhrase[correctCharIndex])
-                   ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#00ff00>" + ColorableText.text[charIndex].ToString() + "</color>");
+                if (ColorableText.text[charIndex] == CurrentIdiom.CorrectPhrase[correctCharIndex])
+                    ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#00ff00>" + ColorableText.text[charIndex].ToString() + "</color>");
                 else
                     ColorableText.text = ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#FF0000>" + ColorableText.text[charIndex].ToString() + "</color>");
 
@@ -313,6 +373,7 @@ public class IdiomsGameManager : MonoBehaviour
         Debug.Log("Finished");
         yield return new WaitForSeconds(0f);
     }
+    #endregion
 
     #region HintsRegion
 
@@ -340,8 +401,75 @@ public class IdiomsGameManager : MonoBehaviour
             InputField.text += ' ';
             InputField.text += CurrentIdiom.CorrectPhrase[InputField.text.Length];
         }
+
+    }
+
+    #endregion
+
+    #region Prizes Region
+    //---------------------------------------------//
+    //Setting RandomPrizeDegree.
+    private void SetRandomPrizeDegree()
+    {
+        Character.CharacterPrizeDegree characterPrizeDegree;
+
+        for (int i = 0; i < Characters.Length; i++)
+        {
+            characterPrizeDegree = (Character.CharacterPrizeDegree)Random.Range(0, 3);
+            while (ChechForPrizeDegreeRepetition(i, characterPrizeDegree))
+            {
+                characterPrizeDegree = (Character.CharacterPrizeDegree)Random.Range(0, 2);
+            }
+
+            Characters[i].characterPrizeDegree = characterPrizeDegree;
+        }
+    }
+
+    private bool ChechForPrizeDegreeRepetition(int index, Character.CharacterPrizeDegree characterPrizeDegree)
+    {
+        bool found = false;
+
+        for (int i = 0; i < index; i++)
+        {
+            if (Characters[i].characterPrizeDegree == characterPrizeDegree)
+            {
+                return true;
+            }
+        }
+
+        return found;
+    }
+    //---------------------------------------------//
+    //Setting Prizes Sprites.
+    private void SettingPrizesSprites()
+    {     
+        foreach (var character in Characters)
+        {
+            switch (character.characterPrizeDegree)
+            {
+                case Character.CharacterPrizeDegree.First:
+                    CharactersPrizeImages[character.CharacterIndex].sprite = GoldenPrizeSprite;
+                    break;
+                case Character.CharacterPrizeDegree.Second:
+                    CharactersPrizeImages[character.CharacterIndex].sprite = SliverPrizeSprite;
+                    break;
+                case Character.CharacterPrizeDegree.Third:
+                    CharactersPrizeImages[character.CharacterIndex].sprite = BronzePrizeSprite;
+                    break;
+            }
+        }
         
     }
+
+    private IEnumerator PopupPrizesSprites()
+    {
+        foreach (var image in CharactersPrizeImages)
+        {
+            LeanTween.scale(image.gameObject, new Vector3(0.0010383f, 0.0010383f, 0.0010383f), 0.5f);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
 
     #endregion
 }

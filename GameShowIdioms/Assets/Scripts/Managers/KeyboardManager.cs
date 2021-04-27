@@ -7,8 +7,8 @@ public class KeyboardManager : MonoBehaviour
 {
     TouchScreenKeyboard TouchScreenKeyboard;
     private int index;
-    private string EnteredText = "";
-    private string pesudo = "";
+    //private string EnteredText = "";
+    //private string pesudo = "";
 
     public Text Text;
     
@@ -22,7 +22,4 @@ public class KeyboardManager : MonoBehaviour
         TouchScreenKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NamePhonePad);
     }
 
-    private void Update()
-    {
-    }
 }
