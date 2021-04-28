@@ -23,11 +23,14 @@ public class IdiomsGameManager : MonoBehaviour
     public KeyboardManager keyboardManager;
     public GameSceneManager GameSceneManager;
     public CharacterChoosingManager CharacterChoosingManager;
+    public CursorManager CursorManager;
 
     [Header("Current Idiom Attributes")]
+    public Idiom[] Idioms;
     public Idiom CurrentIdiom;
     public Image IdiomImage;
     public bool Finished;
+    private int DisplayedIdiomNumber = 0;   //when DisplayedIdiomNumber = 4, finish current round.
 
     [Header("Text Matching Attributes")]
     public string EnterText;
@@ -73,11 +76,19 @@ public class IdiomsGameManager : MonoBehaviour
     #region CallBacks Region
     private void Start()
     {
+        SetRandomIdiom();
         SetIdiomImage();
     }
     #endregion
 
     #region Setting Current Idiom Region
+    private void SetRandomIdiom()
+    {
+
+        int randomIndex = Random.Range(0, Idioms.Length);
+        CurrentIdiom = Idioms[randomIndex];
+    }
+
     private void SetIdiomImage()
     {
         IdiomImage.sprite = CurrentIdiom.IdiomSprite;
@@ -169,7 +180,8 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
-        IdiomTextCanvas.SetActive(true);
+        //IdiomTextCanvas.SetActive(true);
+        CurrentIdiom.IdiomCanvas.SetActive(true);
         //CurrentIdiom.Words[0].InputField.Select();
         InputField.Select();
         CurrentIdiom.Words[0].Caret.SetActive(true);
@@ -233,7 +245,6 @@ public class IdiomsGameManager : MonoBehaviour
     #endregion
 
     #region Text Matching Region
-
     public void CheckEnteredPhrase()
     {
         if (StringMatch(EnterText, CurrentIdiom.CorrectPhrase))
@@ -252,10 +263,62 @@ public class IdiomsGameManager : MonoBehaviour
     {
         return (string.Equals(enteredString, correctString));
     }
-
     #endregion
 
     #region Result Region
+    public void onClickSubmitButton()
+    {
+        DisplayedIdiomNumber++;
+
+        if (DisplayedIdiomNumber >= 4)
+        {
+            ShowResult();
+        }
+        else
+        {
+            StartCoroutine(DisplayNextIdiomCorotinue());
+        }
+    }
+
+   
+    private IEnumerator DisplayNextIdiomCorotinue()
+    {
+        //1.Color Text.
+        ColorAllTextTest();
+        SFXManager.Instance.PlaySoundEffect(3);
+        yield return new WaitForSeconds(1f);
+
+        //2.Reset.
+        CursorManager.CanEditText = false;
+        CursorManager.CurrentFieldIndex = 0;
+        InputField.text = "";
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
+        {
+            CurrentIdiom.Words[i].Text.text = "";
+            CurrentIdiom.Words[i].Text.color = Color.black;
+        }
+
+        //3.Disable Previous Idiom.
+        CurrentIdiom.IdiomCanvas.SetActive(false);
+        LeanTween.scale(IdiomImage.gameObject, new Vector3(0f, 0f, 0f), 0.2f); //fade IdiomImage.
+
+        //4.Generate new random Idiom.
+        yield return new WaitForSeconds(0.2f);
+        SetRandomIdiom();
+        SetIdiomImage();
+
+        //5.Enable new random Idiom.
+        yield return new WaitForSeconds(0.5f);
+        
+        LeanTween.scale(IdiomImage.gameObject, new Vector3(1f, 1f, 1f), 0.2f); //pup-up IdiomImage.
+        CurrentIdiom.IdiomCanvas.SetActive(true);
+        CurrentIdiom.Words[0].Caret.SetActive(true);
+
+        CursorManager.CanEditText = true;
+        InputField.Select();
+        
+    }
+
     public void ShowResult()
     {
         StartCoroutine(ShowResultCorotinue());
@@ -326,8 +389,6 @@ public class IdiomsGameManager : MonoBehaviour
         */
         #endregion
     }
-
-
     #endregion
 
     #region Testing Region

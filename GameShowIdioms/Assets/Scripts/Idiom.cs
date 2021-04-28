@@ -12,6 +12,8 @@ public class Idiom : MonoBehaviour
 
     [SerializeField]
     public List<Word> Words;
+
+    public GameObject IdiomCanvas;
 }
 
 [System.Serializable]
