@@ -6,6 +6,8 @@ using TMPro;
 
 public class Idiom : MonoBehaviour
 {
+    public Sprite IdiomSprite;
+
     public string CorrectPhrase;
 
     [SerializeField]
@@ -15,8 +17,7 @@ public class Idiom : MonoBehaviour
 [System.Serializable]
 public class Word
 {
-    public InputField InputField;
-    public Text InputFieldText;
-    public Text ColorableText;
+    public Text Text;
     public string WordCorrectPhrase;
+    public GameObject Caret;
 }

@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Character
     - CharacterChoosingManager
+    - CursorManager
     - GameSceneManager
     - Idiom
     - IdiomsGameManager
@@ -15,11 +16,9 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
-    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
     Unity.Timeline.Editor.dll:
     - TimelineProjectSettings
     UnityEditor.Graphs.dll:
@@ -41,9 +40,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
-    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Outline
-    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Game Show scene.unity:
@@ -96,13 +93,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11978}
     - Class: 114
-      Script: {instanceID: 12002}
-    - Class: 114
       Script: {instanceID: 12092}
-    - Class: 114
-      Script: {instanceID: 12118}
-    - Class: 114
-      Script: {instanceID: 12216}
     - Class: 114
       Script: {instanceID: 12432}
     - Class: 114
@@ -124,19 +115,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13362}
     - Class: 114
-      Script: {instanceID: 13398}
-    - Class: 114
       Script: {instanceID: 13464}
     - Class: 114
-      Script: {instanceID: 13636}
+      Script: {instanceID: 13498}
     - Class: 114
-      Script: {instanceID: 13788}
+      Script: {instanceID: 13638}
     - Class: 114
-      Script: {instanceID: 13810}
+      Script: {instanceID: 13790}
     - Class: 114
-      Script: {instanceID: 13858}
+      Script: {instanceID: 13812}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13860}
+    - Class: 114
+      Script: {instanceID: 13914}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -616,7 +607,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: bce91b7812dec8bddf74b67f8dc47be6
+      Hash: b3c8df1c8232affa80b7810931f0ba4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -650,6 +641,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 249a8dd9958117e2c1f00dc6f816934f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CursorManager
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -706,7 +703,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 0825d0e9f4740e68c963d185716f79a9
+      Hash: 937ee3b28cf62b6e3597dbd6643c2f54
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Idiom

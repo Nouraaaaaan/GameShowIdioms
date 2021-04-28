@@ -5,19 +5,33 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     public int CurrentFieldIndex = 0;
+    public int EnteredTextLength;
+    private bool BackSpace = false;
 
     public void CheckForFieldUpdate()
     {
-        if (IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].InputField.text.Length == IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].InputField.characterLimit)
+        SFXManager.Instance.PlaySoundEffect(0);
+
+        EnteredTextLength = IdiomsGameManager.Instance.InputField.text.Length;
+
+        if (EnteredTextLength <= CurrentFieldIndex)
         {
-            //Debug.Log("Done !");
-
-            //Update CurrentFieldIndex.
-            CurrentFieldIndex++;
-
-            //Select CurrentFieldIndex.
-            if(CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
-               IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].InputField.Select();
+            Debug.Log("BackSpace");
+            IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
+            CurrentFieldIndex--;
+            IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
+            IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = "";
         }
+        else
+        {
+            if (!(IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString() == " "))
+            {
+                IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString();
+                IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
+                CurrentFieldIndex++;
+                IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
+            }           
+        }       
     }
+
 }

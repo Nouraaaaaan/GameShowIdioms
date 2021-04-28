@@ -29,6 +29,8 @@ public class CharacterChoosingManager : MonoBehaviour
     #region Arrow Buttons Region
     public void OnclickRightArrowButton()
     {
+        SFXManager.Instance.PlaySoundEffect(0);
+
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
 
         CurrentCharacterIndex++;
@@ -46,6 +48,8 @@ public class CharacterChoosingManager : MonoBehaviour
 
     public void OnclickLeftArrowButton()
     {
+        SFXManager.Instance.PlaySoundEffect(0);
+
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
 
         CurrentCharacterIndex--;
