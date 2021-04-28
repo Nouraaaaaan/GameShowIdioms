@@ -360,13 +360,13 @@ public class IdiomsGameManager : MonoBehaviour
             {
                 if (CurrentIdiom.Words[i].ColorableText.text[charIndex] == CurrentIdiom.Words[i].WordCorrectPhrase[correctCharIndex])
                 {
-                    CurrentIdiom.Words[i].ColorableText.text = CurrentIdiom.Words[i].ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#00ff00>" + CurrentIdiom.Words[i].ColorableText.text[charIndex].ToString() + "</color>");
+                    CurrentIdiom.Words[i].ColorableText.color = Color.green;
                 }
                 else
                 {
-                    CurrentIdiom.Words[i].ColorableText.text = CurrentIdiom.Words[i].ColorableText.text.Remove(charIndex, 1).Insert(charIndex, "<color=#FF0000>" + CurrentIdiom.Words[i].ColorableText.text[charIndex].ToString() + "</color>");
+                    CurrentIdiom.Words[i].ColorableText.color = Color.red;
                 }
-                charIndex += 24;
+                charIndex ++;
                 correctCharIndex++;
             }
 

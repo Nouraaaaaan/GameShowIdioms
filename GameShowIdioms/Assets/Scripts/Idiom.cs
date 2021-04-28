@@ -15,8 +15,8 @@ public class Idiom : MonoBehaviour
 [System.Serializable]
 public class Word
 {
-    public TMP_InputField InputField;
-    public TextMeshProUGUI InputFieldText;
-    public TextMeshProUGUI ColorableText;
+    public InputField InputField;
+    public Text InputFieldText;
+    public Text ColorableText;
     public string WordCorrectPhrase;
 }
