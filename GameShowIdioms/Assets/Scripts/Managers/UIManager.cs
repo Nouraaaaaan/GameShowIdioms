@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
     #region Presenter Speech Bubble Region
     public void PopupPresenterSpeechBubble()
     {
-        LeanTween.scale(PresenterSpeechBubble.gameObject, new Vector3(1f ,1f ,1f), 0.3f);
+        LeanTween.scale(PresenterSpeechBubble.gameObject, new Vector3(2f ,2f ,2f), 0.3f);
     }
 
     public void FadeAwayPresenterSpeechBubble()

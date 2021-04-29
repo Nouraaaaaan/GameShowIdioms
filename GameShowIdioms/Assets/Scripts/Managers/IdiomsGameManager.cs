@@ -505,7 +505,7 @@ public class IdiomsGameManager : MonoBehaviour
     {
         foreach (var image in CharactersPrizeImages)
         {
-            LeanTween.scale(image.gameObject, new Vector3(0.0010383f, 0.0010383f, 0.0010383f), 0.3f);
+            LeanTween.scale(image.gameObject, new Vector3(0.003298893f, 0.003298893f, 0.003298893f), 0.3f);
             SFXManager.Instance.PlaySoundEffect(4);
             yield return new WaitForSeconds(0.4f);
         }
