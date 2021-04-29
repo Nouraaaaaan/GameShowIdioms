@@ -24,15 +24,18 @@ public class CursorManager : MonoBehaviour
         if (EnteredTextLength <= CurrentFieldIndex)
         {
             //Debug.Log("BackSpace");
-            IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
+
+            if(CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
+              IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
+
             CurrentFieldIndex--;
 
-            if (CurrentFieldIndex > 0)
+            if (CurrentFieldIndex >= 0)
             {
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = "";
             }
-        }
+        } //backspace.
         else
         {
             if (!(IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString() == " ") && (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count))

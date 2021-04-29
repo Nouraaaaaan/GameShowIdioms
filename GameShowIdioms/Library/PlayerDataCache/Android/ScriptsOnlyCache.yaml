@@ -24,8 +24,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -38,6 +40,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Outline
@@ -108,6 +111,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13130}
     - Class: 114
       Script: {instanceID: 13142}
+    - Class: 114
+      Script: {instanceID: 13162}
     - Class: 114
       Script: {instanceID: 13166}
     - Class: 114
@@ -607,7 +612,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: b3c8df1c8232affa80b7810931f0ba4e
+      Hash: 58c91899fa4b0bc936f2461f1d209296
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -643,7 +648,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 249a8dd9958117e2c1f00dc6f816934f
+      Hash: 7796a8bd631379a5351c5b408664088c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CursorManager
@@ -703,7 +708,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 937ee3b28cf62b6e3597dbd6643c2f54
+      Hash: e40361f6d293cc2c23540d7b9665ba89
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Idiom
