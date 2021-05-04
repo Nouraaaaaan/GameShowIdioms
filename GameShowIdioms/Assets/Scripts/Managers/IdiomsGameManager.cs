@@ -383,19 +383,11 @@ public class IdiomsGameManager : MonoBehaviour
         CurrentPlayerAnimator.SetBool("dance", true);
         SFXManager.Instance.PlaySoundEffect(2);
 
-        //5.show round end ui.
+        //5.show roundend ui.
         UIManager.RoundEndCanvas.gameObject.SetActive(true);
         UIManager.StartRoundEndCanvasFadeout(0.05f);
         WheelManager.UpdateCurrentSliderValue();
         WheelManager.IncreaseWheelSliderValue();
-
-        //5.Fadeout & Reload.
-        /*
-        yield return new WaitForSeconds(2f);
-        UIManager.StartScreenFadeout(0.05f);
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
-        */
     }
 
     public void ReloadScene()
@@ -405,7 +397,7 @@ public class IdiomsGameManager : MonoBehaviour
 
     private IEnumerator ReloadSceneCorotinue()
     {
-        UIManager.StartScreenFadeout(0.05f);
+        UIManager.StartScreenFadeout(0.1f);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
     }

@@ -8,6 +8,9 @@ public class SaveObject
     //Saved Cash.
     public int PlayerCash;
 
+    //Saved Cash.
+    public int HintsNumber;
+
     //Saved Levels.
     public int LevelNumber;
 

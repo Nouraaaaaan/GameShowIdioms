@@ -8682,6 +8682,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505302415}
   m_CullTransparentMesh: 0
+--- !u!1 &518214743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518214744}
+  - component: {fileID: 518214745}
+  m_Layer: 0
+  m_Name: HintsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &518214744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518214743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075554449}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &518214745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518214743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e524b61c55cc64a903cc525c2b0609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HintsText: {fileID: 1783802981}
+  currentHintsNumber: 0
 --- !u!1 &522888354
 GameObject:
   m_ObjectHideFlags: 0
@@ -9376,7 +9421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelSlider: {fileID: 62147178}
-  SliderAnimatoinSpeed: 0.005
+  currentWheelSliderValue: 0
+  SliderAnimatoinSpeed: 0.001
 --- !u!1 &568628749
 GameObject:
   m_ObjectHideFlags: 0
@@ -24766,6 +24812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SaveObject:
     PlayerCash: 0
+    HintsNumber: 0
     LevelNumber: 0
     WheelValue: 0
     CanPlayMusic: 0
@@ -35024,6 +35071,7 @@ Transform:
   - {fileID: 907216000}
   - {fileID: 1484847922}
   - {fileID: 566728097}
+  - {fileID: 518214744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

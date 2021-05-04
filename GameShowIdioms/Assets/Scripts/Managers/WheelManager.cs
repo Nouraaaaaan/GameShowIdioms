@@ -7,9 +7,11 @@ public class WheelManager : MonoBehaviour
 {
     //-----------------Fields------------------------//
     public Slider WheelSlider;
+    [SerializeField]
     private float currentWheelSliderValue;
-    public float SliderAnimatoinSpeed;
 
+
+    public float SliderAnimatoinSpeed;
     //------------------Methods-----------------------//
     //--Load.
     private void Start()
@@ -34,26 +36,29 @@ public class WheelManager : MonoBehaviour
 
         IdiomsGameManager.Instance.SaveManager.SaveObject.WheelValue = currentWheelSliderValue;  //save.
         IdiomsGameManager.Instance.SaveManager.Save();
-
-        CheckSliderCompleleted();
     }
 
     
     //--Slider Animation.
     public void IncreaseWheelSliderValue()
     {
-        StartCoroutine(IncreaseWheelSliderValueCorotinue(currentWheelSliderValue));
+        StartCoroutine(IncreaseWheelSliderValueCorotinue());
     }
 
-    private IEnumerator IncreaseWheelSliderValueCorotinue(float newValue)
+    private IEnumerator IncreaseWheelSliderValueCorotinue()
     {
         yield return new WaitForSeconds(0f);
 
-        while (WheelSlider.value <= newValue)
+        //float newValue = WheelSlider.value + 1 / 3f;
+
+        while (WheelSlider.value < currentWheelSliderValue)
         {
             WheelSlider.value += SliderAnimatoinSpeed;
             yield return null;
         }
+
+        Debug.Log("WheelSlider.value : " + WheelSlider.value);
+        CheckSliderCompleleted();
     }
 
 
@@ -68,7 +73,9 @@ public class WheelManager : MonoBehaviour
 
     private void CheckSliderCompleleted()
     {
-        if (WheelSlider.value >= 1)
+        Debug.Log("WheelSlider.value : "+ WheelSlider.value);
+
+        if (WheelSlider.value >= 1f)
         {
             Debug.Log("You Earned a gift !!!");
             RestSlider();
