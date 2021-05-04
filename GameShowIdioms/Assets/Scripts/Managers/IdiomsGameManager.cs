@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.IO;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -24,6 +24,8 @@ public class IdiomsGameManager : MonoBehaviour
     public GameSceneManager GameSceneManager;
     public CharacterChoosingManager CharacterChoosingManager;
     public CursorManager CursorManager;
+    public SaveTest SaveManager;
+    public WheelManager WheelManager;
 
     [Header("Current Idiom Attributes")]
     public Idiom[] Idioms;
@@ -71,6 +73,13 @@ public class IdiomsGameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        //check for file existance.
+        string dir = Path.Combine(Application.persistentDataPath, "SaveData");
+        if (!Directory.Exists(dir))
+        {
+            SaveManager.Save();
+        }
     }
     #endregion
 
@@ -105,11 +114,11 @@ public class IdiomsGameManager : MonoBehaviour
                 numToAdd = Random.Range(0, Idioms.Length);
             }
 
-            Debug.Log("numToAdd : " + numToAdd);
+            //Debug.Log("numToAdd : " + numToAdd);
             randomList.Add(numToAdd);
         }
 
-        Debug.Log("Done !");
+        //Debug.Log("Done !");
     }
     #endregion
 
@@ -374,38 +383,31 @@ public class IdiomsGameManager : MonoBehaviour
         CurrentPlayerAnimator.SetBool("dance", true);
         SFXManager.Instance.PlaySoundEffect(2);
 
-        //5.Fadeout & Reload.    
-        yield return new WaitForSeconds(2f);
-        UIManager.StartScreenFadeout(0.05f);
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
+        //5.show round end ui.
+        UIManager.RoundEndCanvas.gameObject.SetActive(true);
+        UIManager.StartRoundEndCanvasFadeout(0.05f);
+        WheelManager.UpdateCurrentSliderValue();
+        WheelManager.IncreaseWheelSliderValue();
 
-        #region Archive
+        //5.Fadeout & Reload.
         /*
-        //3.Translate Camera To Player.
-        TranslateCamera(PlayerCameraTransform, 0.3f);
-
-        //4.Check Result
-        yield return new WaitForSeconds(0.3f);
-        if (StringMatch(InputField.text, CurrentIdiom.CorrectPhrase))//Correct Phrase.
-        {
-            ConfettiShower.Play();
-            CurrentPlayerAnimator.SetBool("dance", true);
-            SFXManager.Instance.PlaySoundEffect(2);
-        }
-        else//Wrong Phrase.
-        {
-            CurrentPlayerAnimator.SetBool("sad", true);
-            SFXManager.Instance.PlaySoundEffect(1);
-        }
-
-        //5.Fadeout & Reload.    
         yield return new WaitForSeconds(2f);
         UIManager.StartScreenFadeout(0.05f);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
         */
-        #endregion
+    }
+
+    public void ReloadScene()
+    {
+        StartCoroutine(ReloadSceneCorotinue());
+    }
+
+    private IEnumerator ReloadSceneCorotinue()
+    {
+        UIManager.StartScreenFadeout(0.05f);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
     }
     #endregion
 

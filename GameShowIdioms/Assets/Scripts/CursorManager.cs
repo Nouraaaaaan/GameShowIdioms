@@ -23,7 +23,7 @@ public class CursorManager : MonoBehaviour
 
         if ((EnteredTextLength <= CurrentFieldIndex) && (CurrentFieldIndex > 0))
         {
-            Debug.Log("BackSpace");
+            //Debug.Log("BackSpace");
 
             if (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
             {
@@ -40,7 +40,7 @@ public class CursorManager : MonoBehaviour
 
             if(IdiomsGameManager.Instance.InputField.text[IdiomsGameManager.Instance.InputField.text.Length -1].ToString() == " ")
             {
-                Debug.Log("Extra !");
+                //Debug.Log("Extra !");
                 IdiomsGameManager.Instance.InputField.text = IdiomsGameManager.Instance.InputField.text.Substring(0, IdiomsGameManager.Instance.InputField.text.Length - 2);
                 
             }
@@ -49,7 +49,7 @@ public class CursorManager : MonoBehaviour
         {
             if (!(IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString() == " ") && (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count))
             {
-                Debug.Log("Character was entered !");
+                //Debug.Log("Character was entered !");
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString();
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
                 CurrentFieldIndex++;

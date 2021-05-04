@@ -11,9 +11,6 @@ public class UIManager : MonoBehaviour
     [Header("Start Button Canvas")]
     public GameObject StartButtonCanvas;
 
-    [Header("Start Button Canvas")]
-    public GameObject KeyboardCanvas;
-
     [Header("Round Number Text")]
     public Text RoundNumber;
 
@@ -30,11 +27,14 @@ public class UIManager : MonoBehaviour
     [Header("Fadeout Canvas")]
     public CanvasGroup FadeoutCanvas;
 
-    [Header("Choose Characters Canvas")]
+    [Header("Choose PrizeImagesCanvas Canvas")]
     public GameObject PrizeImagesCanvas;
 
     [Header("Choose Characters Canvas")]
     public GameObject ChooseCharactersCanvas;
+
+    [Header("Choose Round End Canvas")]
+    public CanvasGroup RoundEndCanvas;
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()
@@ -103,5 +103,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Round End
+    public void OnclickNextButton()
+    {
+        IdiomsGameManager.Instance.ReloadScene();
+    }
+
+    public void StartRoundEndCanvasFadeout(float speed)
+    {
+        StartCoroutine(RoundEndCanvasFadeoutCorotinue(speed));
+    }
+
+    private IEnumerator RoundEndCanvasFadeoutCorotinue(float speed)
+    {
+        yield return new WaitForSeconds(1f);
+
+        while (RoundEndCanvas.alpha != 1)
+        {
+            RoundEndCanvas.alpha += speed;
+            yield return new WaitForEndOfFrame();
+        }
+    }
     #endregion
 }
