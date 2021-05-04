@@ -5,10 +5,13 @@ ScriptsOnlyBuild:
     - CharacterChoosingManager
     - CursorManager
     - GameSceneManager
+    - GiftManager
+    - HintsManager
     - Idiom
     - IdiomsGameManager
     - KeyboardManager
     - SFXManager
+    - SaveTest
     - UIManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -38,6 +41,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Outline
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Game Show scene.unity:
@@ -61,6 +65,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -80,53 +86,61 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11750}
+      Script: {instanceID: 11752}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11808}
     - Class: 114
-      Script: {instanceID: 11926}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11936}
+      Script: {instanceID: 11938}
     - Class: 114
-      Script: {instanceID: 11978}
+      Script: {instanceID: 11980}
     - Class: 114
-      Script: {instanceID: 12092}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12432}
+      Script: {instanceID: 12098}
     - Class: 114
-      Script: {instanceID: 12468}
+      Script: {instanceID: 12438}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12684}
+      Script: {instanceID: 12638}
     - Class: 114
-      Script: {instanceID: 12914}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 12692}
     - Class: 114
-      Script: {instanceID: 13144}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13168}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13174}
     - Class: 114
-      Script: {instanceID: 13364}
+      Script: {instanceID: 13178}
     - Class: 114
-      Script: {instanceID: 13464}
+      Script: {instanceID: 13194}
     - Class: 114
-      Script: {instanceID: 13498}
+      Script: {instanceID: 13376}
     - Class: 114
-      Script: {instanceID: 13638}
+      Script: {instanceID: 13476}
     - Class: 114
-      Script: {instanceID: 13790}
+      Script: {instanceID: 13510}
     - Class: 114
-      Script: {instanceID: 13812}
+      Script: {instanceID: 13578}
     - Class: 114
-      Script: {instanceID: 13860}
+      Script: {instanceID: 13652}
+    - Class: 114
+      Script: {instanceID: 13804}
+    - Class: 114
+      Script: {instanceID: 13826}
+    - Class: 114
+      Script: {instanceID: 13874}
     - Class: 114
       Script: {instanceID: 13914}
+    - Class: 114
+      Script: {instanceID: 13928}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -286,6 +300,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 5203069f1a4e7135cb9beb503f7eaa13
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GiftManager
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -450,6 +470,12 @@ ScriptsOnlyBuild:
     className: SFXManager
   - hash:
       serializedVersion: 2
+      Hash: 88aabb244a587560f637fe88d36e3843
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HintsManager
+  - hash:
+      serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -600,13 +626,19 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Gift
+  - hash:
+      serializedVersion: 2
       Hash: eb2a9f75918f2ec46c2bd527aca290ca
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: 58c91899fa4b0bc936f2461f1d209296
+      Hash: b2d8cd9739b1d19ae5517881eaf161e2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -640,6 +672,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CursorManager
+  - hash:
+      serializedVersion: 2
+      Hash: 7d328c05384ad83a04d48bc4078357fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveTest
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -762,7 +800,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 342d2d62f51165b233c41abc6c7bf80a
+      Hash: 554c0a94f464c0e39f3df37f0598887a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager

@@ -12,6 +12,8 @@ public class CursorManager : MonoBehaviour
 
     public void CheckForFieldUpdate()
     {
+        //Debug.Log("input field value has changed !");
+
         if (!CanEditText)
             return;
 
@@ -21,9 +23,9 @@ public class CursorManager : MonoBehaviour
         //2.Get Entered Text Length.
         EnteredTextLength = IdiomsGameManager.Instance.InputField.text.Length;
 
-        if ((EnteredTextLength <= CurrentFieldIndex) && (CurrentFieldIndex > 0))
+        if ((EnteredTextLength < CurrentFieldIndex) && (CurrentFieldIndex > 0))
         {
-            //Debug.Log("BackSpace");
+            Debug.Log("BackSpace");
 
             if (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
             {

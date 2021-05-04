@@ -7,9 +7,7 @@ public class HintsManager : MonoBehaviour
 {
     //-----------------Fields--------------------------//
     public Text HintsText;
-
-    [SerializeField]
-    private int currentHintsNumber;
+    public int currentHintsNumber;
 
     //------------------Methods-----------------------//
 
@@ -17,6 +15,12 @@ public class HintsManager : MonoBehaviour
     private void Start()
     {
         LoadSavedHintsValue();
+
+        if (currentHintsNumber <= 0)
+        {
+            IdiomsGameManager.Instance.HintsNumberBackGroundImage.color = Color.red;
+            IdiomsGameManager.Instance.HintsButton.interactable = false;
+        }
     }
 
     public void LoadSavedHintsValue()
@@ -40,10 +44,9 @@ public class HintsManager : MonoBehaviour
 
     #region Save Region
 
-    public void SaveHintsValue(int value)
+    public void SaveHintsValue()
     {
-        currentHintsNumber += value;
-        IdiomsGameManager.Instance.SaveManager.SaveObject.HintsNumber = value;
+        IdiomsGameManager.Instance.SaveManager.SaveObject.HintsNumber = currentHintsNumber;
         IdiomsGameManager.Instance.SaveManager.Save();
     }
 

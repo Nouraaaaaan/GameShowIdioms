@@ -4,12 +4,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 
 public class IdiomsGameManager : MonoBehaviour
 {
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Fields.
-    public InputField InputField;
+    //public InputField InputField;
+    public TMP_InputField InputField;
 
     [Header("Camera Attributes")]
     public GameObject Camera;
@@ -26,6 +28,7 @@ public class IdiomsGameManager : MonoBehaviour
     public CursorManager CursorManager;
     public SaveTest SaveManager;
     public GiftManager GiftManager;
+    public HintsManager hintsManager;
 
     [Header("Current Idiom Attributes")]
     public Idiom[] Idioms;
@@ -445,20 +448,35 @@ public class IdiomsGameManager : MonoBehaviour
     public void OnclickHintsButton()
     {
         //1.Decrease hints number, update hints text.
-        HintsNumber--;
-        HintsNumberText.text = HintsNumber.ToString();
+        hintsManager.currentHintsNumber--;
+        hintsManager.HintsText.text = hintsManager.currentHintsNumber.ToString();
 
         //2.check if hints == 0, change sprite color to red, disable hints button.
-        if (HintsNumber == 0)
+        if (hintsManager.currentHintsNumber <= 0)
         {
             HintsNumberBackGroundImage.color = Color.red;
             HintsButton.interactable = false;
         }
 
-        //3.Show hints char.
-        int randomWordIndex = Random.Range(0, CurrentIdiom.Words.Count);
-        CurrentIdiom.Words[randomWordIndex].Text.text = CurrentIdiom.Words[randomWordIndex].WordCorrectPhrase;
+        //3.Show hints char at letter we're currently standing at.
+        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase; //show correct char.
+
+        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
+
+        
+        GameObject TextObj = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
+        TextObj.transform.localScale = Vector3.zero;
+        LeanTween.scale(TextObj, new Vector3(1.4f, 1.4f, 1.4f), 0.5f);
+        LeanTween.scale(TextObj, new Vector3(1f, 1f, 1f), 0.5f).setDelay(0.5f);
+
+
+        InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+
+        SFXManager.Instance.StopSoundEffect();                                                      //play SFX.
         SFXManager.Instance.PlaySoundEffect(3);
+
+        //4.Save Hints Value.
+        hintsManager.SaveHintsValue();
     }
 
     #endregion
