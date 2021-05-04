@@ -21,13 +21,15 @@ public class CursorManager : MonoBehaviour
         //2.Get Entered Text Length.
         EnteredTextLength = IdiomsGameManager.Instance.InputField.text.Length;
 
-        if (EnteredTextLength <= CurrentFieldIndex)
+        if ((EnteredTextLength <= CurrentFieldIndex) && (CurrentFieldIndex > 0))
         {
-            //Debug.Log("BackSpace");
+            Debug.Log("BackSpace");
 
-            if(CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
-              IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
-
+            if (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
+            {
+                IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
+            }
+              
             CurrentFieldIndex--;
 
             if (CurrentFieldIndex >= 0)
@@ -35,12 +37,19 @@ public class CursorManager : MonoBehaviour
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = "";
             }
+
+            if(IdiomsGameManager.Instance.InputField.text[IdiomsGameManager.Instance.InputField.text.Length -1].ToString() == " ")
+            {
+                Debug.Log("Extra !");
+                IdiomsGameManager.Instance.InputField.text = IdiomsGameManager.Instance.InputField.text.Substring(0, IdiomsGameManager.Instance.InputField.text.Length - 2);
+                
+            }
         } //backspace.
         else
         {
             if (!(IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString() == " ") && (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count))
             {
-                //Debug.Log("Character was entered !");
+                Debug.Log("Character was entered !");
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString();
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
                 CurrentFieldIndex++;

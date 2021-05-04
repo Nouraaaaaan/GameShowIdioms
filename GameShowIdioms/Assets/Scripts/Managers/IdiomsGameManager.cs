@@ -31,6 +31,7 @@ public class IdiomsGameManager : MonoBehaviour
     public Image IdiomImage;
     public bool Finished;
     private int DisplayedIdiomNumber = 0;   //when DisplayedIdiomNumber = 4, finish current round.
+    private List<int> randomList;           //use this list to pick 4 random idioms foreach round.
 
     [Header("Text Matching Attributes")]
     public string EnterText;
@@ -76,22 +77,39 @@ public class IdiomsGameManager : MonoBehaviour
     #region CallBacks Region
     private void Start()
     {
-        SetRandomIdiom();
+        //Generate 4 random indeces.
+        randomList = new List<int>();
+        GenerateRandomDistincitIdioms();
+
+        //Set Current Idiom.
+        CurrentIdiom = Idioms[randomList[0]];
         SetIdiomImage();
     }
     #endregion
 
     #region Setting Current Idiom Region
-    private void SetRandomIdiom()
-    {
-
-        int randomIndex = Random.Range(0, Idioms.Length);
-        CurrentIdiom = Idioms[randomIndex];
-    }
-
+    
     private void SetIdiomImage()
     {
         IdiomImage.sprite = CurrentIdiom.IdiomSprite;
+    }
+
+    private void GenerateRandomDistincitIdioms()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            int numToAdd = Random.Range(0, Idioms.Length);
+
+            while (randomList.Contains(numToAdd))
+            {
+                numToAdd = Random.Range(0, Idioms.Length);
+            }
+
+            Debug.Log("numToAdd : " + numToAdd);
+            randomList.Add(numToAdd);
+        }
+
+        Debug.Log("Done !");
     }
     #endregion
 
@@ -280,7 +298,6 @@ public class IdiomsGameManager : MonoBehaviour
         }
     }
 
-   
     private IEnumerator DisplayNextIdiomCorotinue()
     {
         //1.Color Text.
@@ -304,7 +321,8 @@ public class IdiomsGameManager : MonoBehaviour
 
         //4.Generate new random Idiom.
         yield return new WaitForSeconds(0.2f);
-        SetRandomIdiom();
+        CurrentIdiom = Idioms[randomList[DisplayedIdiomNumber]];
+        //SetRandomIdiom();
         SetIdiomImage();
 
         //5.Enable new random Idiom.
@@ -392,7 +410,7 @@ public class IdiomsGameManager : MonoBehaviour
     #endregion
 
     #region Testing Region
-    [Header("Testing")]
+    [Header("Coloring Region")]
     public GameObject IdiomTextCanvas;
 
     public void ColorAllTextTest()
