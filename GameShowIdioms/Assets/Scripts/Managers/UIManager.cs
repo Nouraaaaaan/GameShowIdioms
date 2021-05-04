@@ -35,6 +35,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Choose Round End Canvas")]
     public CanvasGroup RoundEndCanvas;
+
+    [Header("Gift Canvas")]
+    public GameObject GiftCanvas;
+    public GameObject ClaimGiftCanvas;
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()

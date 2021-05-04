@@ -78,6 +78,7 @@
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\Scripts\Managers\SFXManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\HintsManager.cs" />
     <Compile Include="Assets\Scripts\Managers\KeyboardManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTween.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingPunch.cs" />
@@ -92,7 +93,6 @@
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
     <Compile Include="Assets\Scripts\Managers\IdiomsGameManager.cs" />
     <Compile Include="Assets\Scripts\CursorManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\WheelManager.cs" />
     <Compile Include="Assets\Scripts\Serialization\SaveTest.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTweenExt.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescrOptional.cs" />
@@ -103,7 +103,8 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\Scripts\Managers\HintsManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GiftManager.cs" />
+    <Compile Include="Assets\Scripts\Gift.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

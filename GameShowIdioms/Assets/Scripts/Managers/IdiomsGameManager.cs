@@ -25,7 +25,7 @@ public class IdiomsGameManager : MonoBehaviour
     public CharacterChoosingManager CharacterChoosingManager;
     public CursorManager CursorManager;
     public SaveTest SaveManager;
-    public WheelManager WheelManager;
+    public GiftManager GiftManager;
 
     [Header("Current Idiom Attributes")]
     public Idiom[] Idioms;
@@ -385,9 +385,9 @@ public class IdiomsGameManager : MonoBehaviour
 
         //5.show roundend ui.
         UIManager.RoundEndCanvas.gameObject.SetActive(true);
-        UIManager.StartRoundEndCanvasFadeout(0.05f);
-        WheelManager.UpdateCurrentSliderValue();
-        WheelManager.IncreaseWheelSliderValue();
+        UIManager.StartRoundEndCanvasFadeout(0.08f);
+        GiftManager.UpdateCurrentSliderValue();
+        GiftManager.IncreaseWheelSliderValue();
     }
 
     public void ReloadScene()
