@@ -410,7 +410,7 @@ public class IdiomsGameManager : MonoBehaviour
 
             while ((charIndex < CurrentIdiom.Words[i].Text.text.Length) && (correctCharIndex < CurrentIdiom.Words[i].WordCorrectPhrase.Length))
             {
-                if (CurrentIdiom.Words[i].Text.text[charIndex] == CurrentIdiom.Words[i].WordCorrectPhrase[correctCharIndex])
+                if (CurrentIdiom.Words[i].Text.text[charIndex].ToString().ToLower() == CurrentIdiom.Words[i].WordCorrectPhrase[correctCharIndex].ToString())
                 {
                     CurrentIdiom.Words[i].Text.color = Color.green;
                 }
