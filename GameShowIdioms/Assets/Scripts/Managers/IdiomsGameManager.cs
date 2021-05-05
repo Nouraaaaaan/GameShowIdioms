@@ -67,6 +67,12 @@ public class IdiomsGameManager : MonoBehaviour
     public Sprite SliverPrizeSprite;
     public Sprite BronzePrizeSprite;
 
+    [Header("Counter Attributes")]
+    private bool count = true;
+    private int counterValue = 0;
+    private bool timeBouns = false;
+    private int timeBounsThreshold = 40;
+
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
 
@@ -217,14 +223,13 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
-        //IdiomTextCanvas.SetActive(true);
         CurrentIdiom.IdiomCanvas.SetActive(true);
-        //CurrentIdiom.Words[0].InputField.Select();
         InputField.Select();
         CurrentIdiom.Words[0].Caret.SetActive(true);
         LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
-        //UIManager.SubmitButtonCanvas.SetActive(true);
         UIManager.HintButtonCanvas.SetActive(true);
+
+        StartCoroutine(CounterCorotinue());       
     }
     #endregion
 
@@ -310,6 +315,8 @@ public class IdiomsGameManager : MonoBehaviour
 
     private IEnumerator ShowResultCorotinue()
     {
+        count = false;                        //stop counter.
+
         //1.Color Text.
         ColorAllTextTest();
         SFXManager.Instance.PlaySoundEffect(3);
@@ -322,9 +329,6 @@ public class IdiomsGameManager : MonoBehaviour
 
         //3.Translate Camera To Competitors.
         TranslateCamera(InitialCameraTransform, 0.3f);
-
-        //
-        AnswersResult();
 
         //4.Popup Prize Images.
         yield return new WaitForSeconds(0.5f);
@@ -380,7 +384,8 @@ public class IdiomsGameManager : MonoBehaviour
             case 3:
                 {
                      Debug.Log(NumberOfCorrectAnswers + "Correct Answer");
-                    characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                    //characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                    characterPrizeDegree = (CheckForTimeBouns()) ? Character.CharacterPrizeDegree.First : Character.CharacterPrizeDegree.Second;
                     break;
                 }
             case 4:
@@ -549,4 +554,25 @@ public class IdiomsGameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     #endregion
+
+    #region Counter Region
+    IEnumerator CounterCorotinue()
+    {
+        while (count)
+        {
+            yield return new WaitForSeconds(1);
+            counterValue++;
+            Debug.Log("counterValue : " + counterValue);
+        }
+
+        Debug.Log("Counter Was Stopped !");
+    }
+
+    private bool CheckForTimeBouns()
+    {
+        return (counterValue <= timeBounsThreshold); 
+    }
+
+    #endregion
+
 }
