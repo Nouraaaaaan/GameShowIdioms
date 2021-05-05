@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorManager : MonoBehaviour
 {
     public int CurrentFieldIndex = 0;
     public int EnteredTextLength;
+    public int LastEnteredTextLength;
 
     public bool CanEditText = true;
+
+    public bool HintChar = false;
     
 
     public void CheckForFieldUpdate()
@@ -23,7 +27,7 @@ public class CursorManager : MonoBehaviour
         //2.Get Entered Text Length.
         EnteredTextLength = IdiomsGameManager.Instance.InputField.text.Length;
 
-        if ((EnteredTextLength < CurrentFieldIndex) && (CurrentFieldIndex > 0))
+        if ((LastEnteredTextLength > IdiomsGameManager.Instance.InputField.text.Length) && (CurrentFieldIndex > 0))
         {
             Debug.Log("BackSpace");
 
@@ -53,15 +57,31 @@ public class CursorManager : MonoBehaviour
             {
                 //Debug.Log("Character was entered !");
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.text = IdiomsGameManager.Instance.InputField.text[EnteredTextLength - 1].ToString();
+                
+                //if(!HintChar)
+                //   IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Text.color = Color.black;
+
                 IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(false);
                 CurrentFieldIndex++;
 
-                if(CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
-                   IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
+                if (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
+                {
+                    IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
+                    LeanTween.alpha(IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
+                }
+                else
+                {
+                    Debug.Log("Finished !!!");
+                    IdiomsGameManager.Instance.onClickSubmitButton();
+                }
+                   
             }           
-        }       
+        }
+
+        LastEnteredTextLength = IdiomsGameManager.Instance.InputField.text.Length; 
     }
 
+    
     public void Reset()
     {
         CurrentFieldIndex = 0;

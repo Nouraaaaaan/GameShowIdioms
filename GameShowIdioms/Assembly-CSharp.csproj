@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Managers\GameSceneManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSpline2d.cs" />
     <Compile Include="Assets\Scripts\Serialization\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GiftManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSpline.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\Managers\CharacterChoosingManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathBezier.cs" />
+    <Compile Include="Assets\Scripts\Gift.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
     <Compile Include="Assets\Scripts\Managers\IdiomsGameManager.cs" />
     <Compile Include="Assets\Scripts\CursorManager.cs" />
@@ -103,8 +105,7 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\Scripts\Managers\GiftManager.cs" />
-    <Compile Include="Assets\Scripts\Gift.cs" />
+    <Compile Include="Assets\AdsManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -689,6 +690,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GoogleMobileAds.csproj">
+      <Project>{AA39768F-9617-8821-D51F-50405EBFFB0B}</Project>
+      <Name>GoogleMobileAds</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{1FB9A3A6-5D04-3025-6E68-C24B5136E99C}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

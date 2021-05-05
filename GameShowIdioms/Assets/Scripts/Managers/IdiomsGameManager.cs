@@ -164,7 +164,7 @@ public class IdiomsGameManager : MonoBehaviour
             }
             else
             {
-                CharactersNamesText[otherCharactersIndex].text = "Player";
+                CharactersNamesText[otherCharactersIndex].text = character.DefaultNames[Random.Range(0, character.DefaultNames.Length)];
                 otherCharactersIndex++;
             }
         }
@@ -215,7 +215,8 @@ public class IdiomsGameManager : MonoBehaviour
         //CurrentIdiom.Words[0].InputField.Select();
         InputField.Select();
         CurrentIdiom.Words[0].Caret.SetActive(true);
-        UIManager.SubmitButtonCanvas.SetActive(true);
+        LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
+        //UIManager.SubmitButtonCanvas.SetActive(true);
         UIManager.HintButtonCanvas.SetActive(true);
     }
     #endregion
@@ -343,6 +344,7 @@ public class IdiomsGameManager : MonoBehaviour
         LeanTween.scale(IdiomImage.gameObject, new Vector3(1f, 1f, 1f), 0.2f); //pup-up IdiomImage.
         CurrentIdiom.IdiomCanvas.SetActive(true);
         CurrentIdiom.Words[0].Caret.SetActive(true);
+        LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
 
         CursorManager.CanEditText = true;
         InputField.Select();
@@ -463,17 +465,16 @@ public class IdiomsGameManager : MonoBehaviour
 
         CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
 
-        
         GameObject TextObj = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
         TextObj.transform.localScale = Vector3.zero;
         LeanTween.scale(TextObj, new Vector3(1.4f, 1.4f, 1.4f), 0.5f);
         LeanTween.scale(TextObj, new Vector3(1f, 1f, 1f), 0.5f).setDelay(0.5f);
 
-
         InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
 
         SFXManager.Instance.StopSoundEffect();                                                      //play SFX.
         SFXManager.Instance.PlaySoundEffect(3);
+
 
         //4.Save Hints Value.
         hintsManager.SaveHintsValue();

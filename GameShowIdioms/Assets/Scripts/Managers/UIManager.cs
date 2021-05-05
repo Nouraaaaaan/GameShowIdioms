@@ -131,4 +131,32 @@ public class UIManager : MonoBehaviour
         }
     }
     #endregion
+
+    #region Gift Region
+    public void OnClickCollectGiftButton()
+    {
+        //1.
+        IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 1;
+        IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
+
+        //
+        //IdiomsGameManager.Instance.GiftManager.OpenGift();
+
+        //2.Reload Scene.
+        IdiomsGameManager.Instance.ReloadScene();
+    }
+
+    public void OnClickTripleGiftButton()
+    {
+        //1.
+        IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 3;
+        IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
+
+        //
+        //IdiomsGameManager.Instance.GiftManager.OpenGift();
+
+        //2.Reload Scene.
+        IdiomsGameManager.Instance.ReloadScene();
+    }
+    #endregion
 }

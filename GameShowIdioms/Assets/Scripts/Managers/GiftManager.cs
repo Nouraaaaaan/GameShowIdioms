@@ -69,7 +69,7 @@ public class GiftManager : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("WheelSlider.value : " + WheelSlider.value);
+        //Debug.Log("WheelSlider.value : " + WheelSlider.value);
         CheckSliderCompleleted();
     }
     #endregion
@@ -86,11 +86,11 @@ public class GiftManager : MonoBehaviour
 
     private void CheckSliderCompleleted()
     {
-        Debug.Log("WheelSlider.value : " + WheelSlider.value);
+        //Debug.Log("WheelSlider.value : " + WheelSlider.value);
 
         if (WheelSlider.value >= 1f)
         {
-            Debug.Log("You Earned a gift !!!");
+            //Debug.Log("You Earned a gift !!!");
             IdiomsGameManager.Instance.UIManager.RoundEndCanvas.gameObject.SetActive(false);
             IdiomsGameManager.Instance.UIManager.GiftCanvas.SetActive(true);
             IdiomsGameManager.Instance.UIManager.ClaimGiftCanvas.SetActive(true);
@@ -109,6 +109,14 @@ public class GiftManager : MonoBehaviour
         LeanTween.scale(Gift, new Vector3(5.330102f, 5.330102f, 5.330102f), 1f);
 
         LeanTween.scale(Gift, new Vector3(6f, 6f, 6f), 0.5f).setLoopPingPong().setDelay(1f);
+    }
+
+    public void OpenGift()
+    {
+        LeanTween.cancel(Gift);
+
+        GameObject boxCover = Gift.gameObject.transform.GetChild(0).gameObject;
+        LeanTween.rotateLocal(boxCover, new Vector3(-110f, 0f, 0f), 0.5f);
     }
 
     #endregion

@@ -21,8 +21,7 @@ public class Character : MonoBehaviour
         Second,
         Third
     }
-    public CharacterPrizeDegree characterPrizeDegree;
-    
+    public CharacterPrizeDegree characterPrizeDegree;  
 
     //Character Model.
     public GameObject CharacterModel;
@@ -30,4 +29,7 @@ public class Character : MonoBehaviour
     //Character Index;
     //form right to left.
     public int CharacterIndex;
+
+    //character default names.
+    public string[] DefaultNames;
 }

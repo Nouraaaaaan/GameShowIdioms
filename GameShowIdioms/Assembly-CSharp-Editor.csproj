@@ -263,6 +263,21 @@
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.5\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Google.IOSResolver_v1.2.165">
+      <HintPath>Library\PackageCache\com.google.external-dependency-manager@1.2.165\ExternalDependencyManager\Editor\Google.IOSResolver_v1.2.165.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>Library\PackageCache\com.google.external-dependency-manager@1.2.165\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver_v1.2.165">
+      <HintPath>Library\PackageCache\com.google.external-dependency-manager@1.2.165\ExternalDependencyManager\Editor\Google.JarResolver_v1.2.165.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.PackageManagerResolver_v1.2.165">
+      <HintPath>Library\PackageCache\com.google.external-dependency-manager@1.2.165\ExternalDependencyManager\Editor\Google.PackageManagerResolver_v1.2.165.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.165">
+      <HintPath>Library\PackageCache\com.google.external-dependency-manager@1.2.165\ExternalDependencyManager\Editor\Google.VersionHandlerImpl_v1.2.165.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.1f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
     </Reference>
@@ -646,6 +661,14 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{EFF91E35-D34E-F36B-7B5D-D5DD296ED91D}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.csproj">
+      <Project>{AA39768F-9617-8821-D51F-50405EBFFB0B}</Project>
+      <Name>GoogleMobileAds</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{1FB9A3A6-5D04-3025-6E68-C24B5136E99C}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
