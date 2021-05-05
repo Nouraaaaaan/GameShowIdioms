@@ -20,4 +20,9 @@ public class SaveObject
     //Saved Settings.
     public bool CanPlayMusic;
     public bool CanPlaySFX;
+
+    //Saved Character type.
+    public int CharacterTypeIndex;
+    //Saved Character Name.
+    public string PlayerName;
 }

@@ -96,11 +96,16 @@ public class IdiomsGameManager : MonoBehaviour
         //Set Current Idiom.
         CurrentIdiom = Idioms[randomList[0]];
         SetIdiomImage();
+
+        //Set Characters.
+        SetChoosenCharacterType((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex);
+        SetCharactersPostions();
+        SetCharactersNames(SaveManager.SaveObject.PlayerName);
     }
     #endregion
 
     #region Setting Current Idiom Region
-    
+
     private void SetIdiomImage()
     {
         IdiomImage.sprite = CurrentIdiom.IdiomSprite;
@@ -152,7 +157,7 @@ public class IdiomsGameManager : MonoBehaviour
             }
         }
     }
-    public void SetCharactersNames()
+    public void SetCharactersNames(string playerName)
     {
         int otherCharactersIndex = 1;
 
@@ -160,7 +165,7 @@ public class IdiomsGameManager : MonoBehaviour
         {
             if (character.characterType == this.ChoosenCharacterType)
             {
-                CharactersNamesText[0].text = CharacterChoosingManager.EnteredName;
+                CharactersNamesText[0].text = playerName;
             }
             else
             {
@@ -218,60 +223,6 @@ public class IdiomsGameManager : MonoBehaviour
         LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
         //UIManager.SubmitButtonCanvas.SetActive(true);
         UIManager.HintButtonCanvas.SetActive(true);
-    }
-    #endregion
-
-    #region Keyboard Callbacks Region
-    public void AlphabetPressed(char enteredChar)
-    {
-        /*
-        if (Finished)
-            return;
-
-        //Move to first unfilled letter.
-        while (CurrentIdiom.Char[CurrenCharIndex].text != "")
-        {
-            EnterText += CurrentIdiom.Char[CurrenCharIndex].text.ToString();
-            CurrenCharIndex++;
-        }
-
-        //Set Char.
-        CurrentIdiom.Char[CurrenCharIndex].text = enteredChar.ToString();
-        EnterText += enteredChar.ToString();
-
-        //Update Current Char Index.
-        CurrenCharIndex++;
-
-        //Check if we finished current word.
-        if (CurrenCharIndex >= CurrentIdiom.Char.Count)
-        {
-            CurrenCharIndex = 0;
-            Debug.Log("Finished !");
-            Finished = true;
-            ShowResult();
-        }
-        */
-    }
-
-    public void BackSpacePressed()
-    {
-        /*
-        if (EnterText.Length <= 0)
-            return;
-
-        //Update Current Char Index.
-        CurrenCharIndex--;
-
-
-        //Set Char.
-        CurrentIdiom.Char[CurrenCharIndex].text = "";
-
-        Debug.Log(EnterText.Length);
-        if (EnterText.Length > 0)
-        {
-            EnterText = EnterText.Remove(EnterText.Length - 1);
-        }
-        */
     }
     #endregion
 
@@ -404,7 +355,7 @@ public class IdiomsGameManager : MonoBehaviour
     {
         UIManager.StartScreenFadeout(0.1f);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     #endregion
 
@@ -536,7 +487,7 @@ public class IdiomsGameManager : MonoBehaviour
     {
         foreach (var image in CharactersPrizeImages)
         {
-            LeanTween.scale(image.gameObject, new Vector3(0.003298893f, 0.003298893f, 0.003298893f), 0.3f);
+            LeanTween.scale(image.gameObject, new Vector3(0.001403027f, 0.001403027f, 0.001403027f), 0.3f);
             SFXManager.Instance.PlaySoundEffect(4);
             yield return new WaitForSeconds(0.4f);
         }

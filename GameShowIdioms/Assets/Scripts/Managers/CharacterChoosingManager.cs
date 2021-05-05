@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.IO;
 
 public class CharacterChoosingManager : MonoBehaviour
 {
@@ -15,11 +17,24 @@ public class CharacterChoosingManager : MonoBehaviour
     public string EnteredName;
     public Text EnteredNameText;
 
+    [Header("SaveManager Attributes")]
+    public SaveTest SaveManager;
+
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
 
     #region CallBacks Region
+    private void Awake()
+    {
+        //check for file existance.
+        string dir = Path.Combine(Application.persistentDataPath, "SaveData");
+        if (!Directory.Exists(dir))
+        {
+            SaveManager.Save();
+        }
+    }
+
     private void Start()
     {
         CurrentCharacterIndex = 0;
@@ -67,7 +82,7 @@ public class CharacterChoosingManager : MonoBehaviour
     #endregion
 
     #region Player Name Region
-    public void SetPlayerName()
+    public void SavePlayerName()
     {
         if (EnteredNameText.text != "")
         {
@@ -77,6 +92,9 @@ public class CharacterChoosingManager : MonoBehaviour
         {
             EnteredName = "player";
         }
+
+        SaveManager.SaveObject.PlayerName = EnteredName;
+        SaveManager.Save();
     }
     #endregion
 
@@ -91,12 +109,18 @@ public class CharacterChoosingManager : MonoBehaviour
 
     public void OnClickStartButton()
     {
-        //Debug.Log("ChoosenCharacterIndex : " + GetChoosenCharacterIndex());     
-        //Debug.Log("EnteredPlayerName : " + EnteredName);
-        SetPlayerName();
-        IdiomsGameManager.Instance.SetChoosenCharacterType(Characters[GetChoosenCharacterIndex()].characterType);
-        IdiomsGameManager.Instance.SetCharactersPostions();
-        IdiomsGameManager.Instance.SetCharactersNames();
-        IdiomsGameManager.Instance.GameSceneManager.GameplaySceneTransition();
+        //1.
+        SavePlayerName();
+        SaveChoosenCharacterType();
+
+        //2.Load GamePlayScene
+        SceneManager.LoadScene(1);
+    }
+
+    public void SaveChoosenCharacterType()
+    {
+        SaveManager.SaveObject.CharacterTypeIndex = (int)Characters[GetChoosenCharacterIndex()].characterType;
+        SaveManager.Save();
+
     }
 }
