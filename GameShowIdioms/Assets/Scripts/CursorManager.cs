@@ -71,7 +71,7 @@ public class CursorManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Finished !!!");
+                    //Debug.Log("Finished !!!");
                     IdiomsGameManager.Instance.onClickSubmitButton();
                 }
                    

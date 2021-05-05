@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Serialization\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GiftManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+    <Compile Include="Assets\Scripts\AdsManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSpline.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\AdsManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

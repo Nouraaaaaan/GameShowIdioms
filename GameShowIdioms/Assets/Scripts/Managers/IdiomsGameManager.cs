@@ -37,6 +37,8 @@ public class IdiomsGameManager : MonoBehaviour
     public bool Finished;
     private int DisplayedIdiomNumber = 0;   //when DisplayedIdiomNumber = 4, finish current round.
     private List<int> randomList;           //use this list to pick 4 random idioms foreach round.
+    private bool rightAnswer = true;        //Is current answer is correct ?
+    private int NumberOfCorrectAnswers = 0; //number of correct answers per round.
 
     [Header("Text Matching Attributes")]
     public string EnterText;
@@ -273,6 +275,7 @@ public class IdiomsGameManager : MonoBehaviour
         CursorManager.CanEditText = false;
         CursorManager.CurrentFieldIndex = 0;
         InputField.text = "";
+        rightAnswer = true;
         for (int i = 0; i < CurrentIdiom.Words.Count; i++)
         {
             CurrentIdiom.Words[i].Text.text = "";
@@ -286,7 +289,6 @@ public class IdiomsGameManager : MonoBehaviour
         //4.Generate new random Idiom.
         yield return new WaitForSeconds(0.2f);
         CurrentIdiom = Idioms[randomList[DisplayedIdiomNumber]];
-        //SetRandomIdiom();
         SetIdiomImage();
 
         //5.Enable new random Idiom.
@@ -298,8 +300,7 @@ public class IdiomsGameManager : MonoBehaviour
         LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
 
         CursorManager.CanEditText = true;
-        InputField.Select();
-        
+        InputField.Select();        
     }
 
     public void ShowResult()
@@ -322,16 +323,17 @@ public class IdiomsGameManager : MonoBehaviour
         //3.Translate Camera To Competitors.
         TranslateCamera(InitialCameraTransform, 0.3f);
 
+        //
+        AnswersResult();
+
         //4.Popup Prize Images.
         yield return new WaitForSeconds(0.5f);
         UIManager.PrizeImagesCanvas.SetActive(true);
         SetRandomPrizeDegree();
-        //SettingPrizesSprites();
         StartCoroutine(PopupPrizesSprites());
 
         //3.Translate Camera To Player.
         yield return new WaitForSeconds(2f);
-        //UIManager.PrizeImagesCanvas.SetActive(false);
         TranslateCamera(PlayerCameraTransform, 0.3f);
 
         //4.
@@ -346,20 +348,54 @@ public class IdiomsGameManager : MonoBehaviour
         GiftManager.IncreaseWheelSliderValue();
     }
 
-    public void ReloadScene()
+    private void UpdateCorrectAnswersNumber()
     {
-        StartCoroutine(ReloadSceneCorotinue());
+        NumberOfCorrectAnswers++;
     }
 
-    private IEnumerator ReloadSceneCorotinue()
+    private Character.CharacterPrizeDegree AnswersResult()
     {
-        UIManager.StartScreenFadeout(0.1f);
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(1);
+        Character.CharacterPrizeDegree characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+
+        switch (NumberOfCorrectAnswers)
+        {
+            case 0 :
+                {
+                    Debug.Log(NumberOfCorrectAnswers + "Correct Answer");
+                    characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+                    break;
+                }
+            case 1:
+                {
+                     Debug.Log(NumberOfCorrectAnswers + "Correct Answer");
+                    characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+                    break;
+                }
+            case 2:
+                {
+                     Debug.Log(NumberOfCorrectAnswers + "Correct Answer");
+                    characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                    break;
+                }
+            case 3:
+                {
+                     Debug.Log(NumberOfCorrectAnswers + "Correct Answer");
+                    characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                    break;
+                }
+            case 4:
+                {
+                     Debug.Log(NumberOfCorrectAnswers + "Correct Answer");
+                    characterPrizeDegree = Character.CharacterPrizeDegree.First;
+                    break;
+                }
+        }
+
+        return characterPrizeDegree;
     }
     #endregion
 
-    #region Testing Region
+    #region Coloring Region
     [Header("Coloring Region")]
     public GameObject IdiomTextCanvas;
 
@@ -385,13 +421,18 @@ public class IdiomsGameManager : MonoBehaviour
                 else
                 {
                     CurrentIdiom.Words[i].Text.color = Color.red;
+                    rightAnswer = false;
                 }
                 charIndex ++;
                 correctCharIndex++;
             }
-
-            //Debug.Log("Finished");
             yield return new WaitForSeconds(0f);
+        }
+
+        //Debug.Log(rightAnswer);
+        if (rightAnswer)
+        {
+            UpdateCorrectAnswersNumber();
         }
         
     }
@@ -438,8 +479,7 @@ public class IdiomsGameManager : MonoBehaviour
     //Setting RandomPrizeDegree.
     private void SetRandomPrizeDegree()
     {
-        int randomIndex = Random.Range(0, 2);
-        Characters[0].characterPrizeDegree = (Character.CharacterPrizeDegree)randomIndex;
+        Characters[0].characterPrizeDegree = AnswersResult();
 
         switch (Characters[0].characterPrizeDegree)
         {
@@ -494,5 +534,19 @@ public class IdiomsGameManager : MonoBehaviour
     }
 
 
+    #endregion
+
+    #region Scene Managment Region
+    public void ReloadScene()
+    {
+        StartCoroutine(ReloadSceneCorotinue());
+    }
+
+    private IEnumerator ReloadSceneCorotinue()
+    {
+        UIManager.StartScreenFadeout(0.1f);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(1);
+    }
     #endregion
 }
