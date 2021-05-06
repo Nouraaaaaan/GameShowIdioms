@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AdsManager
+    - CashManager
     - Character
     - CharacterChoosingManager
     - CursorManager
@@ -16,8 +17,6 @@ ScriptsOnlyBuild:
     - UIManager
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
-    GoogleMobileAds.dll:
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -97,13 +96,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12148}
     - Class: 114
-      Script: {instanceID: 12328}
+      Script: {instanceID: 12658}
     - Class: 114
-      Script: {instanceID: 12660}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 12706}
-    - Class: 114
-      Script: {instanceID: 12894}
+      Script: {instanceID: 12892}
     - Class: 114
       Script: {instanceID: 13176}
     - Class: 114
@@ -117,17 +114,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13518}
     - Class: 114
-      Script: {instanceID: 13840}
+      Script: {instanceID: 13842}
     - Class: 114
-      Script: {instanceID: 13952}
+      Script: {instanceID: 13954}
     - Class: 114
-      Script: {instanceID: 14042}
+      Script: {instanceID: 14044}
     - Class: 114
-      Script: {instanceID: 14212}
+      Script: {instanceID: 14214}
     - Class: 114
-      Script: {instanceID: 14294}
+      Script: {instanceID: 14296}
     - Class: 114
-      Script: {instanceID: 14352}
+      Script: {instanceID: 14354}
+    - Class: 114
+      Script: {instanceID: 17028}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -206,17 +205,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12312}
     - Class: 114
-      Script: {instanceID: 12328}
+      Script: {instanceID: 12416}
     - Class: 114
-      Script: {instanceID: 12418}
+      Script: {instanceID: 12658}
     - Class: 114
-      Script: {instanceID: 12660}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 12894}
+      Script: {instanceID: 12936}
     - Class: 114
-      Script: {instanceID: 12938}
-    - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 12952}
     - Class: 114
       Script: {instanceID: 13222}
     - Class: 114
@@ -228,25 +225,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13602}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13726}
     - Class: 114
-      Script: {instanceID: 13840}
+      Script: {instanceID: 13766}
     - Class: 114
-      Script: {instanceID: 13878}
+      Script: {instanceID: 13842}
     - Class: 114
-      Script: {instanceID: 13952}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 14212}
+      Script: {instanceID: 13954}
     - Class: 114
-      Script: {instanceID: 14234}
+      Script: {instanceID: 14214}
     - Class: 114
-      Script: {instanceID: 14294}
+      Script: {instanceID: 14236}
     - Class: 114
-      Script: {instanceID: 14336}
+      Script: {instanceID: 14296}
     - Class: 114
-      Script: {instanceID: 14352}
+      Script: {instanceID: 14338}
+    - Class: 114
+      Script: {instanceID: 14354}
+    - Class: 114
+      Script: {instanceID: 14844}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -450,12 +451,6 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 54d107ea7148887c15f55ce569e0318c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AdsManager
-  - hash:
-      serializedVersion: 2
       Hash: b6894215a42cb0ce46cd3c2a651ac089
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -631,6 +626,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinsManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
@@ -738,6 +739,12 @@ ScriptsOnlyBuild:
     className: PathBezier
   - hash:
       serializedVersion: 2
+      Hash: bb8b9450082f2ccf5738a63c74f85a80
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CashManager
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -762,7 +769,7 @@ ScriptsOnlyBuild:
     className: MobileAdsEventExecutor
   - hash:
       serializedVersion: 2
-      Hash: 15a8e5a1ec6a4d65504f5247a4fd671b
+      Hash: 4fe48af6ccf1165e798198efc1da0a4b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -946,6 +953,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 54d107ea7148887c15f55ce569e0318c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AdsManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/CharacterChoosing.unity

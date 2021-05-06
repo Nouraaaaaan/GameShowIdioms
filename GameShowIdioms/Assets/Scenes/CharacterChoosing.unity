@@ -592,7 +592,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 578256022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689471e25e026634da6608429a56ce73, type: 3}
+  m_Script: {fileID: 11500000, guid: 1829fcf8176d82b48b0a6c83c4e98843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelsToPlayAD: 3
@@ -2474,6 +2474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 787046009}
   MusicAudioSource: {fileID: 0}
+  ExtraMusicAudioSource: {fileID: 0}
   AudioClips:
   - {fileID: 8300000, guid: 16989a02b1459a74c823aff208a979c8, type: 3}
   - {fileID: 8300000, guid: eec28823b378f234bb7319feb67713f3, type: 3}
