@@ -19,6 +19,7 @@ public class SFXManager : MonoBehaviour
     
     public AudioSource AudioSource;
     public AudioSource MusicAudioSource;
+    public AudioSource ExtraMusicAudioSource;
     public AudioClip[] AudioClips;
 
     public GameObject MusicOnButton;
@@ -55,6 +56,7 @@ public class SFXManager : MonoBehaviour
             TurnOffSFX();
         }
     }
+
     public void PlaySoundEffect(int index)
     {
         /*if (CanPlaySFX)
@@ -73,6 +75,54 @@ public class SFXManager : MonoBehaviour
     public void StopSoundEffect()
     {
         AudioSource.Stop();
+    }
+
+    public void PlayMusic(int index, bool playExtraMusic, int extraMusicIndex)
+    {
+        MusicAudioSource.volume = 1;
+        MusicAudioSource.clip = AudioClips[index];
+        MusicAudioSource.Play();
+
+        if (playExtraMusic)
+        {
+            ExtraMusicAudioSource.volume = 0.8f;
+            ExtraMusicAudioSource.clip = AudioClips[extraMusicIndex];
+            ExtraMusicAudioSource.Play();
+        }
+    }
+
+    public void StopMusic()
+    {
+        MusicAudioSource.Stop();
+        ExtraMusicAudioSource.Stop();
+    }
+
+    public void FadeOutMusic(float fadeoutSpeed)
+    {
+        StartCoroutine(FadeOutMusicCorotinue(fadeoutSpeed));
+    }
+
+    private IEnumerator FadeOutMusicCorotinue(float fadeoutSpeed)
+    {
+        while (MusicAudioSource.volume != 0)
+        {
+            MusicAudioSource.volume -= fadeoutSpeed;
+            yield return null;
+        }
+    }
+
+    public void FadeOutExtraMusic(float fadeoutSpeed)
+    {
+        StartCoroutine(FadeOutExtraMusicCorotinue(fadeoutSpeed));
+    }
+
+    private IEnumerator FadeOutExtraMusicCorotinue(float fadeoutSpeed)
+    {
+        while (ExtraMusicAudioSource.volume != 0)
+        {
+            ExtraMusicAudioSource.volume -= fadeoutSpeed;
+            yield return null;
+        }
     }
 
     public void StopLoopingOption()

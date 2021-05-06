@@ -37,7 +37,7 @@ public class IdiomsGameManager : MonoBehaviour
     public bool Finished;
     private int DisplayedIdiomNumber = 0;   //when DisplayedIdiomNumber = 4, finish current round.
     private List<int> randomList;           //use this list to pick 4 random idioms foreach round.
-    private bool rightAnswer = true;        //Is current answer is correct ?
+    //private bool rightAnswer = true;        //Is current answer is correct ?
     private int NumberOfCorrectAnswers = 0; //number of correct answers per round.
 
     [Header("Text Matching Attributes")]
@@ -110,6 +110,10 @@ public class IdiomsGameManager : MonoBehaviour
         SetChoosenCharacterType((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex);
         SetCharactersPostions();
         SetCharactersNames(SaveManager.SaveObject.PlayerName);
+
+        //Play background music.
+        //SFXManager.Instance.PlayMusic(5, true, 6);
+
     }
     #endregion
 
@@ -218,10 +222,13 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.PopupPresenterSpeechBubble();
         yield return new WaitForSeconds(2.5f);
         UIManager.FadeAwayPresenterSpeechBubble();
+        SFXManager.Instance.FadeOutMusic(0.05f);
+        SFXManager.Instance.FadeOutExtraMusic(0.05f);
 
         //Translate Camera To Screen.
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         TranslateCamera(ScreenCameraTransform, 0.5f);
+        SFXManager.Instance.PlayMusic(7, false, 0);
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
@@ -232,27 +239,6 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.HintButtonCanvas.SetActive(true);
 
         StartCoroutine(CounterCorotinue());       
-    }
-    #endregion
-
-    #region Text Matching Region
-    public void CheckEnteredPhrase()
-    {
-        if (StringMatch(EnterText, CurrentIdiom.CorrectPhrase))
-        {
-            Debug.Log("Correct Phrase !");
-        }
-        else
-        {
-            Debug.Log("Wrong Phrase !");
-        }
-
-        TranslateCamera(PlayerCameraTransform, 1);
-    }
-
-    public bool StringMatch(string enteredString, string correctString)
-    {
-        return (string.Equals(enteredString, correctString));
     }
     #endregion
 
@@ -274,15 +260,22 @@ public class IdiomsGameManager : MonoBehaviour
     private IEnumerator DisplayNextIdiomCorotinue()
     {
         //1.Color Text.
-        ColorAllTextTest();
-        SFXManager.Instance.PlaySoundEffect(3);
+        ColorAllTextTest();       
+        if (CheckAnswer())
+        {
+            SFXManager.Instance.PlaySoundEffect(8);
+        }
+        else
+        {
+            SFXManager.Instance.PlaySoundEffect(9);
+        }
+        UpdateCorrectAnswersNumber();
         yield return new WaitForSeconds(1f);
 
         //2.Reset.
         CursorManager.CanEditText = false;
         CursorManager.CurrentFieldIndex = 0;
         InputField.text = "";
-        rightAnswer = true;
         for (int i = 0; i < CurrentIdiom.Words.Count; i++)
         {
             CurrentIdiom.Words[i].Text.text = "";
@@ -321,7 +314,15 @@ public class IdiomsGameManager : MonoBehaviour
 
         //1.Color Text.
         ColorAllTextTest();
-        SFXManager.Instance.PlaySoundEffect(3);
+        if (CheckAnswer())
+        {
+            SFXManager.Instance.PlaySoundEffect(8);
+        }
+        else
+        {
+            SFXManager.Instance.PlaySoundEffect(9);
+        }
+        UpdateCorrectAnswersNumber();
         yield return new WaitForSeconds(1f);
 
         //2.Disable Unneeded UI.
@@ -329,6 +330,11 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.HintButtonCanvas.SetActive(false);
         IdiomTextCanvas.SetActive(false);
         InputField.DeactivateInputField();
+
+        //SFX.
+        SFXManager.Instance.FadeOutMusic(0.7f);
+        yield return new WaitForSeconds(0.1f);
+        SFXManager.Instance.PlayMusic(5, true, 6);
 
         //3.Translate Camera To Competitors.
         TranslateCamera(InitialCameraTransform, 0.3f);
@@ -344,9 +350,13 @@ public class IdiomsGameManager : MonoBehaviour
         TranslateCamera(PlayerCameraTransform, 0.3f);
 
         //4.
-        ConfettiShower.Play();
-        CurrentPlayerAnimator.SetBool("dance", true);
-        SFXManager.Instance.PlaySoundEffect(2);
+        if (Characters[0].characterPrizeDegree == Character.CharacterPrizeDegree.First)
+        {
+            ConfettiShower.Play();
+            CurrentPlayerAnimator.SetBool("dance", true);
+            SFXManager.Instance.PlaySoundEffect(2);
+        }
+        
 
         //5.show Round End ui.
         UIManager.RoundEndCanvas.gameObject.SetActive(true);
@@ -359,7 +369,10 @@ public class IdiomsGameManager : MonoBehaviour
 
     private void UpdateCorrectAnswersNumber()
     {
-        NumberOfCorrectAnswers++;
+        if (CheckAnswer())
+        {
+            NumberOfCorrectAnswers++;
+        }
     }
 
     private Character.CharacterPrizeDegree AnswersResult()
@@ -431,20 +444,12 @@ public class IdiomsGameManager : MonoBehaviour
                 else
                 {
                     CurrentIdiom.Words[i].Text.color = Color.red;
-                    rightAnswer = false;
                 }
                 charIndex ++;
                 correctCharIndex++;
             }
             yield return new WaitForSeconds(0f);
         }
-
-        //Debug.Log(rightAnswer);
-        if (rightAnswer)
-        {
-            UpdateCorrectAnswersNumber();
-        }
-        
     }
     #endregion
 
@@ -486,6 +491,14 @@ public class IdiomsGameManager : MonoBehaviour
 
         //4.Save Hints Value.
         hintsManager.SaveHintsValue();
+
+        
+    }
+
+    private void LateUpdate()
+    {
+
+        InputField.MoveToEndOfLine(false, false);
     }
 
     private void PlayPopupAnimation(GameObject obj)
@@ -614,5 +627,18 @@ public class IdiomsGameManager : MonoBehaviour
     }
 
     #endregion
+
+    private bool CheckAnswer()
+    {
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
+        {
+            if (!CurrentIdiom.Words[i].Text.text.Equals(CurrentIdiom.Words[i].WordCorrectPhrase))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 }

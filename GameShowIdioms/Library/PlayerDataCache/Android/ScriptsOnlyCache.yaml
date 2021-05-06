@@ -16,6 +16,8 @@ ScriptsOnlyBuild:
     - UIManager
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
+    GoogleMobileAds.dll:
+    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -574,7 +576,7 @@ ScriptsOnlyBuild:
     className: PathSplinePerformance
   - hash:
       serializedVersion: 2
-      Hash: 316f32fca3b8198fe267ca9e0ba5cda4
+      Hash: 3e7fb20ca1efc116c3c592eac5b5c71f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SFXManager
