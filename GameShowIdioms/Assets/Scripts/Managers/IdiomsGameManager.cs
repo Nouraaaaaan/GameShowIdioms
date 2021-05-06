@@ -55,10 +55,12 @@ public class IdiomsGameManager : MonoBehaviour
     [Header("Characters Atrributes")]
     public Character[] Characters;
     public Character.CharacterType ChoosenCharacterType;
+    private int choosenCharacterIndex;
     public Transform[] CharactersPositions;            //from right to left.
     public Text[] CharactersNamesText;                 //from right to left.
     public Image[] CharactersPrizeImages;
     public Text[] CharactersScoresText;
+
 
     [Header("VFX")]
     public ParticleSystem ConfettiShower;
@@ -110,6 +112,7 @@ public class IdiomsGameManager : MonoBehaviour
         SetChoosenCharacterType((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex);
         SetCharactersPostions();
         SetCharactersNames(SaveManager.SaveObject.PlayerName);
+        SwapChoosenCharacter(SetChoosenCharacterIndex((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex));
 
         //Play background music.
         //SFXManager.Instance.PlayMusic(5, true, 6);
@@ -148,6 +151,34 @@ public class IdiomsGameManager : MonoBehaviour
     {
         ChoosenCharacterType = characterType;
     }
+
+    private int SetChoosenCharacterIndex(Character.CharacterType characterType)
+    {
+        switch (characterType)
+        {
+            case Character.CharacterType.NerdGirl:
+                choosenCharacterIndex = 0;
+                break;
+            case Character.CharacterType.FakeGirl:
+                choosenCharacterIndex = 1;
+                break;
+            case Character.CharacterType.BladMan:
+                choosenCharacterIndex = 2;
+                break;
+            default:
+                break;
+        }
+
+        return choosenCharacterIndex;
+    }
+
+    private void SwapChoosenCharacter(int choosenCharacterIndex)
+    {
+        Character temp = Characters[0];
+        Characters[0] = Characters[choosenCharacterIndex];
+        Characters[choosenCharacterIndex] = temp;
+    }
+
     public void SetCharactersPostions()
     {
         int otherCharactersIndex = 1;
