@@ -2188,7 +2188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &116535477
 Transform:
   m_ObjectHideFlags: 0
@@ -4860,7 +4860,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 215.60645, y: 182.51295}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6385,7 +6385,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 318, y: 89}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385271780
 MonoBehaviour:
@@ -8324,7 +8324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &484049190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10520,6 +10520,7 @@ MonoBehaviour:
   SaveManager: {fileID: 1484847923}
   GiftManager: {fileID: 566728098}
   hintsManager: {fileID: 518214745}
+  cashManager: {fileID: 730298892}
   Idioms:
   - {fileID: 266630408}
   - {fileID: 1901331035}
@@ -12044,9 +12045,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1171124494}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnclickNextButton
+      - m_Target: {fileID: 590778897}
+        m_TargetAssemblyTypeName: IdiomsGameManager, Assembly-CSharp
+        m_MethodName: OnClickTripleButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13204,7 +13205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &701371937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13298,7 +13299,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701371936}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -13716,8 +13717,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 730298891}
+  - component: {fileID: 730298892}
   m_Layer: 0
-  m_Name: CoinsManager
+  m_Name: CashManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13737,6 +13739,24 @@ Transform:
   m_Father: {fileID: 2075554449}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730298892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730298890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 450da5dadc97b4b43bb7ef853fca4fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentCash: 0
+  EarnedCash: 0
+  CashText: {fileID: 2083027127}
+  EarnCashEnoughtButtonText: {fileID: 391204817}
+  EarnCashButtonText: {fileID: 1587987846}
+  CashVFX: {fileID: 0}
 --- !u!1 &733852925
 GameObject:
   m_ObjectHideFlags: 0
@@ -16315,7 +16335,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22555,7 +22575,7 @@ GameObject:
   - component: {fileID: 1329357848}
   - component: {fileID: 1329357847}
   m_Layer: 0
-  m_Name: CoinsButton
+  m_Name: EnoughCoinsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22625,9 +22645,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1171124494}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnclickNextButton
+      - m_Target: {fileID: 590778897}
+        m_TargetAssemblyTypeName: IdiomsGameManager, Assembly-CSharp
+        m_MethodName: OnclickEnoughButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25154,7 +25174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SaveObject:
-    PlayerCash: 0
+    PlayerCash: 300
     HintsNumber: 1
     RoundNumber: 1
     WheelValue: 0
@@ -27279,6 +27299,7 @@ GameObject:
   - component: {fileID: 1587987845}
   - component: {fileID: 1587987847}
   - component: {fileID: 1587987846}
+  - component: {fileID: 1587987848}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -27303,7 +27324,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38.612762, y: 73.41931}
+  m_SizeDelta: {x: 36, y: 73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587987846
 MonoBehaviour:
@@ -27347,6 +27368,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587987844}
   m_CullTransparentMesh: 0
+--- !u!114 &1587987848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587987844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &1596490254
 GameObject:
   m_ObjectHideFlags: 0
@@ -35941,7 +35976,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 15.9, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 36, y: 73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083027126
 MonoBehaviour:

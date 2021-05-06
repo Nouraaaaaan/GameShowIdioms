@@ -150,11 +150,11 @@ public class UIManager : MonoBehaviour
         IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 1;
         IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
 
-        //
-        //IdiomsGameManager.Instance.GiftManager.OpenGift();
+        //2.disable claim gift ui.
+        ClaimGiftCanvas.SetActive(false);
 
-        //2.Reload Scene.
-        IdiomsGameManager.Instance.ReloadScene();
+        //3.enable round end ui.
+        RoundEndCanvas.gameObject.SetActive(true);
     }
 
     public void OnClickTripleGiftButton()

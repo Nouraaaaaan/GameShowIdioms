@@ -29,6 +29,7 @@ public class IdiomsGameManager : MonoBehaviour
     public SaveTest SaveManager;
     public GiftManager GiftManager;
     public HintsManager hintsManager;
+    public CashManager cashManager;
 
     [Header("Current Idiom Attributes")]
     public Idiom[] Idioms;
@@ -394,6 +395,8 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.StartRoundEndCanvasFadeout(0.08f);
         GiftManager.UpdateCurrentSliderValue();
         GiftManager.IncreaseWheelSliderValue();
+        cashManager.UpdateEarnCashButtonText(int.Parse(CharactersScoresText[0].text));            //update ui with earned coins.
+        cashManager.UpdateEarnCashEnoughtButtonText(int.Parse(CharactersScoresText[0].text));
 
         UIManager.UpdateRoundNumber(); //update round number
     }
@@ -671,5 +674,23 @@ public class IdiomsGameManager : MonoBehaviour
 
         return true;
     }
+
+    #region Cash Region
+    public void OnclickEnoughButton()
+    {
+        int newCashValue = cashManager.CurrentCash + int.Parse(CharactersScoresText[0].text);
+        cashManager.UpdateCashValue(newCashValue);
+        cashManager.SaveCashValue();
+        ReloadScene();
+    }
+
+    public void OnClickTripleButton()
+    {
+        int newCashValue = cashManager.CurrentCash + (int.Parse(CharactersScoresText[0].text) * 3);
+        cashManager.UpdateCashValue(newCashValue);
+        cashManager.SaveCashValue();
+        ReloadScene();
+    }
+    #endregion
 
 }
