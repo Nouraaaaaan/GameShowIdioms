@@ -58,6 +58,7 @@ public class IdiomsGameManager : MonoBehaviour
     public Transform[] CharactersPositions;            //from right to left.
     public Text[] CharactersNamesText;                 //from right to left.
     public Image[] CharactersPrizeImages;
+    public Text[] CharactersScoresText;
 
     [Header("VFX")]
     public ParticleSystem ConfettiShower;
@@ -200,7 +201,8 @@ public class IdiomsGameManager : MonoBehaviour
 
     private IEnumerator StartRoundCorotinue()
     {
-        //Popup Round Number.     
+        //Popup Round Number.
+        UIManager.SetRoundNumber();
         UIManager.PopupRoundNumber();
 
         //Play Round Number Animation.
@@ -326,6 +328,7 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.SubmitButtonCanvas.SetActive(false);
         UIManager.HintButtonCanvas.SetActive(false);
         IdiomTextCanvas.SetActive(false);
+        InputField.DeactivateInputField();
 
         //3.Translate Camera To Competitors.
         TranslateCamera(InitialCameraTransform, 0.3f);
@@ -345,11 +348,13 @@ public class IdiomsGameManager : MonoBehaviour
         CurrentPlayerAnimator.SetBool("dance", true);
         SFXManager.Instance.PlaySoundEffect(2);
 
-        //5.show roundend ui.
+        //5.show Round End ui.
         UIManager.RoundEndCanvas.gameObject.SetActive(true);
         UIManager.StartRoundEndCanvasFadeout(0.08f);
         GiftManager.UpdateCurrentSliderValue();
         GiftManager.IncreaseWheelSliderValue();
+
+        UIManager.UpdateRoundNumber(); //update round number
     }
 
     private void UpdateCorrectAnswersNumber()
@@ -458,16 +463,22 @@ public class IdiomsGameManager : MonoBehaviour
         }
 
         //3.Show hints char at letter we're currently standing at.
-        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase; //show correct char.
-
+        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
         CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
-
         GameObject TextObj = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
-        TextObj.transform.localScale = Vector3.zero;
-        LeanTween.scale(TextObj, new Vector3(1.4f, 1.4f, 1.4f), 0.5f);
-        LeanTween.scale(TextObj, new Vector3(1f, 1f, 1f), 0.5f).setDelay(0.5f);
-
+        PlayPopupAnimation(TextObj);
         InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+
+        //Debug.Log("CursorManager.CurrentFieldIndex" + CursorManager.CurrentFieldIndex);
+        if (CursorManager.CurrentFieldIndex < CurrentIdiom.Words.Count)
+        {
+            CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+            CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
+            GameObject TextObj2 = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
+            PlayPopupAnimation(TextObj2);
+            InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+        }
+        
 
         SFXManager.Instance.StopSoundEffect();                                                      //play SFX.
         SFXManager.Instance.PlaySoundEffect(3);
@@ -475,6 +486,13 @@ public class IdiomsGameManager : MonoBehaviour
 
         //4.Save Hints Value.
         hintsManager.SaveHintsValue();
+    }
+
+    private void PlayPopupAnimation(GameObject obj)
+    {
+        obj.transform.localScale = Vector3.zero;
+        LeanTween.scale(obj, new Vector3(1.4f, 1.4f, 1.4f), 0.5f);
+        LeanTween.scale(obj, new Vector3(1f, 1f, 1f), 0.5f).setDelay(0.5f);
     }
 
     #endregion
@@ -502,6 +520,7 @@ public class IdiomsGameManager : MonoBehaviour
                 break;
         }
         SettingPrizesSprites();
+        SettingPrizesScores();
     }
 
 
@@ -538,6 +557,27 @@ public class IdiomsGameManager : MonoBehaviour
         }
     }
 
+    //---------------------------------------------//
+    //Setting Prizes Scores.
+    private void SettingPrizesScores()
+    {
+        foreach (var character in Characters)
+        {
+            switch (character.characterPrizeDegree)
+            {
+                case Character.CharacterPrizeDegree.First:
+                    CharactersScoresText[character.CharacterIndex].text = "200";
+                    break;
+                case Character.CharacterPrizeDegree.Second:
+                    CharactersScoresText[character.CharacterIndex].text = "150";
+                    break;
+                case Character.CharacterPrizeDegree.Third:
+                    CharactersScoresText[character.CharacterIndex].text = "100";
+                    break;
+            }
+        }
+
+    }
 
     #endregion
 
@@ -562,10 +602,10 @@ public class IdiomsGameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             counterValue++;
-            Debug.Log("counterValue : " + counterValue);
+            //Debug.Log("counterValue : " + counterValue);
         }
 
-        Debug.Log("Counter Was Stopped !");
+        //Debug.Log("Counter Was Stopped !");
     }
 
     private bool CheckForTimeBouns()

@@ -1992,11 +1992,12 @@ MonoBehaviour:
   SaveObject:
     PlayerCash: 0
     HintsNumber: 1
-    LevelNumber: 0
+    RoundNumber: 1
     WheelValue: 0
     CanPlayMusic: 0
     CanPlaySFX: 0
-    CharacterType: 
+    CharacterTypeIndex: 0
+    PlayerName: 
 --- !u!1 &1501917026
 GameObject:
   m_ObjectHideFlags: 0

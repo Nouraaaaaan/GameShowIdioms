@@ -8,11 +8,11 @@ public class SaveObject
     //Saved Cash.
     public int PlayerCash;
 
-    //Saved Cash.
+    //Saved HintsNumber.
     public int HintsNumber;
 
     //Saved Levels.
-    public int LevelNumber;
+    public int RoundNumber;
 
     //Saved Wheel Value;
     public float WheelValue;

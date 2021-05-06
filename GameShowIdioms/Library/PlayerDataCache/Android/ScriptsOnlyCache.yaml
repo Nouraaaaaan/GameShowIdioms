@@ -16,8 +16,6 @@ ScriptsOnlyBuild:
     - UIManager
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
-    GoogleMobileAds.dll:
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -30,10 +28,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -55,6 +51,101 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/CharacterChoosing.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11882}
+    - Class: 114
+      Script: {instanceID: 11948}
+    - Class: 114
+      Script: {instanceID: 12092}
+    - Class: 114
+      Script: {instanceID: 12102}
+    - Class: 114
+      Script: {instanceID: 12148}
+    - Class: 114
+      Script: {instanceID: 12328}
+    - Class: 114
+      Script: {instanceID: 12660}
+    - Class: 114
+      Script: {instanceID: 12706}
+    - Class: 114
+      Script: {instanceID: 12894}
+    - Class: 114
+      Script: {instanceID: 13176}
+    - Class: 114
+      Script: {instanceID: 13222}
+    - Class: 114
+      Script: {instanceID: 13464}
+    - Class: 114
+      Script: {instanceID: 13476}
+    - Class: 114
+      Script: {instanceID: 13502}
+    - Class: 114
+      Script: {instanceID: 13518}
+    - Class: 114
+      Script: {instanceID: 13840}
+    - Class: 114
+      Script: {instanceID: 13952}
+    - Class: 114
+      Script: {instanceID: 14042}
+    - Class: 114
+      Script: {instanceID: 14212}
+    - Class: 114
+      Script: {instanceID: 14294}
+    - Class: 114
+      Script: {instanceID: 14352}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
     Assets/Scenes/Game Show scene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -73,8 +164,6 @@ ScriptsOnlyBuild:
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -121,15 +210,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12706}
-    - Class: 114
       Script: {instanceID: 12894}
     - Class: 114
       Script: {instanceID: 12938}
     - Class: 114
       Script: {instanceID: 12954}
-    - Class: 114
-      Script: {instanceID: 13176}
     - Class: 114
       Script: {instanceID: 13222}
     - Class: 114
@@ -141,8 +226,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13518}
-    - Class: 114
       Script: {instanceID: 13724}
     - Class: 114
       Script: {instanceID: 13764}
@@ -152,8 +235,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13878}
     - Class: 114
       Script: {instanceID: 13952}
-    - Class: 114
-      Script: {instanceID: 14042}
     - Class: 114
       Script: {instanceID: 14212}
     - Class: 114
@@ -229,7 +310,7 @@ ScriptsOnlyBuild:
     className: GeneralBasics2d
   - hash:
       serializedVersion: 2
-      Hash: 20efc39b22c6b06b3a85af6cbd24b118
+      Hash: 5ad64ee2944cc5a3fee2067cb7a960f9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Character
@@ -607,7 +688,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 4f654e2ed09e3a32d70230ea5f03df51
+      Hash: 1fb0f9c75088d5d80ba2a4a7a9fd886f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CharacterChoosingManager
@@ -679,7 +760,7 @@ ScriptsOnlyBuild:
     className: MobileAdsEventExecutor
   - hash:
       serializedVersion: 2
-      Hash: bed2af7b32616fe9153cb8e7e4b16594
+      Hash: 15a8e5a1ec6a4d65504f5247a4fd671b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -715,7 +796,7 @@ ScriptsOnlyBuild:
     className: CursorManager
   - hash:
       serializedVersion: 2
-      Hash: 7d328c05384ad83a04d48bc4078357fb
+      Hash: 73135db87a2dfbd7237bb10d213017fa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SaveTest
@@ -865,5 +946,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
+  - Assets/Scenes/CharacterChoosing.unity
   - Assets/Scenes/Game Show scene.unity
   playerPath: C:/Users/DELL/Desktop/Idioms.apk

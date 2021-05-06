@@ -56,6 +56,11 @@ public class UIManager : MonoBehaviour
     }
 
     #region Round Number Region
+    public void SetRoundNumber()
+    {
+        RoundNumber.text = "Round " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
+    }
+
     public void PopupRoundNumber()
     {
         LeanTween.scale(RoundNumber.gameObject, new Vector3(1f, 1f, 1f), 0.3f);
@@ -65,6 +70,12 @@ public class UIManager : MonoBehaviour
     {
         LeanTween.rotateAround(RoundNumber.gameObject, RoundNumber.gameObject.transform.forward, 360, 0.5f);
         LeanTween.scale(RoundNumber.gameObject, new Vector3(0f, 0f, 0f), 0.5f);
+    }
+
+    public void UpdateRoundNumber()
+    {
+        IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber ++;
+        IdiomsGameManager.Instance.SaveManager.Save();
     }
 
     #endregion
