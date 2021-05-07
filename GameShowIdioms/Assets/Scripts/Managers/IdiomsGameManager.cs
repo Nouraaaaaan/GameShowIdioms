@@ -115,6 +115,10 @@ public class IdiomsGameManager : MonoBehaviour
         SetCharactersNames(SaveManager.SaveObject.PlayerName);
         SwapChoosenCharacter(SetChoosenCharacterIndex((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex));
 
+        //Set Cash.
+        cashManager.LoadSavedCashValue();
+        UIManager.UpdateHintButtons(cashManager.CurrentCash);
+
         //Play background music.
         //SFXManager.Instance.PlayMusic(5, true, 6);
 
@@ -527,6 +531,19 @@ public class IdiomsGameManager : MonoBehaviour
         hintsManager.SaveHintsValue();
 
         
+    }
+
+    public void ShowOneHintLetter()
+    {
+        //3.Show hints char at letter we're currently standing at.
+        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
+        GameObject TextObj = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
+        PlayPopupAnimation(TextObj);
+        InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+
+        SFXManager.Instance.StopSoundEffect();                                                      //play SFX.
+        SFXManager.Instance.PlaySoundEffect(3);       
     }
 
     private void LateUpdate()

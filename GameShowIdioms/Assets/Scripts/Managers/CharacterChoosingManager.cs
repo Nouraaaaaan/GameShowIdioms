@@ -33,6 +33,9 @@ public class CharacterChoosingManager : MonoBehaviour
         {
             SaveManager.Save();
         }
+
+        //load saved values.
+        SaveManager.Load();
     }
 
     private void Start()

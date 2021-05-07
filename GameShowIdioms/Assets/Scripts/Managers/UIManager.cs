@@ -39,6 +39,9 @@ public class UIManager : MonoBehaviour
     [Header("Gift Canvas")]
     public GameObject GiftCanvas;
     public GameObject ClaimGiftCanvas;
+
+    [Header("Hint Buttons Canvas")]
+    public HintButton[] HintButtons;
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()
@@ -168,6 +171,39 @@ public class UIManager : MonoBehaviour
 
         //2.Reload Scene.
         IdiomsGameManager.Instance.ReloadScene();
+    }
+    #endregion
+
+    #region Hint Buttons
+    public void UpdateHintButtons(int currentCashValue)
+    {
+        foreach (var hintButton in HintButtons)
+        {
+            if (hintButton.MinCashValue > currentCashValue)
+            {
+                hintButton.DeactivateHindButton();
+            }
+        }
+    }
+
+    public void onClickAdsHintButton()
+    {
+        AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.ShowOneLetter);
+    }
+
+    public void OnClickShowOneHintLetter()
+    {
+        //1.Show Hint Letter.
+        IdiomsGameManager.Instance.ShowOneHintLetter();
+
+        //2.Decrease Current Cash.
+        IdiomsGameManager.Instance.cashManager.CurrentCash -= 100;
+
+        //3.Save Current Cash.
+        IdiomsGameManager.Instance.cashManager.SaveCashValue();
+
+        //4.Update Hint Buttons.
+        UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
     }
     #endregion
 }
