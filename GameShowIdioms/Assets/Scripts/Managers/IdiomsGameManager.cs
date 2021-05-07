@@ -22,7 +22,7 @@ public class IdiomsGameManager : MonoBehaviour
     
     [Header("Managers Attributes")]
     public UIManager UIManager;
-    public KeyboardManager keyboardManager;
+    public KeyBoardManager KeyBoardManager;
     public GameSceneManager GameSceneManager;
     public CharacterChoosingManager CharacterChoosingManager;
     public CursorManager CursorManager;
@@ -269,7 +269,8 @@ public class IdiomsGameManager : MonoBehaviour
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
         CurrentIdiom.IdiomCanvas.SetActive(true);
-        InputField.Select();
+        //InputField.Select();                           //open InputField KeyBoard.
+        UIManager.CustomKeyBoardCanvas.SetActive(true);  //open Custom KeyBoard.
         CurrentIdiom.Words[0].Caret.SetActive(true);
         LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
         UIManager.HintButtonCanvas.SetActive(true);
@@ -506,20 +507,22 @@ public class IdiomsGameManager : MonoBehaviour
         }
 
         //3.Show hints char at letter we're currently standing at.
-        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+        //CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+        KeyBoardManager.AddNewLetter(CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase); //show correct char.
         CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
         GameObject TextObj = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
         PlayPopupAnimation(TextObj);
-        InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+        //InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
 
         //Debug.Log("CursorManager.CurrentFieldIndex" + CursorManager.CurrentFieldIndex);
         if (CursorManager.CurrentFieldIndex < CurrentIdiom.Words.Count)
         {
-            CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+            //CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+            KeyBoardManager.AddNewLetter(CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase); //show correct char.
             CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
             GameObject TextObj2 = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
             PlayPopupAnimation(TextObj2);
-            InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+            //InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
         }
         
 
@@ -535,22 +538,25 @@ public class IdiomsGameManager : MonoBehaviour
 
     public void ShowOneHintLetter()
     {
-        //3.Show hints char at letter we're currently standing at.
-        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
-        CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
-        GameObject TextObj = CurrentIdiom.Words[CursorManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
+        //Show hints char at letter we're currently standing at.
+        CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+        CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
+        GameObject TextObj = CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
         PlayPopupAnimation(TextObj);
-        InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
+        //InputField.text += CurrentIdiom.Words[CursorManager.CurrentFieldIndex].WordCorrectPhrase;   //update inputfield text.
 
         SFXManager.Instance.StopSoundEffect();                                                      //play SFX.
-        SFXManager.Instance.PlaySoundEffect(3);       
+        SFXManager.Instance.PlaySoundEffect(3);
+
+        KeyBoardManager.DisableCaret();
+        KeyBoardManager.CurrentFieldIndex++; //update CurrentFieldIndex.
     }
 
-    private void LateUpdate()
-    {
+    //private void LateUpdate()
+    //{
 
-        InputField.MoveToEndOfLine(false, false);
-    }
+    //    InputField.MoveToEndOfLine(false, false);
+    //}
 
     private void PlayPopupAnimation(GameObject obj)
     {
@@ -679,19 +685,6 @@ public class IdiomsGameManager : MonoBehaviour
 
     #endregion
 
-    private bool CheckAnswer()
-    {
-        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
-        {
-            if (!CurrentIdiom.Words[i].Text.text.Equals(CurrentIdiom.Words[i].WordCorrectPhrase))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     #region Cash Region
     public void OnclickEnoughButton()
     {
@@ -710,4 +703,16 @@ public class IdiomsGameManager : MonoBehaviour
     }
     #endregion
 
+    private bool CheckAnswer()
+    {
+        for (int i = 0; i < CurrentIdiom.Words.Count; i++)
+        {
+            if (!CurrentIdiom.Words[i].Text.text.Equals(CurrentIdiom.Words[i].WordCorrectPhrase))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 {
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Fields.
+    [Header("Custom Keyboard Canvas")]
+    public GameObject CustomKeyBoardCanvas;
+
     [Header("Start Button Canvas")]
     public GameObject StartButtonCanvas;
 

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
+    <Compile Include="Assets\Scripts\HintButton.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanSmooth.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanTest.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\Scripts\HintButton.cs" />
+    <Compile Include="Assets\KeyBoardManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
