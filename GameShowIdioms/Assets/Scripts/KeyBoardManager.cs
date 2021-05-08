@@ -78,6 +78,7 @@ public class KeyBoardManager : MonoBehaviour
             if (!CheckForlettersToErase())
             {
                 Debug.Log("There's no letters to erase");
+                EnableCaret(CurrentFieldIndex);
                 return;
             }
 

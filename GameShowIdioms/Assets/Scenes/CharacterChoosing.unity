@@ -1507,6 +1507,7 @@ MonoBehaviour:
   GiftCanvas: {fileID: 0}
   ClaimGiftCanvas: {fileID: 0}
   HintButtons: []
+  IdiomImageCanvas: {fileID: 0}
 --- !u!1 &1219973473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,7 +1993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SaveObject:
-    PlayerCash: 600
+    PlayerCash: 0
     HintsNumber: 1
     RoundNumber: 1
     WheelValue: 0

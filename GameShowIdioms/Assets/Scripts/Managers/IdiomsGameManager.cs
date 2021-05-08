@@ -553,20 +553,24 @@ public class IdiomsGameManager : MonoBehaviour
 
         KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
         KeyBoardManager.CurrentFieldIndex++; //update CurrentFieldIndex.
+        KeyBoardManager.EnableCaret(KeyBoardManager.CurrentFieldIndex); //show caret.
     }
 
     public void ShowAllHintLetters()
     {
-        //1.Erase all entered text.
-        //2.loop over all char, set correct char.
-        //3.Set color to green.
+        //1.disable caret.
+        KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
+
+        //2.Erase all entered text.
+        //3.loop over all char, set correct char.
+        //4.Set color to green.
         foreach (var letter in CurrentIdiom.Words)
         {
             letter.Text.text = letter.WordCorrectPhrase.ToUpper();
             letter.Text.color = Color.green;
         }
 
-        //3.Call submit function.
+        //5.Call submit function.
         onClickSubmitButton();
     }
 
