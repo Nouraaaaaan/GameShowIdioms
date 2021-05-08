@@ -402,6 +402,7 @@ public class IdiomsGameManager : MonoBehaviour
         GiftManager.IncreaseWheelSliderValue();
         cashManager.UpdateEarnCashButtonText(int.Parse(CharactersScoresText[0].text));            //update ui with earned coins.
         cashManager.UpdateEarnCashEnoughtButtonText(int.Parse(CharactersScoresText[0].text));
+        cashManager.UpdateCashText(cashManager.CurrentCash);
 
         UIManager.UpdateRoundNumber(); //update round number
     }
@@ -550,6 +551,51 @@ public class IdiomsGameManager : MonoBehaviour
 
         KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
         KeyBoardManager.CurrentFieldIndex++; //update CurrentFieldIndex.
+    }
+
+    public void ShowAllHintLetters()
+    {
+        //1.Erase all entered text.
+        //2.loop over all char, set correct char.
+        //3.Set color to green.
+        foreach (var letter in CurrentIdiom.Words)
+        {
+            letter.Text.text = letter.WordCorrectPhrase.ToUpper();
+            letter.Text.color = Color.green;
+        }
+
+        //3.Call submit function.
+        onClickSubmitButton();
+    }
+
+    public void ShowOneWord()
+    {
+        //1.reset pointer.
+        KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
+        KeyBoardManager.CurrentFieldIndex = 0;
+        //1.erase all.
+        foreach (var letter in CurrentIdiom.Words)
+        {
+            letter.Text.text = "";
+        }
+        //3.loop over correct phrase until find a space, update pointer, change color to green.
+        for (int i = 0; i < CurrentIdiom.CorrectPhrase.Length; i++)
+        {
+            if (CurrentIdiom.CorrectPhrase[i] == ' ')
+            {
+                break;
+            }
+            else
+            {
+                CurrentIdiom.Words[i].Text.text = CurrentIdiom.Words[i].WordCorrectPhrase.ToUpper();
+                CurrentIdiom.Words[i].Text.color = Color.green;
+                KeyBoardManager.CurrentFieldIndex++;
+            }
+        }
+        //4.SFX
+        SFXManager.Instance.PlaySoundEffect(3);
+        //5.enable caret.
+        KeyBoardManager.EnableCaret(KeyBoardManager.CurrentFieldIndex);
     }
 
     //private void LateUpdate()

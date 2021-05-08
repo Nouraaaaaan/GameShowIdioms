@@ -25062,7 +25062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &766919704
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25125,7 +25125,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 766919706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1171124494}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnClickShowAllHintLetters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &766919706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36416,7 +36428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -46.999817, y: -51}
+  m_AnchoredPosition: {x: -46.999878, y: -51}
   m_SizeDelta: {x: 1240.9756, y: 782.56396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116441446
@@ -40560,7 +40572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1256285495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50243,7 +50255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1540441298
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50306,7 +50318,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540441300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1171124494}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnClickShowOneWord
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1540441300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67480,7 +67504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a806fefbc907445b776fdf97795e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdiomSprite: {fileID: 21300000, guid: 8434b5b71247be84f92a5b1e6a549649, type: 3}
+  IdiomSprite: {fileID: 21300000, guid: e26259dcec03ed24b8c5f25fa40cf8f3, type: 3}
   CorrectPhrase: lend a hand
   Words:
   - Text: {fileID: 597465611}

@@ -209,5 +209,35 @@ public class UIManager : MonoBehaviour
         //4.Update Hint Buttons.
         UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
     }
+
+    public void OnClickShowAllHintLetters()
+    {
+        //1.Show Hint Letter.
+        IdiomsGameManager.Instance.ShowAllHintLetters();
+
+        //2.Decrease Current Cash.
+        IdiomsGameManager.Instance.cashManager.CurrentCash -= 300;
+
+        //3.Save Current Cash.
+        IdiomsGameManager.Instance.cashManager.SaveCashValue();
+
+        //4.Update Hint Buttons.
+        UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+    }
+
+    public void OnClickShowOneWord()
+    {
+        //1.Show Hint Letter.
+        IdiomsGameManager.Instance.ShowOneWord();
+
+        //2.Decrease Current Cash.
+        IdiomsGameManager.Instance.cashManager.CurrentCash -= 200;
+
+        //3.Save Current Cash.
+        IdiomsGameManager.Instance.cashManager.SaveCashValue();
+
+        //4.Update Hint Buttons.
+        UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+    }
     #endregion
 }
