@@ -156,8 +156,9 @@ public class UIManager : MonoBehaviour
         IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 1;
         IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
 
-        //2.disable claim gift ui.
+        //2.disable claim gift ui & gift obj.
         ClaimGiftCanvas.SetActive(false);
+        IdiomsGameManager.Instance.GiftManager.Gift.SetActive(false);
 
         //3.enable round end ui.
         RoundEndCanvas.gameObject.SetActive(true);

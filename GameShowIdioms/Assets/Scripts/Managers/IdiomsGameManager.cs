@@ -272,7 +272,7 @@ public class IdiomsGameManager : MonoBehaviour
         //InputField.Select();                           //open InputField KeyBoard.
         UIManager.CustomKeyBoardCanvas.SetActive(true);  //open Custom KeyBoard.
         CurrentIdiom.Words[0].Caret.SetActive(true);
-        LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
+        //LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
         UIManager.HintButtonCanvas.SetActive(true);
 
         StartCoroutine(CounterCorotinue());       
@@ -334,9 +334,8 @@ public class IdiomsGameManager : MonoBehaviour
         LeanTween.scale(IdiomImage.gameObject, new Vector3(1f, 1f, 1f), 0.2f); //pup-up IdiomImage.
         CurrentIdiom.IdiomCanvas.SetActive(true);
         CurrentIdiom.Words[0].Caret.SetActive(true);
-        LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
 
-        CursorManager.CanEditText = true;
+        KeyBoardManager.CanEditText = true;
         InputField.Select();        
     }
 
@@ -367,6 +366,7 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.HintButtonCanvas.SetActive(false);
         IdiomTextCanvas.SetActive(false);
         InputField.DeactivateInputField();
+        UIManager.CustomKeyBoardCanvas.SetActive(false);
 
         //SFX.
         SFXManager.Instance.FadeOutMusic(0.7f);
@@ -548,7 +548,7 @@ public class IdiomsGameManager : MonoBehaviour
         SFXManager.Instance.StopSoundEffect();                                                      //play SFX.
         SFXManager.Instance.PlaySoundEffect(3);
 
-        KeyBoardManager.DisableCaret();
+        KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
         KeyBoardManager.CurrentFieldIndex++; //update CurrentFieldIndex.
     }
 
@@ -707,7 +707,7 @@ public class IdiomsGameManager : MonoBehaviour
     {
         for (int i = 0; i < CurrentIdiom.Words.Count; i++)
         {
-            if (!CurrentIdiom.Words[i].Text.text.Equals(CurrentIdiom.Words[i].WordCorrectPhrase))
+            if (!CurrentIdiom.Words[i].Text.text.ToLower().Equals(CurrentIdiom.Words[i].WordCorrectPhrase))
             {
                 return false;
             }

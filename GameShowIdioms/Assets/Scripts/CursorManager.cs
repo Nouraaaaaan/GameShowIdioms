@@ -67,7 +67,7 @@ public class CursorManager : MonoBehaviour
                 if (CurrentFieldIndex < IdiomsGameManager.Instance.CurrentIdiom.Words.Count)
                 {
                     IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.SetActive(true);
-                    LeanTween.alpha(IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
+                    //LeanTween.alpha(IdiomsGameManager.Instance.CurrentIdiom.Words[CurrentFieldIndex].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
                 }
                 else
                 {
