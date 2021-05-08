@@ -289,7 +289,12 @@ public class AdsManager : MonoBehaviour
         {
             case RewardType.ShowOneLetter:
                 {
-                    IdiomsGameManager.Instance.OnclickHintsButton();
+                    IdiomsGameManager.Instance.ShowOneHintLetter();
+                }
+                break;
+            case RewardType.TripleCoins:
+                {
+                    IdiomsGameManager.Instance.TripleCoinsCallBack();
                 }
                 break;
 
@@ -310,6 +315,7 @@ public class AdsManager : MonoBehaviour
     #endregion
     public enum RewardType
     {
-        ShowOneLetter
+        ShowOneLetter,
+        TripleCoins
     }
 }

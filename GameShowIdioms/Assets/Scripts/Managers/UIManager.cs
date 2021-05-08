@@ -45,6 +45,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Hint Buttons Canvas")]
     public HintButton[] HintButtons;
+
+    [Header("Idiom Image Canvas")]
+    public GameObject IdiomImageCanvas;
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()

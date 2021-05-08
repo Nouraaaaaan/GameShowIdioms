@@ -274,6 +274,7 @@ public class IdiomsGameManager : MonoBehaviour
         CurrentIdiom.Words[0].Caret.SetActive(true);
         //LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
         UIManager.HintButtonCanvas.SetActive(true);
+        UIManager.IdiomImageCanvas.SetActive(true);
 
         StartCoroutine(CounterCorotinue());       
     }
@@ -367,6 +368,7 @@ public class IdiomsGameManager : MonoBehaviour
         IdiomTextCanvas.SetActive(false);
         InputField.DeactivateInputField();
         UIManager.CustomKeyBoardCanvas.SetActive(false);
+        UIManager.IdiomImageCanvas.SetActive(false);
 
         //SFX.
         SFXManager.Instance.FadeOutMusic(0.7f);
@@ -540,7 +542,7 @@ public class IdiomsGameManager : MonoBehaviour
     public void ShowOneHintLetter()
     {
         //Show hints char at letter we're currently standing at.
-        CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].WordCorrectPhrase;  //show correct char.
+        CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.text = CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].WordCorrectPhrase.ToUpper();  //show correct char.
         CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.color = Color.green;                //set char color to green.
         GameObject TextObj = CurrentIdiom.Words[KeyBoardManager.CurrentFieldIndex].Text.gameObject;    //play popup animation.
         PlayPopupAnimation(TextObj);
@@ -741,6 +743,11 @@ public class IdiomsGameManager : MonoBehaviour
     }
 
     public void OnClickTripleButton()
+    {
+        AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.TripleCoins);
+    }
+
+    public void TripleCoinsCallBack()
     {
         int newCashValue = cashManager.CurrentCash + (int.Parse(CharactersScoresText[0].text) * 3);
         cashManager.UpdateCashValue(newCashValue);
