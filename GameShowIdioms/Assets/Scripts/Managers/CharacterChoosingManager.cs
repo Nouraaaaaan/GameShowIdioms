@@ -11,6 +11,8 @@ public class CharacterChoosingManager : MonoBehaviour
     //Fields.
     [Header("Characters Attributes")]
     public Character[] Characters;
+    public Transform[] CharactersPositions;
+    public GameObject[] CharactersGroups;
     private int CurrentCharacterIndex;
     
     [Header("Player Name Attributes")]
@@ -20,7 +22,8 @@ public class CharacterChoosingManager : MonoBehaviour
     [Header("SaveManager Attributes")]
     public SaveTest SaveManager;
 
-
+    [Header("DotImages Attributes")]
+    public SpriteRenderer[] DotImages;
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
 
@@ -50,10 +53,10 @@ public class CharacterChoosingManager : MonoBehaviour
         SFXManager.Instance.PlaySoundEffect(0);
 
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
-
+        
         CurrentCharacterIndex++;
 
-        if (CurrentCharacterIndex < Characters.Length)
+        if (CurrentCharacterIndex < CharactersGroups.Length)
         {
             Characters[CurrentCharacterIndex].gameObject.SetActive(true);
         }
@@ -62,6 +65,9 @@ public class CharacterChoosingManager : MonoBehaviour
             CurrentCharacterIndex = 0;
             Characters[CurrentCharacterIndex].gameObject.SetActive(true);
         }
+
+        //SetAllDotsWhite();
+        //SetDotToBlack(CurrentCharacterIndex);
     }
 
     public void OnclickLeftArrowButton()
@@ -78,9 +84,12 @@ public class CharacterChoosingManager : MonoBehaviour
         }
         else
         {
-            CurrentCharacterIndex = Characters.Length - 1;
+            CurrentCharacterIndex = CharactersGroups.Length - 1;
             Characters[CurrentCharacterIndex].gameObject.SetActive(true);
         }
+
+        //SetAllDotsWhite();
+        //SetDotToBlack(CurrentCharacterIndex);
     }
     #endregion
 
@@ -113,8 +122,21 @@ public class CharacterChoosingManager : MonoBehaviour
     public void OnClickStartButton()
     {
         //1.
-        SavePlayerName();
+        //SavePlayerName();
         SaveChoosenCharacterType();
+
+        //
+        SaveManager.SaveObject.ShowNameInputField = true;
+        SaveManager.Save();
+
+        //
+        SaveManager.SaveObject.CanPlaySFX = true;
+        SaveManager.SaveObject.CanPlayMusic = true;
+        SaveManager.Save();
+
+        //Add more coins for test.
+        SaveManager.SaveObject.PlayerCash = 5000;
+        SaveManager.Save();
 
         //2.Load GamePlayScene
         SceneManager.LoadScene(1);
@@ -125,5 +147,18 @@ public class CharacterChoosingManager : MonoBehaviour
         SaveManager.SaveObject.CharacterTypeIndex = (int)Characters[GetChoosenCharacterIndex()].characterType;
         SaveManager.Save();
 
+    }
+
+    private void SetAllDotsWhite()
+    {
+        foreach (var item in DotImages)
+        {
+            item.color = Color.white;
+        }
+    }
+
+    private void SetDotToBlack(int index)
+    {
+        DotImages[index].color = Color.black;
     }
 }

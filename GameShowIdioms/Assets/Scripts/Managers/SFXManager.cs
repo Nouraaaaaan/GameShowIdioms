@@ -33,10 +33,10 @@ public class SFXManager : MonoBehaviour
 
     private void Start()
     {
-        //RamadanGameManager.Instance.SaveManager.Load();
+        IdiomsGameManager.Instance.SaveManager.Load();
         
 
-        //CanPlayMusic = RamadanGameManager.Instance.SaveManager.SaveObject.CanPlayMusic;
+        CanPlayMusic = IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlayMusic;
         if (CanPlayMusic)
         {
             TurnOnMusic();
@@ -46,7 +46,7 @@ public class SFXManager : MonoBehaviour
             TurnOffMusic();
         }
 
-        //CanPlaySFX = RamadanGameManager.Instance.SaveManager.SaveObject.CanPlaySFX;
+        CanPlaySFX = IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlaySFX;
         if (CanPlaySFX)
         {
             TurnOnSFX();
@@ -59,17 +59,11 @@ public class SFXManager : MonoBehaviour
 
     public void PlaySoundEffect(int index)
     {
-        /*if (CanPlaySFX)
+        if (CanPlaySFX)
         {
             AudioSource.clip = AudioClips[index];
             AudioSource.Play();
         }
-        */
-
-        AudioSource.clip = AudioClips[index];
-        AudioSource.Play();
-
-        
     }
 
     public void StopSoundEffect()
@@ -79,16 +73,19 @@ public class SFXManager : MonoBehaviour
 
     public void PlayMusic(int index, bool playExtraMusic, int extraMusicIndex)
     {
-        MusicAudioSource.volume = 1;
-        MusicAudioSource.clip = AudioClips[index];
-        MusicAudioSource.Play();
-
-        if (playExtraMusic)
+        if (CanPlayMusic)
         {
-            ExtraMusicAudioSource.volume = 0.8f;
-            ExtraMusicAudioSource.clip = AudioClips[extraMusicIndex];
-            ExtraMusicAudioSource.Play();
-        }
+            MusicAudioSource.volume = 1;
+            MusicAudioSource.clip = AudioClips[index];
+            MusicAudioSource.Play();
+
+            if (playExtraMusic)
+            {
+                ExtraMusicAudioSource.volume = 0.8f;
+                ExtraMusicAudioSource.clip = AudioClips[extraMusicIndex];
+                ExtraMusicAudioSource.Play();
+            }
+        }      
     }
 
     public void StopMusic()
@@ -143,8 +140,8 @@ public class SFXManager : MonoBehaviour
     public void TurnOnSFX()
     {
         CanPlaySFX = true;
-        //RamadanGameManager.Instance.SaveManager.SaveObject.CanPlaySFX = true;
-        //RamadanGameManager.Instance.SaveManager.Save();
+        IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlaySFX = true;
+        IdiomsGameManager.Instance.SaveManager.Save();
 
         if (SFXOnButton != null & SFXOffButton != null)
         {
@@ -157,8 +154,8 @@ public class SFXManager : MonoBehaviour
     {
         AudioSource.Stop();
         CanPlaySFX = false;
-        //RamadanGameManager.Instance.SaveManager.SaveObject.CanPlaySFX = false;
-        //RamadanGameManager.Instance.SaveManager.Save();
+        IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlaySFX = false;
+        IdiomsGameManager.Instance.SaveManager.Save();
 
         if (SFXOnButton != null & SFXOffButton != null)
         {
@@ -170,9 +167,10 @@ public class SFXManager : MonoBehaviour
     public void TurnOnMusic()
     {
         MusicAudioSource.Play();
-        //RamadanGameManager.Instance.SaveManager.SaveObject.CanPlayMusic = true;
+        ExtraMusicAudioSource.Play();
+        IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlayMusic = true;
         CanPlayMusic = true;
-        //RamadanGameManager.Instance.SaveManager.Save();
+        IdiomsGameManager.Instance.SaveManager.Save();
 
         if (MusicOnButton != null & MusicOffButton != null)
         {
@@ -183,10 +181,11 @@ public class SFXManager : MonoBehaviour
 
     public void TurnOffMusic()
     {
-        //MusicAudioSource.Stop();
-        //RamadanGameManager.Instance.SaveManager.SaveObject.CanPlayMusic = false;
+        MusicAudioSource.Stop();
+        ExtraMusicAudioSource.Stop();
+        IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlayMusic = false;
         CanPlayMusic = false;
-        //RamadanGameManager.Instance.SaveManager.Save();
+        IdiomsGameManager.Instance.SaveManager.Save();
 
         if (MusicOnButton != null & MusicOffButton != null)
         {

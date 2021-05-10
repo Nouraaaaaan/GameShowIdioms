@@ -13,6 +13,7 @@ public class CashManager : MonoBehaviour
 
     public Text EarnCashEnoughtButtonText;
     public Text EarnCashButtonText;
+    public Text EarnTripleCashButtonText;
 
     [Header("VFX Attribute")]
     public ParticleSystem CashVFX;
@@ -48,7 +49,14 @@ public class CashManager : MonoBehaviour
 
     public void UpdateEarnCashButtonText(int cashValue)
     {
+        Debug.Log("UpdateEarnCashButtonText : " + cashValue);
         EarnCashButtonText.text = cashValue.ToString();
+    }
+
+    public void UpdateTripleEarnCashButtonText(int cashValue)
+    {
+        Debug.Log("UpdateTripleEarnCashButtonText : " + cashValue);
+        EarnTripleCashButtonText.text = (cashValue * 3).ToString();
     }
 
     public void UpdateEarnCashEnoughtButtonText(int cashValue)

@@ -297,6 +297,12 @@ public class AdsManager : MonoBehaviour
                     IdiomsGameManager.Instance.TripleCoinsCallBack();
                 }
                 break;
+            case RewardType.CollectGift:
+                {
+                    IdiomsGameManager.Instance.UIManager.CollectGiftCallBack();
+                }
+                break;
+
 
             default:
                 break;
@@ -316,6 +322,7 @@ public class AdsManager : MonoBehaviour
     public enum RewardType
     {
         ShowOneLetter,
-        TripleCoins
+        TripleCoins,
+        CollectGift
     }
 }

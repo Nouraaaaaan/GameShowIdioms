@@ -16,6 +16,8 @@ public class SaveObject
 
     //Saved Wheel Value;
     public float WheelValue;
+    //Saved FillImage Value;
+    public float FillImageValue;
 
     //Saved Settings.
     public bool CanPlayMusic;
@@ -25,4 +27,7 @@ public class SaveObject
     public int CharacterTypeIndex;
     //Saved Character Name.
     public string PlayerName;
+
+    //
+    public bool ShowNameInputField;
 }

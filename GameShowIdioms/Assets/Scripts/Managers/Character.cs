@@ -14,6 +14,9 @@ public class Character : MonoBehaviour
     }
     public CharacterType characterType;
 
+    //Character Image.
+    public Sprite CharacterSprite;
+
     //Character Prize Degree.
     public enum CharacterPrizeDegree
     {

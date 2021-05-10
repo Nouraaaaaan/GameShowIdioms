@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\AdsManager.cs" />
     <Compile Include="Assets\Scripts\Serialization\SaveObject.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
+    <Compile Include="Assets\Scripts\Caret.cs" />
     <Compile Include="Assets\Scripts\Managers\CharacterChoosingManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathBezier.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\Scripts\Caret.cs" />
+    <Compile Include="Assets\Scripts\NameInputField.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -124,6 +125,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\Fonts\Communist\Freeware License.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

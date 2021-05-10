@@ -14,8 +14,20 @@ public class UIManager : MonoBehaviour
     [Header("Start Button Canvas")]
     public GameObject StartButtonCanvas;
 
+    [Header("InputField  Canvas")]
+    public InputField NameInputField;
+    public GameObject InputFieldCanvas;
+    [Header("NoAds Canvas")]
+    public GameObject NoAdsCanvas;
+    [Header("AvatarImage Canvas")]
+    public GameObject AvatarImageCanvas;
+    [Header("Coins Canvas")]
+    public GameObject CoinsCanvas;
+    [Header("Settings Canvas")]
+    public GameObject SettingsCanvas;
     [Header("Round Number Text")]
     public Text RoundNumber;
+    
 
     [Header("Presenter SpeechBubble Image")]
     public Image PresenterSpeechBubble;
@@ -48,6 +60,21 @@ public class UIManager : MonoBehaviour
 
     [Header("Idiom Image Canvas")]
     public GameObject IdiomImageCanvas;
+
+    [Header("Round Progress Bar Attributes")]
+    public Slider RoundProgressBar;
+    public Sprite FadeOutStarImage;
+    public Image[] StarImages;
+    private int starIndex = 3;
+
+    [Header("Projector Screen Attributes")]
+    public GameObject ScreenCanvas;
+    public Text ScreenRoundNumberText;
+    public Image AvatarImage;
+
+    [Header("LeaderBoard Attributes")]
+    public Text[] LeaderBoardNames;
+
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()
@@ -55,8 +82,38 @@ public class UIManager : MonoBehaviour
         //Translate Camera.
         IdiomsGameManager.Instance.StartRound();
 
-        //Disable Canvas.
+        //Disable StartButton Canvas.
         StartButtonCanvas.SetActive(false);
+        //Disable InputField Canvas.
+        InputFieldCanvas.SetActive(false);
+        //Disable NoAds Canvas.
+        NoAdsCanvas.SetActive(false);
+        //Disable AvatarImage Canvas.
+        AvatarImageCanvas.SetActive(false);
+        //Disable Settings Canvas
+        SettingsCanvas.SetActive(false);
+
+        //Disable Coins Canvas.
+        CoinsCanvas.SetActive(false);
+
+        //Save Player's Name.
+        if (IdiomsGameManager.Instance.SaveManager.SaveObject.ShowNameInputField)//is it the first round.
+        {
+            if(NameInputField.text == "")//the player didn't enter his name.
+            {
+                IdiomsGameManager.Instance.SaveManager.SaveObject.PlayerName = "You";
+                IdiomsGameManager.Instance.SaveManager.Save();
+            }
+            else//the player entered his name.
+            {
+                Debug.Log("Save My Name !!!");
+                IdiomsGameManager.Instance.SaveManager.SaveObject.PlayerName = NameInputField.text;
+                IdiomsGameManager.Instance.SaveManager.Save();
+            }
+
+            IdiomsGameManager.Instance.SaveManager.SaveObject.ShowNameInputField = false;//don't show input field next time.
+            IdiomsGameManager.Instance.SaveManager.Save();
+        }
     }
 
     public void OnclickKeyboardButton()
@@ -68,6 +125,11 @@ public class UIManager : MonoBehaviour
     public void SetRoundNumber()
     {
         RoundNumber.text = "Round " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
+    }
+
+    public void SetScreenRoundNumber()
+    {
+        ScreenRoundNumberText.text = "Round " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
     }
 
     public void PopupRoundNumber()
@@ -155,6 +217,11 @@ public class UIManager : MonoBehaviour
     #region Gift Region
     public void OnClickCollectGiftButton()
     {
+        AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.CollectGift);
+    }
+
+    public void CollectGiftCallBack()
+    {
         //1.
         IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 1;
         IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
@@ -167,17 +234,14 @@ public class UIManager : MonoBehaviour
         RoundEndCanvas.gameObject.SetActive(true);
     }
 
-    public void OnClickTripleGiftButton()
+    public void OnClickNoGiftButton()
     {
-        //1.
-        IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 3;
-        IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
+        //2.disable claim gift ui & gift obj.
+        ClaimGiftCanvas.SetActive(false);
+        IdiomsGameManager.Instance.GiftManager.Gift.SetActive(false);
 
-        //
-        //IdiomsGameManager.Instance.GiftManager.OpenGift();
-
-        //2.Reload Scene.
-        IdiomsGameManager.Instance.ReloadScene();
+        //3.enable round end ui.
+        RoundEndCanvas.gameObject.SetActive(true);
     }
     #endregion
 
@@ -242,5 +306,53 @@ public class UIManager : MonoBehaviour
         //4.Update Hint Buttons.
         UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
     }
+    #endregion
+
+    #region Round Progress Bar Region
+    public void UpdateRoundProgressBar(float value)
+    {
+        RoundProgressBar.value -= value;
+    }
+
+    public void LoseOneStar()
+    {
+        Debug.Log("Lose One Star");
+        StarImages[starIndex].sprite = FadeOutStarImage;
+        starIndex--;
+    }
+
+    #endregion
+
+    #region Avatar Image Region
+
+    public void SetAvatarImage(Sprite sprite)
+    {
+        AvatarImage.sprite = sprite;
+    }
+
+    #endregion
+
+    #region LeaderBoard Region
+
+    public void UpdateLeaderBoardNames()
+    {
+        
+        for (int i = 0; i < IdiomsGameManager.Instance.Characters.Length; i++)
+        {
+            if (IdiomsGameManager.Instance.Characters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.First))
+            {
+                LeaderBoardNames[0].text = IdiomsGameManager.Instance.CharactersNamesText[i].text;
+            }
+            else if(IdiomsGameManager.Instance.Characters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.Second))
+            {
+                LeaderBoardNames[1].text = IdiomsGameManager.Instance.CharactersNamesText[i].text;
+            }
+            else
+            {
+                LeaderBoardNames[2].text = IdiomsGameManager.Instance.CharactersNamesText[i].text;
+            }
+        }
+    }
+
     #endregion
 }

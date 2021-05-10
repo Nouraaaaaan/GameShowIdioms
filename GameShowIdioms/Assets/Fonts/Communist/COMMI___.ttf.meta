@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: d54fdf8239a689241822526c2f53d715
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Communist
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e0ac8b0147a80a64ea42de44a590cfa7, type: 3}
+  - {fileID: 12800000, guid: 1368054cb36109040a081816e8032298, type: 3}
+  - {fileID: 12800000, guid: 51512e7d24aa24e459541d5452acdaba, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

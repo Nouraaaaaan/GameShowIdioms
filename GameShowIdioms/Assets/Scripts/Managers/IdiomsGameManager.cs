@@ -62,7 +62,6 @@ public class IdiomsGameManager : MonoBehaviour
     public Image[] CharactersPrizeImages;
     public Text[] CharactersScoresText;
 
-
     [Header("VFX")]
     public ParticleSystem ConfettiShower;
 
@@ -76,6 +75,10 @@ public class IdiomsGameManager : MonoBehaviour
     private int counterValue = 0;
     private bool timeBouns = false;
     private int timeBounsThreshold = 40;
+
+    [Header("Earned Value Attributes")]
+    private int earnedValue = 100;
+    private int earnedValueDecreaseAmount = 25;
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -114,14 +117,25 @@ public class IdiomsGameManager : MonoBehaviour
         SetCharactersPostions();
         SetCharactersNames(SaveManager.SaveObject.PlayerName);
         SwapChoosenCharacter(SetChoosenCharacterIndex((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex));
+        UIManager.SetAvatarImage(Characters[0].CharacterSprite);
 
         //Set Cash.
         cashManager.LoadSavedCashValue();
         UIManager.UpdateHintButtons(cashManager.CurrentCash);
 
-        //Play background music.
-        //SFXManager.Instance.PlayMusic(5, true, 6);
+        //Set Round Number.
+        UIManager.SetRoundNumber();
+        UIManager.SetScreenRoundNumber();
 
+        //Show/Disable InputField.
+        if (SaveManager.SaveObject.ShowNameInputField)
+        {
+            UIManager.InputFieldCanvas.SetActive(true);
+        }
+        else
+        {
+            UIManager.InputFieldCanvas.SetActive(false);
+        }
     }
     #endregion
 
@@ -214,7 +228,10 @@ public class IdiomsGameManager : MonoBehaviour
         {
             if (character.characterType == this.ChoosenCharacterType)
             {
-                CharactersNamesText[0].text = playerName;
+                if(playerName != "")
+                   CharactersNamesText[0].text = playerName;
+                else
+                    CharactersNamesText[0].text = "You";
             }
             else
             {
@@ -242,7 +259,6 @@ public class IdiomsGameManager : MonoBehaviour
     private IEnumerator StartRoundCorotinue()
     {
         //Popup Round Number.
-        UIManager.SetRoundNumber();
         UIManager.PopupRoundNumber();
 
         //Play Round Number Animation.
@@ -269,12 +285,13 @@ public class IdiomsGameManager : MonoBehaviour
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
         CurrentIdiom.IdiomCanvas.SetActive(true);
-        //InputField.Select();                           //open InputField KeyBoard.
         UIManager.CustomKeyBoardCanvas.SetActive(true);  //open Custom KeyBoard.
         CurrentIdiom.Words[0].Caret.SetActive(true);
-        //LeanTween.alpha(CurrentIdiom.Words[0].Caret.GetComponent<RectTransform>(), 0f, 0.4f).setLoopPingPong();
         UIManager.HintButtonCanvas.SetActive(true);
         UIManager.IdiomImageCanvas.SetActive(true);
+        UIManager.ScreenCanvas.SetActive(true);
+        UIManager.SettingsCanvas.SetActive(true);
+        UIManager.CoinsCanvas.SetActive(true);
 
         StartCoroutine(CounterCorotinue());       
     }
@@ -305,6 +322,11 @@ public class IdiomsGameManager : MonoBehaviour
         }
         else
         {
+            //lose one star.
+            earnedValue -= earnedValueDecreaseAmount;
+            Debug.Log("earnedValue : "+ earnedValue);
+            UIManager.LoseOneStar();
+            //play sfx.
             SFXManager.Instance.PlaySoundEffect(9);
         }
         UpdateCorrectAnswersNumber();
@@ -357,6 +379,11 @@ public class IdiomsGameManager : MonoBehaviour
         }
         else
         {
+            //lose one star.
+            earnedValue -= earnedValueDecreaseAmount;
+            Debug.Log("earnedValue : " + earnedValue);
+            UIManager.LoseOneStar();
+            //play sfx.
             SFXManager.Instance.PlaySoundEffect(9);
         }
         UpdateCorrectAnswersNumber();
@@ -369,6 +396,7 @@ public class IdiomsGameManager : MonoBehaviour
         InputField.DeactivateInputField();
         UIManager.CustomKeyBoardCanvas.SetActive(false);
         UIManager.IdiomImageCanvas.SetActive(false);
+        UIManager.ScreenCanvas.SetActive(false);
 
         //SFX.
         SFXManager.Instance.FadeOutMusic(0.7f);
@@ -400,11 +428,16 @@ public class IdiomsGameManager : MonoBehaviour
         //5.show Round End ui.
         UIManager.RoundEndCanvas.gameObject.SetActive(true);
         UIManager.StartRoundEndCanvasFadeout(0.08f);
-        GiftManager.UpdateCurrentSliderValue();
-        GiftManager.IncreaseWheelSliderValue();
+        //GiftManager.UpdateCurrentSliderValue();
+        //GiftManager.IncreaseWheelSliderValue();
+        GiftManager.UpdateCurrentImageValue();
+        GiftManager.IncreaseImageValue();
+
+
         cashManager.UpdateEarnCashButtonText(int.Parse(CharactersScoresText[0].text));            //update ui with earned coins.
-        cashManager.UpdateEarnCashEnoughtButtonText(int.Parse(CharactersScoresText[0].text));
+        cashManager.UpdateTripleEarnCashButtonText(int.Parse(CharactersScoresText[0].text));
         cashManager.UpdateCashText(cashManager.CurrentCash);
+        UIManager.UpdateLeaderBoardNames();
 
         UIManager.UpdateRoundNumber(); //update round number
     }
@@ -645,8 +678,6 @@ public class IdiomsGameManager : MonoBehaviour
         SettingPrizesScores();
     }
 
-
-
     //---------------------------------------------//
     //Setting Prizes Sprites.
     private void SettingPrizesSprites()
@@ -683,22 +714,31 @@ public class IdiomsGameManager : MonoBehaviour
     //Setting Prizes Scores.
     private void SettingPrizesScores()
     {
-        foreach (var character in Characters)
+        if (earnedValue == 0)
         {
-            switch (character.characterPrizeDegree)
+            CharactersScoresText[0].text = "25";
+        }
+        else
+        {
+            CharactersScoresText[0].text = earnedValue.ToString();
+        }
+        
+
+        for (int i = 1; i < Characters.Length; i++)
+        {
+            switch (Characters[i].characterPrizeDegree)
             {
                 case Character.CharacterPrizeDegree.First:
-                    CharactersScoresText[character.CharacterIndex].text = "200";
+                    CharactersScoresText[i].text = "100";
                     break;
                 case Character.CharacterPrizeDegree.Second:
-                    CharactersScoresText[character.CharacterIndex].text = "150";
+                    CharactersScoresText[i].text = "50";
                     break;
                 case Character.CharacterPrizeDegree.Third:
-                    CharactersScoresText[character.CharacterIndex].text = "100";
+                    CharactersScoresText[i].text = "25";
                     break;
             }
         }
-
     }
 
     #endregion
@@ -722,17 +762,14 @@ public class IdiomsGameManager : MonoBehaviour
     {
         while (count)
         {
-            yield return new WaitForSeconds(1);
-            counterValue++;
-            //Debug.Log("counterValue : " + counterValue);
+            UIManager.UpdateRoundProgressBar(0.001f);
+            yield return null;
         }
-
-        //Debug.Log("Counter Was Stopped !");
     }
 
     private bool CheckForTimeBouns()
     {
-        return (counterValue <= timeBounsThreshold); 
+        return (UIManager.RoundProgressBar.value > 0); 
     }
 
     #endregion

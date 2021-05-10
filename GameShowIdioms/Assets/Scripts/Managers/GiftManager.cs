@@ -17,13 +17,26 @@ public class GiftManager : MonoBehaviour
     private float currentWheelSliderValue;
     public float SliderAnimatoinSpeed;
 
+    [Header("Slider Attributes")]
+    public Image FillGiftImage;
+    [SerializeField]
+    private float currentImageValue;
+    public float ImageAnimatoinSpeed;
+
+    [Header("Percentage Attributes")]
+    public Text PercentageText;
+
+    [Header("UI Attributes")]
+    public Image RaysImage;
+    public Image GiftImage;
     //------------------Methods-----------------------//
 
     #region Load Region
     //--Load.
     private void Start()
     {
-        LoadSavedWheelSliderValue();
+        //LoadSavedWheelSliderValue();
+        LoadSavedImageValue();
     }
 
     public void LoadSavedWheelSliderValue()
@@ -31,9 +44,23 @@ public class GiftManager : MonoBehaviour
         //Load saved object from file.
         IdiomsGameManager.Instance.SaveManager.Load();
 
-        //Update CurrentCash Variable.
+        //Update WheelSlider value.
         WheelSlider.value = IdiomsGameManager.Instance.SaveManager.SaveObject.WheelValue;
         currentWheelSliderValue = WheelSlider.value;
+        //Update Image value.
+        FillGiftImage.fillAmount = IdiomsGameManager.Instance.SaveManager.SaveObject.FillImageValue;
+    }
+
+    public void LoadSavedImageValue()
+    {
+        //Load saved object from file.
+        IdiomsGameManager.Instance.SaveManager.Load();
+
+        //Update WheelSlider value.
+        FillGiftImage.fillAmount = IdiomsGameManager.Instance.SaveManager.SaveObject.FillImageValue;
+        currentImageValue = FillGiftImage.fillAmount;
+        //Update Image value.
+        FillGiftImage.fillAmount = IdiomsGameManager.Instance.SaveManager.SaveObject.FillImageValue;
     }
 
     #endregion
@@ -45,6 +72,16 @@ public class GiftManager : MonoBehaviour
         currentWheelSliderValue += 1 / 3f;   //update.
 
         IdiomsGameManager.Instance.SaveManager.SaveObject.WheelValue = currentWheelSliderValue;  //save.
+        IdiomsGameManager.Instance.SaveManager.Save();
+    }
+
+    public void UpdateCurrentImageValue()
+    {
+        currentImageValue += 1 / 4f;   //update.
+
+        PercentageText.text = (Mathf.Floor(currentImageValue) * 100).ToString()+"%";
+
+        IdiomsGameManager.Instance.SaveManager.SaveObject.FillImageValue = currentImageValue;  //save.
         IdiomsGameManager.Instance.SaveManager.Save();
     }
 
@@ -72,6 +109,28 @@ public class GiftManager : MonoBehaviour
         //Debug.Log("WheelSlider.value : " + WheelSlider.value);
         CheckSliderCompleleted();
     }
+
+    public void IncreaseImageValue()
+    {
+        StartCoroutine(IncreaseImageCorotinue());
+    }
+
+    private IEnumerator IncreaseImageCorotinue()
+    {
+        yield return new WaitForSeconds(0f);
+
+        //float newValue = WheelSlider.value + 1 / 3f;
+
+        while (FillGiftImage.fillAmount < currentImageValue)
+        {
+            FillGiftImage.fillAmount += SliderAnimatoinSpeed;
+            PercentageText.text = (Mathf.Floor(FillGiftImage.fillAmount * 100)).ToString() + "%";
+            yield return null;
+        }
+
+        //Debug.Log("WheelSlider.value : " + WheelSlider.value);
+        CheckImageCompleleted();
+    }
     #endregion
 
     #region Reset Slider Region
@@ -81,6 +140,14 @@ public class GiftManager : MonoBehaviour
         currentWheelSliderValue = 0;  //reset.
 
         IdiomsGameManager.Instance.SaveManager.SaveObject.WheelValue = currentWheelSliderValue;  //save.
+        IdiomsGameManager.Instance.SaveManager.Save();
+    }
+
+    private void RestImage()
+    {
+        currentImageValue = 0;  //reset.
+
+        IdiomsGameManager.Instance.SaveManager.SaveObject.FillImageValue = currentImageValue;  //save.
         IdiomsGameManager.Instance.SaveManager.Save();
     }
 
@@ -95,8 +162,22 @@ public class GiftManager : MonoBehaviour
             IdiomsGameManager.Instance.UIManager.GiftCanvas.SetActive(true);
             IdiomsGameManager.Instance.UIManager.ClaimGiftCanvas.SetActive(true);
             PopupGift();
+            RestImage();
+        }
+    }
 
-            RestSlider();
+    private void CheckImageCompleleted()
+    {
+        //Debug.Log("WheelSlider.value : " + WheelSlider.value);
+
+        if (FillGiftImage.fillAmount >= 1f)
+        {
+            //Debug.Log("You Earned a gift !!!");
+            IdiomsGameManager.Instance.UIManager.RoundEndCanvas.gameObject.SetActive(false);
+            IdiomsGameManager.Instance.UIManager.ClaimGiftCanvas.SetActive(true);
+            LeanTween.rotateAround(RaysImage.gameObject, RaysImage.gameObject.transform.forward, 360, 10f).setLoopClamp();
+            PopupGift();
+            RestImage();
         }
     }
 
@@ -105,10 +186,9 @@ public class GiftManager : MonoBehaviour
     #region Gift Region
     public void PopupGift()
     {
-        Gift.SetActive(true);
-        LeanTween.scale(Gift, new Vector3(5.330102f, 5.330102f, 5.330102f), 1f);
-
-        LeanTween.scale(Gift, new Vector3(6f, 6f, 6f), 0.5f).setLoopPingPong().setDelay(1f);
+        //Gift.SetActive(true);
+        LeanTween.scale(GiftImage.gameObject, new Vector3(1f, 1f, 1f), 1f);
+        LeanTween.scale(GiftImage.gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.5f).setLoopPingPong().setDelay(1f);
     }
 
     public void OpenGift()
