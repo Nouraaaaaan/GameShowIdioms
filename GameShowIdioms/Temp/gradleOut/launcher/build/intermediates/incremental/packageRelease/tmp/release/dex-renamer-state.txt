@@ -1,4 +1,0 @@
-#Mon May 10 11:35:47 EET 2021
-base.0=D\:\\GameShowIdioms\\GameShowIdioms\\Temp\\gradleOut\\launcher\\build\\intermediates\\dex\\release\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

@@ -4,7 +4,7 @@
     package="com.DefaultCompany.GameShowIdioms"
     android:installLocation="preferExternal"
     android:versionCode="1"
-    android:versionName="0.1" >
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -17,10 +17,7 @@
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
-    <uses-feature android:glEsVersion="0x00030000" />
-    <uses-feature
-        android:name="android.hardware.vulkan.version"
-        android:required="false" />
+    <uses-feature android:glEsVersion="0x00020000" />
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
@@ -44,7 +41,7 @@
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
             android:hardwareAccelerated="false"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/UnityThemeSelector" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,7 +68,7 @@
             android:value="portrait|landscape" />
         <meta-data
             android:name="unity.build-id"
-            android:value="c98019cf-cd25-42da-b76b-8a4cf5696aa7" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+            android:value="cd4f742e-6cc2-4671-92e6-bb3f8a365d54" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

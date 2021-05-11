@@ -270,8 +270,10 @@ public class UIManager : MonoBehaviour
         //2.Decrease Current Cash.
         IdiomsGameManager.Instance.cashManager.CurrentCash -= 100;
 
-        //3.Save Current Cash.
+        //3.Save Current Cash, Update cash text.
         IdiomsGameManager.Instance.cashManager.SaveCashValue();
+        IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
+
 
         //4.Update Hint Buttons.
         UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
@@ -285,8 +287,9 @@ public class UIManager : MonoBehaviour
         //2.Decrease Current Cash.
         IdiomsGameManager.Instance.cashManager.CurrentCash -= 300;
 
-        //3.Save Current Cash.
+        //3.Save Current Cash, Update cash text.
         IdiomsGameManager.Instance.cashManager.SaveCashValue();
+        IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
         //4.Update Hint Buttons.
         UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
@@ -300,8 +303,9 @@ public class UIManager : MonoBehaviour
         //2.Decrease Current Cash.
         IdiomsGameManager.Instance.cashManager.CurrentCash -= 200;
 
-        //3.Save Current Cash.
+        //3.Save Current Cash, Update cash text.
         IdiomsGameManager.Instance.cashManager.SaveCashValue();
+        IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
         //4.Update Hint Buttons.
         UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);

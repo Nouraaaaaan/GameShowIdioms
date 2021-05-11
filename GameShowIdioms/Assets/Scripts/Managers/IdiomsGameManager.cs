@@ -586,7 +586,19 @@ public class IdiomsGameManager : MonoBehaviour
 
         KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
         KeyBoardManager.CurrentFieldIndex++; //update CurrentFieldIndex.
-        KeyBoardManager.EnableCaret(KeyBoardManager.CurrentFieldIndex); //show caret.
+
+        if (KeyBoardManager.CurrentFieldIndex < CurrentIdiom.Words.Count)
+        {
+            KeyBoardManager.EnableCaret(KeyBoardManager.CurrentFieldIndex); //show caret.
+        }
+        else
+        {
+            //submit.
+            onClickSubmitButton();
+            //reset.
+            KeyBoardManager.CurrentFieldIndex = 0;
+            KeyBoardManager.DisableCaret(KeyBoardManager.CurrentFieldIndex);
+        }
     }
 
     public void ShowAllHintLetters()
@@ -636,12 +648,6 @@ public class IdiomsGameManager : MonoBehaviour
         //5.enable caret.
         KeyBoardManager.EnableCaret(KeyBoardManager.CurrentFieldIndex);
     }
-
-    //private void LateUpdate()
-    //{
-
-    //    InputField.MoveToEndOfLine(false, false);
-    //}
 
     private void PlayPopupAnimation(GameObject obj)
     {
@@ -760,9 +766,11 @@ public class IdiomsGameManager : MonoBehaviour
     #region Counter Region
     IEnumerator CounterCorotinue()
     {
+        yield return new WaitForSeconds(2f);
+
         while (count)
         {
-            UIManager.UpdateRoundProgressBar(0.001f);
+            UIManager.UpdateRoundProgressBar(0.0002f);
             yield return null;
         }
     }

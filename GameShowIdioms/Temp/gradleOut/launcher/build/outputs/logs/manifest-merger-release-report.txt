@@ -4,7 +4,7 @@ ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\And
 INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
 INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
 INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
-MERGED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:3:1-63:12
+MERGED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:3:1-60:12
 MERGED from [:androidx.arch.core.core-runtime-2.0.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\43a209a1574b998fc4c3256029348641\androidx.arch.core.core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [:androidx.asynclayoutinflater.asynclayoutinflater-1.0.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7f62cef6f2580716be1fbc0bf2d19f1\androidx.asynclayoutinflater.asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [:androidx.browser.browser-1.0.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\8ced82e256bcaf8882f64cabe66fcdcd\androidx.browser.browser-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -75,8 +75,8 @@ ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\And
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:135-160
 application
 ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:5:3-116
-MERGED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:27:5-61:19
-MERGED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:27:5-61:19
+MERGED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:24:5-58:19
+MERGED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:24:5-58:19
 MERGED from [:androidx.core.core-1.0.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\f9a7d438e88041c1bf0d7f0a73a5c22b\androidx.core.core-1.0.0\AndroidManifest.xml:22:5-89
 MERGED from [:androidx.core.core-1.0.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\f9a7d438e88041c1bf0d7f0a73a5c22b\androidx.core.core-1.0.0\AndroidManifest.xml:22:5-89
 MERGED from [:androidx.versionedparcelable.versionedparcelable-1.0.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\058e31eaf44c56365f3b30c5b91c8134\androidx.versionedparcelable.versionedparcelable-1.0.0\AndroidManifest.xml:22:5-23:19
@@ -194,94 +194,88 @@ INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
 		MERGED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
-uses-feature#0x00030000
+uses-feature#0x00020000
 ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-54
 	android:glEsVersion
 		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:13:19-51
-uses-feature#android.hardware.vulkan.version
+uses-feature#android.hardware.touchscreen
 ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:14:5-16:36
 	android:required
 		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:16:9-33
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:15:9-55
-uses-feature#android.hardware.touchscreen
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:15:9-52
+uses-feature#android.hardware.touchscreen.multitouch
 ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:17:5-19:36
 	android:required
 		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:19:9-33
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:18:9-52
-uses-feature#android.hardware.touchscreen.multitouch
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:18:9-63
+uses-feature#android.hardware.touchscreen.multitouch.distinct
 ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:20:5-22:36
 	android:required
 		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:22:9-33
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:21:9-63
-uses-feature#android.hardware.touchscreen.multitouch.distinct
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:23:5-25:36
-	android:required
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:25:9-33
-	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:24:9-72
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:21:9-72
 activity#com.unity3d.player.UnityPlayerActivity
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:28:9-47:20
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:25:9-44:20
 	android:screenOrientation
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:33:13-49
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:30:13-51
 	android:launchMode
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:32:13-44
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:29:13-44
 	android:hardwareAccelerated
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:31:13-48
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:28:13-48
 	android:configChanges
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:30:13-194
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:27:13-194
 	android:theme
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:34:13-54
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:31:13-54
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:29:13-66
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:26:13-66
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:35:13-39:29
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:32:13-36:29
 action#android.intent.action.MAIN
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:36:17-69
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:33:17-69
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:36:25-66
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:33:25-66
 category#android.intent.category.LAUNCHER
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:38:17-77
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:35:17-77
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:38:27-74
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:35:27-74
 meta-data#unityplayer.UnityActivity
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:38:13-40:40
+	android:value
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:40:17-37
+	android:name
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:39:17-57
+meta-data#android.notch_support
 ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:41:13-43:40
 	android:value
 		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:43:17-37
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:42:17-57
-meta-data#android.notch_support
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:44:13-46:40
-	android:value
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:46:17-37
-	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:45:17-53
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:42:17-53
 meta-data#unity.splash-mode
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:49:9-51:33
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:46:9-48:33
 	android:value
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:51:13-30
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:48:13-30
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:50:13-45
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:47:13-45
 meta-data#unity.splash-enable
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:52:9-54:36
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:49:9-51:36
 	android:value
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:54:13-33
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:51:13-33
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:53:13-47
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:50:13-47
 meta-data#notch.config
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:55:9-57:50
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:52:9-54:50
 	android:value
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:57:13-47
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:54:13-47
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:56:13-40
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:53:13-40
 meta-data#unity.build-id
-ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:58:9-60:68
+ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:55:9-57:68
 	android:value
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:60:13-65
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:57:13-65
 	android:name
-		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:59:13-42
+		ADDED from [:unityLibrary] D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:56:13-42
 uses-permission#android.permission.INTERNET
 ADDED from [:com.google.android.gms.play-services-ads-lite-19.3.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\1a689263401a8c1cb6db0c49506ae2ff\com.google.android.gms.play-services-ads-lite-19.3.0\AndroidManifest.xml:20:3-65
 MERGED from [:com.google.android.gms.play-services-measurement-sdk-api-17.1.0:] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\f9f2d2332d649c39c3f73d7b60940638\com.google.android.gms.play-services-measurement-sdk-api-17.1.0\AndroidManifest.xml:23:5-67

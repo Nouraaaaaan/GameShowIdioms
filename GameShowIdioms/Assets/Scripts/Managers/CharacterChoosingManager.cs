@@ -122,20 +122,19 @@ public class CharacterChoosingManager : MonoBehaviour
     public void OnClickStartButton()
     {
         //1.
-        //SavePlayerName();
         SaveChoosenCharacterType();
 
-        //
+        //show name inoute field.
         SaveManager.SaveObject.ShowNameInputField = true;
         SaveManager.Save();
 
-        //
+        //enable playing music and sfx.
         SaveManager.SaveObject.CanPlaySFX = true;
         SaveManager.SaveObject.CanPlayMusic = true;
         SaveManager.Save();
 
         //Add more coins for test.
-        SaveManager.SaveObject.PlayerCash = 5000;
+        SaveManager.SaveObject.PlayerCash = 500;
         SaveManager.Save();
 
         //2.Load GamePlayScene
@@ -147,18 +146,5 @@ public class CharacterChoosingManager : MonoBehaviour
         SaveManager.SaveObject.CharacterTypeIndex = (int)Characters[GetChoosenCharacterIndex()].characterType;
         SaveManager.Save();
 
-    }
-
-    private void SetAllDotsWhite()
-    {
-        foreach (var item in DotImages)
-        {
-            item.color = Color.white;
-        }
-    }
-
-    private void SetDotToBlack(int index)
-    {
-        DotImages[index].color = Color.black;
     }
 }

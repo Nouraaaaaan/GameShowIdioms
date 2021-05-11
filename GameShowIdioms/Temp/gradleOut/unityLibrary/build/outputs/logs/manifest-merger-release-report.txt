@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
-INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
-INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
-INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
-INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
-INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
-INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
+ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
+INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
+INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
+INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
+INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
+INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
+INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
 	package
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:70-98
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:99-145
 	android:versionCode
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-23:12
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:1-22:12
 		INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:3:11-69
@@ -28,13 +28,13 @@ ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main
 activity#com.unity3d.player.UnityPlayerActivity
 ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:5-12:16
 	android:screenOrientation
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:111-147
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:111-149
 	android:launchMode
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:148-179
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:150-181
 	android:hardwareAccelerated
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:362-397
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:364-399
 	android:configChanges
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:180-361
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:182-363
 	android:theme
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:69-110
 	android:name
@@ -85,34 +85,28 @@ ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:16:46-98
 	android:name
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:16:16-45
-uses-feature#0x00030000
+uses-feature#0x00020000
 ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:18:3-52
 	android:glEsVersion
 		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:18:17-49
-uses-feature#android.hardware.vulkan.version
-ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:19:3-91
-	android:required
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:19:64-88
-	android:name
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:19:17-63
 uses-feature#android.hardware.touchscreen
-ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:20:3-88
+ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:19:3-88
 	android:required
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:20:61-85
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:19:61-85
 	android:name
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:20:17-60
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:19:17-60
 uses-feature#android.hardware.touchscreen.multitouch
-ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:21:3-99
+ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:20:3-99
 	android:required
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:21:72-96
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:20:72-96
 	android:name
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:21:17-71
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:20:17-71
 uses-feature#android.hardware.touchscreen.multitouch.distinct
-ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:22:3-108
+ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:21:3-108
 	android:required
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:22:81-105
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:21:81-105
 	android:name
-		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:22:17-80
+		ADDED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:21:17-80
 uses-sdk
 INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\GameShowIdioms\GameShowIdioms\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml
