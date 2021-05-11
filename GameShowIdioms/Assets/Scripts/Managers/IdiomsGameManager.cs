@@ -80,6 +80,9 @@ public class IdiomsGameManager : MonoBehaviour
     private int earnedValue = 100;
     private int earnedValueDecreaseAmount = 25;
 
+    [Header("CrownImages")]
+    public Image[] Crowns;
+
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
 
@@ -114,11 +117,12 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Set Characters.
         SetChoosenCharacterType((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex);
-        SetCharactersPostions();
-        SetCharactersNames(SaveManager.SaveObject.PlayerName);
         SwapChoosenCharacter(SetChoosenCharacterIndex((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex));
+        SetCharactersPostions();
+        SetCharactersNames(SaveManager.SaveObject.PlayerName);     
         UIManager.SetAvatarImage(Characters);
         UIManager.SetAvatarScoreText(SaveManager.SaveObject.PlayersScore);
+        SetFirstPlayerCrown(UIManager.AvatarsScoreText);
 
         //Set Cash.
         cashManager.LoadSavedCashValue();
@@ -221,6 +225,7 @@ public class IdiomsGameManager : MonoBehaviour
             }
         }
     }
+
     public void SetCharactersNames(string playerName)
     {
         int otherCharactersIndex = 1;
@@ -830,6 +835,39 @@ public class IdiomsGameManager : MonoBehaviour
         }
 
         SaveManager.Save();
+    }
+    #endregion
+
+    #region Crown Region
+    private int GetFirstPlayer(Text[] playersScoreText)
+    {
+        if (playersScoreText[0].text == "0")          //initially do not set any crowns.
+            return -1;
+
+        int firstPlayerIndex = 0;
+
+        for (int i = 0; i < playersScoreText.Length - 1; i++)
+        {
+            if (int.Parse(playersScoreText[i+1].text) > int.Parse(playersScoreText[i].text))
+            {
+                firstPlayerIndex = i+1;
+            }
+        }
+
+        Debug.Log("firstPlayerIndex : "+ firstPlayerIndex);
+        return firstPlayerIndex;
+    }
+
+    private void SetFirstPlayerCrown(Text[] playersScoreText)
+    {
+        if (GetFirstPlayer(playersScoreText) == -1)
+        {
+            return;
+        }
+        else
+        {
+            UIManager.AvatarsImages[GetFirstPlayer(playersScoreText)].gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        }
     }
     #endregion
 }

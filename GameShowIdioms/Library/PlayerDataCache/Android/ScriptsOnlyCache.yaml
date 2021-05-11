@@ -20,8 +20,6 @@ ScriptsOnlyBuild:
     - UIManager
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
-    GoogleMobileAds.dll:
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -92,51 +90,51 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 11894}
+      Script: {instanceID: 11900}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12106}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 12122}
     - Class: 114
-      Script: {instanceID: 12162}
+      Script: {instanceID: 12168}
     - Class: 114
-      Script: {instanceID: 12298}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12580}
+      Script: {instanceID: 12586}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12678}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12724}
     - Class: 114
-      Script: {instanceID: 12916}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 13200}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13312}
+      Script: {instanceID: 13318}
     - Class: 114
-      Script: {instanceID: 13492}
+      Script: {instanceID: 13498}
     - Class: 114
-      Script: {instanceID: 13504}
+      Script: {instanceID: 13510}
     - Class: 114
-      Script: {instanceID: 13540}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13556}
+      Script: {instanceID: 13562}
     - Class: 114
-      Script: {instanceID: 13884}
+      Script: {instanceID: 13890}
     - Class: 114
-      Script: {instanceID: 13996}
+      Script: {instanceID: 14002}
     - Class: 114
-      Script: {instanceID: 14086}
+      Script: {instanceID: 14092}
     - Class: 114
-      Script: {instanceID: 14260}
+      Script: {instanceID: 14266}
     - Class: 114
-      Script: {instanceID: 14342}
+      Script: {instanceID: 14348}
     - Class: 114
-      Script: {instanceID: 14400}
+      Script: {instanceID: 14406}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -199,75 +197,75 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 11894}
+      Script: {instanceID: 11900}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 12066}
     - Class: 114
-      Script: {instanceID: 12106}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 12122}
     - Class: 114
-      Script: {instanceID: 12162}
+      Script: {instanceID: 12168}
     - Class: 114
-      Script: {instanceID: 12190}
+      Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12298}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12326}
+      Script: {instanceID: 12332}
     - Class: 114
-      Script: {instanceID: 12430}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12580}
+      Script: {instanceID: 12586}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12678}
     - Class: 114
-      Script: {instanceID: 12730}
+      Script: {instanceID: 12736}
     - Class: 114
-      Script: {instanceID: 12916}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 12960}
+      Script: {instanceID: 12966}
     - Class: 114
-      Script: {instanceID: 13312}
+      Script: {instanceID: 13318}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 13456}
     - Class: 114
-      Script: {instanceID: 13480}
+      Script: {instanceID: 13486}
     - Class: 114
-      Script: {instanceID: 13492}
+      Script: {instanceID: 13498}
     - Class: 114
-      Script: {instanceID: 13504}
-    - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 13510}
     - Class: 114
       Script: {instanceID: 13540}
     - Class: 114
-      Script: {instanceID: 13640}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13646}
     - Class: 114
-      Script: {instanceID: 13804}
+      Script: {instanceID: 13770}
     - Class: 114
-      Script: {instanceID: 13884}
+      Script: {instanceID: 13810}
     - Class: 114
-      Script: {instanceID: 13922}
+      Script: {instanceID: 13890}
     - Class: 114
-      Script: {instanceID: 13996}
+      Script: {instanceID: 13928}
     - Class: 114
-      Script: {instanceID: 14260}
+      Script: {instanceID: 14002}
     - Class: 114
-      Script: {instanceID: 14282}
+      Script: {instanceID: 14266}
     - Class: 114
-      Script: {instanceID: 14342}
+      Script: {instanceID: 14288}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 14348}
     - Class: 114
-      Script: {instanceID: 14400}
+      Script: {instanceID: 14390}
+    - Class: 114
+      Script: {instanceID: 14406}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -819,7 +817,7 @@ ScriptsOnlyBuild:
     className: MobileAdsEventExecutor
   - hash:
       serializedVersion: 2
-      Hash: 31dabdca3264d38c506b3f837d10e291
+      Hash: 8ecc73e891db5688ea99216b29ff3e51
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdiomsGameManager
@@ -855,7 +853,7 @@ ScriptsOnlyBuild:
     className: CursorManager
   - hash:
       serializedVersion: 2
-      Hash: b7f2e92d0677051695db72bf71bcf3e4
+      Hash: 2a1761cde1132e9c76bdf25ff86725f0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SaveTest
@@ -981,7 +979,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 2a13a1e6f9b83c0b52f0e92053db3db0
+      Hash: 22cd72f21668bfc1ed76ade76b04e0a9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager

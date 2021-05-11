@@ -50,7 +50,7 @@ public class CharacterChoosingManager : MonoBehaviour
     #region Arrow Buttons Region
     public void OnclickRightArrowButton()
     {
-        SFXManager.Instance.PlaySoundEffect(0);
+        //SFXManager.Instance.PlaySoundEffect(0);
 
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
         
@@ -72,7 +72,7 @@ public class CharacterChoosingManager : MonoBehaviour
 
     public void OnclickLeftArrowButton()
     {
-        SFXManager.Instance.PlaySoundEffect(0);
+        //SFXManager.Instance.PlaySoundEffect(0);
 
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
 
@@ -121,20 +121,27 @@ public class CharacterChoosingManager : MonoBehaviour
 
     public void OnClickStartButton()
     {
-        //1.
+        //save Choosen CharacterType
         SaveChoosenCharacterType();
 
         //show name inoute field.
         SaveManager.SaveObject.ShowNameInputField = true;
-        SaveManager.Save();
 
         //enable playing music and sfx.
         SaveManager.SaveObject.CanPlaySFX = true;
         SaveManager.SaveObject.CanPlayMusic = true;
-        SaveManager.Save();
 
         //Add more coins for test.
         SaveManager.SaveObject.PlayerCash = 500;
+
+        //reset players score
+        for (int i = 0; i < SaveManager.SaveObject.PlayersScore.Length; i++)
+        {
+            SaveManager.SaveObject.PlayersScore[i] = 0;
+        }
+        SaveManager.SaveObject.RoundNumber = 1;
+
+        //save.
         SaveManager.Save();
 
         //2.Load GamePlayScene
