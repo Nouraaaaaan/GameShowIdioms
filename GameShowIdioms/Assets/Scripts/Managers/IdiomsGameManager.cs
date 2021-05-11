@@ -38,7 +38,7 @@ public class IdiomsGameManager : MonoBehaviour
     public bool Finished;
     private int DisplayedIdiomNumber = 0;   //when DisplayedIdiomNumber = 4, finish current round.
     private List<int> randomList;           //use this list to pick 4 random idioms foreach round.
-    //private bool rightAnswer = true;        //Is current answer is correct ?
+    //private bool rightAnswer = true;      //Is current answer is correct ?
     private int NumberOfCorrectAnswers = 0; //number of correct answers per round.
 
     [Header("Text Matching Attributes")]
@@ -117,7 +117,8 @@ public class IdiomsGameManager : MonoBehaviour
         SetCharactersPostions();
         SetCharactersNames(SaveManager.SaveObject.PlayerName);
         SwapChoosenCharacter(SetChoosenCharacterIndex((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex));
-        UIManager.SetAvatarImage(Characters[0].CharacterSprite);
+        UIManager.SetAvatarImage(Characters);
+        UIManager.SetAvatarScoreText(SaveManager.SaveObject.PlayersScore);
 
         //Set Cash.
         cashManager.LoadSavedCashValue();
@@ -788,6 +789,7 @@ public class IdiomsGameManager : MonoBehaviour
         int newCashValue = cashManager.CurrentCash + int.Parse(CharactersScoresText[0].text);
         cashManager.UpdateCashValue(newCashValue);
         cashManager.SaveCashValue();
+        SavePlayersScore();
         ReloadScene();
     }
 
@@ -801,6 +803,7 @@ public class IdiomsGameManager : MonoBehaviour
         int newCashValue = cashManager.CurrentCash + (int.Parse(CharactersScoresText[0].text) * 3);
         cashManager.UpdateCashValue(newCashValue);
         cashManager.SaveCashValue();
+        SavePlayersScore();
         ReloadScene();
     }
     #endregion
@@ -817,4 +820,16 @@ public class IdiomsGameManager : MonoBehaviour
 
         return true;
     }
+
+    #region Save Players Score Region
+    private void SavePlayersScore()
+    {
+        for (int i = 0; i < CharactersScoresText.Length; i++)
+        {
+            SaveManager.SaveObject.PlayersScore[i] += int.Parse(CharactersScoresText[i].text);
+        }
+
+        SaveManager.Save();
+    }
+    #endregion
 }

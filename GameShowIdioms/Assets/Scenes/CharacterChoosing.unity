@@ -3583,8 +3583,9 @@ MonoBehaviour:
   StarImages: []
   ScreenCanvas: {fileID: 0}
   ScreenRoundNumberText: {fileID: 0}
-  AvatarImage: {fileID: 0}
   LeaderBoardNames: []
+  AvatarsImages: []
+  AvatarsScoreText: []
 --- !u!1001 &1171639772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4813,6 +4814,7 @@ MonoBehaviour:
     CharacterTypeIndex: 0
     PlayerName: 
     ShowNameInputField: 0
+    PlayersScore: 000000000000000000000000
 --- !u!1001 &1496958478
 PrefabInstance:
   m_ObjectHideFlags: 0

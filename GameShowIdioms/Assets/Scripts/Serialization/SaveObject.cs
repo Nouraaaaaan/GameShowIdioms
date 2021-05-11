@@ -28,6 +28,9 @@ public class SaveObject
     //Saved Character Name.
     public string PlayerName;
 
-    //
-    public bool ShowNameInputField;
+    //Saved ShowNameInputField
+    public bool ShowNameInputField; //waether to show or hide inputfield, show it at first round only.
+
+    //Saved PlayersScore
+    public int[] PlayersScore;
 }

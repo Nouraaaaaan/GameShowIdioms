@@ -17,18 +17,22 @@ public class UIManager : MonoBehaviour
     [Header("InputField  Canvas")]
     public InputField NameInputField;
     public GameObject InputFieldCanvas;
+
     [Header("NoAds Canvas")]
     public GameObject NoAdsCanvas;
+
     [Header("AvatarImage Canvas")]
     public GameObject AvatarImageCanvas;
+
     [Header("Coins Canvas")]
     public GameObject CoinsCanvas;
+
     [Header("Settings Canvas")]
     public GameObject SettingsCanvas;
+
     [Header("Round Number Text")]
     public Text RoundNumber;
     
-
     [Header("Presenter SpeechBubble Image")]
     public Image PresenterSpeechBubble;
     public Text PresenterSpeechBubbleText;
@@ -70,10 +74,15 @@ public class UIManager : MonoBehaviour
     [Header("Projector Screen Attributes")]
     public GameObject ScreenCanvas;
     public Text ScreenRoundNumberText;
-    public Image AvatarImage;
-
+    
     [Header("LeaderBoard Attributes")]
     public Text[] LeaderBoardNames;
+
+    [Header("Avatars' Images Attributes")]
+    public Image[] AvatarsImages;
+
+    [Header("Avatars' Score Text Attributes")]
+    public Text[] AvatarsScoreText;
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -124,12 +133,12 @@ public class UIManager : MonoBehaviour
     #region Round Number Region
     public void SetRoundNumber()
     {
-        RoundNumber.text = "Round " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
+        RoundNumber.text = "ROUND " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
     }
 
     public void SetScreenRoundNumber()
     {
-        ScreenRoundNumberText.text = "Round " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
+        ScreenRoundNumberText.text = "ROUND " + IdiomsGameManager.Instance.SaveManager.SaveObject.RoundNumber;
     }
 
     public void PopupRoundNumber()
@@ -327,11 +336,22 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    #region Avatar Image Region
+    #region Avatar Image&Text Region
 
-    public void SetAvatarImage(Sprite sprite)
+    public void SetAvatarImage(Character[] characters)
     {
-        AvatarImage.sprite = sprite;
+        for (int i = 0; i < AvatarsImages.Length; i++)
+        {
+            AvatarsImages[i].sprite = characters[i].CharacterSprite;
+        }
+    }
+
+    public void SetAvatarScoreText(int[] scores)
+    {
+        for (int i = 0; i < AvatarsScoreText.Length; i++)
+        {
+            AvatarsScoreText[i].text = scores[i].ToString();
+        }
     }
 
     #endregion
