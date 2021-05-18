@@ -131,8 +131,8 @@ public class CharacterChoosingManager : MonoBehaviour
         SaveManager.SaveObject.CanPlaySFX = true;
         SaveManager.SaveObject.CanPlayMusic = true;
 
-        //Add more coins for test.
-        SaveManager.SaveObject.PlayerCash = 500;
+        //Add more coins for testing.
+        //SaveManager.SaveObject.PlayerCash = 500;
 
         //reset players score
         for (int i = 0; i < SaveManager.SaveObject.PlayersScore.Length; i++)

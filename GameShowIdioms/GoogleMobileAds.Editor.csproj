@@ -61,8 +61,12 @@
     <Compile Include="Assets\GoogleMobileAds\Editor\PListProcessor.cs" />
     <Compile Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsSettingsEditor.cs" />
     <Compile Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsSettings.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Editor\AppLovinPostProcessBuild.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\GoogleMobileAds\Editor\AdColonyMediationDependencies.xml" />
+     <None Include="Assets\GoogleMobileAds\Editor\AppLovinMediationDependencies.xml" />
+     <None Include="Assets\GoogleMobileAds\Editor\UnityMediationDependencies.xml" />
      <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAds.Editor.asmdef" />
      <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
     <Reference Include="UnityEngine">

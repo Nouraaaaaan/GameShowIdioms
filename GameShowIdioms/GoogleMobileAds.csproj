@@ -83,7 +83,6 @@
     <Compile Include="Assets\GoogleMobileAds\Api\Core\TagForUnderAgeOfConsent.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\Core\ServerSideVerificationOptions.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\Core\AdFailedToLoadEventArgs.cs" />
-    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\Utils.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\RewardedInterstitialAd.cs" />
@@ -130,6 +129,29 @@
     <Compile Include="Assets\GoogleMobileAds\Api\MobileAds.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\InitializationStatus.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Utils.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AdColony\AdColonyAppOptionsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AdColony\DummyClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Mediation\AdColony\AdColonyAppOptionsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Mediation\AdColonyAppOptionsClientFactory.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AdColony\IAdColonyAppOptionsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AdColony\Externs.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AdColony\AdColonyMediationExtras.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AdColony\AdColonyAppOptions.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AppLovin\DummyClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Mediation\AppLovin\AppLovinClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AppLovin\Externs.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AppLovin\AppLovin.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AppLovin\IAppLovinClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AppLovin\AppLovinClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Mediation\AppLovinClientFactory.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\UnityAds\IUnityAdsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\UnityAds\UnityAdsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\UnityAds\UnityAds.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Mediation\UnityAds\UnityAdsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\UnityAds\Externs.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Mediation\UnityAdsClientFactory.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\UnityAds\DummyClient.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\GoogleMobileAds\GoogleMobileAds.asmdef" />

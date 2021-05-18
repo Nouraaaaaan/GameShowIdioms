@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\AdsManager.cs" />
     <Compile Include="Assets\Scripts\Serialization\SaveObject.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
+    <Compile Include="Assets\Scripts\NameInputField.cs" />
     <Compile Include="Assets\Scripts\Caret.cs" />
     <Compile Include="Assets\Scripts\Managers\CharacterChoosingManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
@@ -111,7 +112,6 @@
     <Compile Include="Assets\Packages\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
-    <Compile Include="Assets\Scripts\NameInputField.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
