@@ -360,7 +360,7 @@ public class IdiomsGameManager : MonoBehaviour
         //5.Enable new random Idiom.
         yield return new WaitForSeconds(0.5f);
         
-        LeanTween.scale(IdiomImage.gameObject, new Vector3(1f, 1f, 1f), 0.2f); //pup-up IdiomImage.
+        LeanTween.scale(IdiomImage.gameObject, new Vector3(0.85f, 0.85f, 0.85f), 0.2f); //pup-up IdiomImage.
         CurrentIdiom.IdiomCanvas.SetActive(true);
         CurrentIdiom.Words[0].Caret.SetActive(true);
 
