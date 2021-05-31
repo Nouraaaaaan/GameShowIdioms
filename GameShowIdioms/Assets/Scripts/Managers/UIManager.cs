@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class UIManager : MonoBehaviour
@@ -151,6 +152,11 @@ public class UIManager : MonoBehaviour
     public void PopupRoundNumber()
     {
         LeanTween.scale(RoundNumber.gameObject, new Vector3(1f, 1f, 1f), 0.3f);
+    }
+
+    public void FadeRoundNumber()
+    {
+        LeanTween.scale(RoundNumber.gameObject, new Vector3(0f, 0f, 0f), 0.5f);
     }
 
     public void PlayRoundNumberAnimation()
@@ -419,6 +425,21 @@ public class UIManager : MonoBehaviour
         LeanTween.scale(WarningText.gameObject, new Vector3(1f, 1f, 1f), 0.3f);
         WarningText.GetComponent<ObjectShake>().Shake();
         LeanTween.scale(WarningText.gameObject, new Vector3(0f, 0f, 0f), 0.3f).setDelay(1.5f);
+    }
+    #endregion
+
+    #region ChangeCharacterAvatar
+
+    public void OnclickChangeAvatarButtton()
+    {
+        StartCoroutine(ReloadSceneCorotinue());
+    }
+
+    private IEnumerator ReloadSceneCorotinue()
+    {
+        StartScreenFadeout(0.2f);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
     }
     #endregion
 }

@@ -269,7 +269,7 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Play Round Number Animation.
         yield return new WaitForSeconds(1f);
-        UIManager.PlayRoundNumberAnimation();
+        
 
         //Translate Camera To Presenter.
         yield return new WaitForSeconds(0.8f);
@@ -287,6 +287,7 @@ public class IdiomsGameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         TranslateCamera(ScreenCameraTransform, 0.5f);
         SFXManager.Instance.PlayMusic(7, false, 0);
+        UIManager.FadeRoundNumber();
 
         //Popup Keyboard & UI.
         yield return new WaitForSeconds(1f);
@@ -298,7 +299,7 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.ScreenCanvas.SetActive(true);
         UIManager.SettingsCanvas.SetActive(true);
         UIManager.CoinsCanvas.SetActive(true);
-
+        
         StartCoroutine(CounterCorotinue());       
     }
     #endregion
@@ -879,4 +880,6 @@ public class IdiomsGameManager : MonoBehaviour
         }
     }
     #endregion
+
+    
 }
