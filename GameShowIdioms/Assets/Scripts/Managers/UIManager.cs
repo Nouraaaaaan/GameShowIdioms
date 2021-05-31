@@ -82,7 +82,11 @@ public class UIManager : MonoBehaviour
     public Image[] AvatarsImages;
 
     [Header("Avatars' Score Text Attributes")]
+    public GameObject StandScoreCanvas;
     public Text[] AvatarsScoreText;
+
+    [Header("Warning Text")]
+    public Image WarningText;
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -101,9 +105,12 @@ public class UIManager : MonoBehaviour
         AvatarImageCanvas.SetActive(false);
         //Disable Settings Canvas
         SettingsCanvas.SetActive(false);
-
         //Disable Coins Canvas.
         CoinsCanvas.SetActive(false);
+        //Disable Stand Score Canvas.
+        StandScoreCanvas.SetActive(false);
+        //Disable the crown.
+        IdiomsGameManager.Instance.DisableCrowns();
 
         //Save Player's Name.
         if (IdiomsGameManager.Instance.SaveManager.SaveObject.ShowNameInputField)//is it the first round.
@@ -273,51 +280,77 @@ public class UIManager : MonoBehaviour
 
     public void OnClickShowOneHintLetter()
     {
-        //1.Show Hint Letter.
-        IdiomsGameManager.Instance.ShowOneHintLetter();
+        if (IdiomsGameManager.Instance.cashManager.CurrentCash >= 100)
+        {
+            //1.Show Hint Letter.
+            IdiomsGameManager.Instance.ShowOneHintLetter();
 
-        //2.Decrease Current Cash.
-        IdiomsGameManager.Instance.cashManager.CurrentCash -= 100;
+            //2.Decrease Current Cash.
+            IdiomsGameManager.Instance.cashManager.CurrentCash -= 100;
 
-        //3.Save Current Cash, Update cash text.
-        IdiomsGameManager.Instance.cashManager.SaveCashValue();
-        IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //3.Save Current Cash, Update cash text.
+            IdiomsGameManager.Instance.cashManager.SaveCashValue();
+            IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
-
-        //4.Update Hint Buttons.
-        UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //4.Update Hint Buttons.
+            UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+        }
+        else
+        {
+            Debug.Log("you don't have enough cash !");
+            PopWarningText();
+        }
+        
     }
 
     public void OnClickShowAllHintLetters()
     {
-        //1.Show Hint Letter.
-        IdiomsGameManager.Instance.ShowAllHintLetters();
+        if (IdiomsGameManager.Instance.cashManager.CurrentCash >= 200)
+        {
+            //1.Show Hint Letter.
+            IdiomsGameManager.Instance.ShowAllHintLetters();
 
-        //2.Decrease Current Cash.
-        IdiomsGameManager.Instance.cashManager.CurrentCash -= 300;
+            //2.Decrease Current Cash.
+            IdiomsGameManager.Instance.cashManager.CurrentCash -= 300;
 
-        //3.Save Current Cash, Update cash text.
-        IdiomsGameManager.Instance.cashManager.SaveCashValue();
-        IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //3.Save Current Cash, Update cash text.
+            IdiomsGameManager.Instance.cashManager.SaveCashValue();
+            IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
-        //4.Update Hint Buttons.
-        UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //4.Update Hint Buttons.
+            UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+        }
+        else
+        {
+            Debug.Log("you don't have enough cash !");
+            PopWarningText();
+        }
+        
     }
 
     public void OnClickShowOneWord()
     {
-        //1.Show Hint Letter.
-        IdiomsGameManager.Instance.ShowOneWord();
+        if (IdiomsGameManager.Instance.cashManager.CurrentCash >= 300)
+        {
+            //1.Show Hint Letter.
+            IdiomsGameManager.Instance.ShowOneWord();
 
-        //2.Decrease Current Cash.
-        IdiomsGameManager.Instance.cashManager.CurrentCash -= 200;
+            //2.Decrease Current Cash.
+            IdiomsGameManager.Instance.cashManager.CurrentCash -= 200;
 
-        //3.Save Current Cash, Update cash text.
-        IdiomsGameManager.Instance.cashManager.SaveCashValue();
-        IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //3.Save Current Cash, Update cash text.
+            IdiomsGameManager.Instance.cashManager.SaveCashValue();
+            IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
-        //4.Update Hint Buttons.
-        UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //4.Update Hint Buttons.
+            UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+        }
+        else
+        {
+            Debug.Log("you don't have enough cash !");
+            PopWarningText();
+        }
+        
     }
     #endregion
 
@@ -378,5 +411,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region No enough coins warning Region
+    public void PopWarningText()
+    {
+        LeanTween.scale(WarningText.gameObject, new Vector3(1f, 1f, 1f), 0.3f);
+        WarningText.GetComponent<ObjectShake>().Shake();
+        LeanTween.scale(WarningText.gameObject, new Vector3(0f, 0f, 0f), 0.3f).setDelay(1.5f);
+    }
     #endregion
 }

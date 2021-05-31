@@ -35,4 +35,7 @@ public class Character : MonoBehaviour
 
     //character default names.
     public string[] DefaultNames;
+
+    //Crown
+    public GameObject Crown;
 }

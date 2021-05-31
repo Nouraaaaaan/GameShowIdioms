@@ -126,7 +126,7 @@ public class IdiomsGameManager : MonoBehaviour
 
         //Set Cash.
         cashManager.LoadSavedCashValue();
-        UIManager.UpdateHintButtons(cashManager.CurrentCash);
+        //UIManager.UpdateHintButtons(cashManager.CurrentCash);
 
         //Set Round Number.
         UIManager.SetRoundNumber();
@@ -428,14 +428,12 @@ public class IdiomsGameManager : MonoBehaviour
             ConfettiShower.Play();
             CurrentPlayerAnimator.SetBool("dance", true);
             SFXManager.Instance.PlaySoundEffect(2);
+            yield return new WaitForSeconds(3f);
         }
         
-
         //5.show Round End ui.
         UIManager.RoundEndCanvas.gameObject.SetActive(true);
         UIManager.StartRoundEndCanvasFadeout(0.08f);
-        //GiftManager.UpdateCurrentSliderValue();
-        //GiftManager.IncreaseWheelSliderValue();
         GiftManager.UpdateCurrentImageValue();
         GiftManager.IncreaseImageValue();
 
@@ -846,11 +844,11 @@ public class IdiomsGameManager : MonoBehaviour
 
         int firstPlayerIndex = 0;
 
-        for (int i = 0; i < playersScoreText.Length - 1; i++)
+        for (int i = 1; i < playersScoreText.Length; i++)
         {
-            if (int.Parse(playersScoreText[i+1].text) > int.Parse(playersScoreText[i].text))
+            if (int.Parse(playersScoreText[i].text) > int.Parse(playersScoreText[firstPlayerIndex].text))
             {
-                firstPlayerIndex = i+1;
+                firstPlayerIndex = i;
             }
         }
 
@@ -866,7 +864,18 @@ public class IdiomsGameManager : MonoBehaviour
         }
         else
         {
-            UIManager.AvatarsImages[GetFirstPlayer(playersScoreText)].gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            GameObject crown = Characters[GetFirstPlayer(playersScoreText)].Crown;
+            crown.SetActive(true);
+            LeanTween.rotateAround(crown, crown.transform.up, 360, 10f).setLoopClamp();
+            //UIManager.AvatarsImages[GetFirstPlayer(playersScoreText)].gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        }
+    }
+
+    public void DisableCrowns()
+    {
+        for (int i = 0; i < Characters.Length; i++)
+        {
+            Characters[i].Crown.SetActive(false);
         }
     }
     #endregion
