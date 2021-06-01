@@ -302,6 +302,11 @@ public class AdsManager : MonoBehaviour
                     IdiomsGameManager.Instance.UIManager.CollectGiftCallBack();
                 }
                 break;
+            case RewardType.SkipButton:
+                {
+                    IdiomsGameManager.Instance.UIManager.SkipButtonCallBack();
+                }
+                break;
 
 
             default:
@@ -323,6 +328,7 @@ public class AdsManager : MonoBehaviour
     {
         ShowOneLetter,
         TripleCoins,
-        CollectGift
+        CollectGift,
+        SkipButton
     }
 }

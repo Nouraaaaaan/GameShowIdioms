@@ -40,6 +40,7 @@ public class IdiomsGameManager : MonoBehaviour
     private List<int> randomList;           //use this list to pick 4 random idioms foreach round.
     //private bool rightAnswer = true;      //Is current answer is correct ?
     private int NumberOfCorrectAnswers = 0; //number of correct answers per round.
+    private int NumberOfWrongAnswers = 0; //number of correct answers per round.
 
     [Header("Text Matching Attributes")]
     public string EnterText;
@@ -82,6 +83,8 @@ public class IdiomsGameManager : MonoBehaviour
 
     [Header("CrownImages")]
     public Image[] Crowns;
+
+    
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -337,6 +340,7 @@ public class IdiomsGameManager : MonoBehaviour
             SFXManager.Instance.PlaySoundEffect(9);
         }
         UpdateCorrectAnswersNumber();
+        CheckForShowSkipButton();
         yield return new WaitForSeconds(1f);
 
         //2.Reset.
@@ -452,6 +456,20 @@ public class IdiomsGameManager : MonoBehaviour
         if (CheckAnswer())
         {
             NumberOfCorrectAnswers++;
+        }
+    }
+
+    private void CheckForShowSkipButton()
+    {
+        if (!CheckAnswer())
+        {
+            NumberOfWrongAnswers++;
+        }
+
+        if(NumberOfWrongAnswers >= 2)
+        {
+            Debug.Log("You have 2 or more wrong answers !!!");
+            UIManager.SkipButton.SetActive(true);
         }
     }
 
@@ -880,6 +898,4 @@ public class IdiomsGameManager : MonoBehaviour
         }
     }
     #endregion
-
-    
 }

@@ -88,6 +88,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Warning Text")]
     public Image WarningText;
+    public ObjectShake CoinsBar;
+
+    [Header("Skip Button Attributes")]
+    public GameObject SkipButton;
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -299,12 +303,13 @@ public class UIManager : MonoBehaviour
             IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
             //4.Update Hint Buttons.
-            UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
         }
         else
         {
             Debug.Log("you don't have enough cash !");
-            PopWarningText();
+            //PopWarningText();
+            ShakeCoinsBar();
         }
         
     }
@@ -324,12 +329,13 @@ public class UIManager : MonoBehaviour
             IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
             //4.Update Hint Buttons.
-            UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
         }
         else
         {
             Debug.Log("you don't have enough cash !");
-            PopWarningText();
+            //PopWarningText();
+            ShakeCoinsBar();
         }
         
     }
@@ -349,12 +355,13 @@ public class UIManager : MonoBehaviour
             IdiomsGameManager.Instance.cashManager.UpdateCashText(IdiomsGameManager.Instance.cashManager.CurrentCash);
 
             //4.Update Hint Buttons.
-            UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
+            //UpdateHintButtons(IdiomsGameManager.Instance.cashManager.CurrentCash);
         }
         else
         {
             Debug.Log("you don't have enough cash !");
-            PopWarningText();
+            //PopWarningText();
+            ShakeCoinsBar();
         }
         
     }
@@ -426,6 +433,11 @@ public class UIManager : MonoBehaviour
         WarningText.GetComponent<ObjectShake>().Shake();
         LeanTween.scale(WarningText.gameObject, new Vector3(0f, 0f, 0f), 0.3f).setDelay(1.5f);
     }
+
+    public void ShakeCoinsBar()
+    {
+        CoinsBar.Shake();
+    }
     #endregion
 
     #region ChangeCharacterAvatar
@@ -440,6 +452,20 @@ public class UIManager : MonoBehaviour
         StartScreenFadeout(0.2f);
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
+    }
+    #endregion
+
+    #region SkipButtonRegion
+
+    public void OnclickSkipButton()
+    {
+        AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.SkipButton);
+    }
+
+    public void SkipButtonCallBack()
+    {
+        //1.Show Hint Letter.
+        IdiomsGameManager.Instance.ShowAllHintLetters();
     }
     #endregion
 }

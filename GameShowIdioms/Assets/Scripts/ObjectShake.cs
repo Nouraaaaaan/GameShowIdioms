@@ -6,37 +6,25 @@ using System.Collections;
 public class ObjectShake : MonoBehaviour
 {
 
-	private Vector3 originPosition;
-	private Quaternion originRotation;
-	public float shake_decay = 0.002f;
-	public float shake_intensity = .3f;
+    public void Shake()
+    {
+        StartCoroutine(ShakeCorotinue(gameObject, 0.5f, 30f));
+    }
 
-	private float temp_shake_intensity = 0;
+    private IEnumerator ShakeCorotinue(GameObject objectToShake, float damageTime, float shakeRange)
+    {
+        float elapsed = 0.0f;
+        Quaternion originalRotation = objectToShake.gameObject.transform.localRotation;
 
-	void Start()
-	{
-		//Shake();
-	}
+        while (elapsed < damageTime)
+        {
 
-	void Update()
-	{
-		if (temp_shake_intensity > 0)
-		{
-			transform.position = originPosition + Random.insideUnitSphere * temp_shake_intensity;
-			transform.rotation = new Quaternion(
-				originRotation.x + Random.Range(-temp_shake_intensity, temp_shake_intensity) * .2f,
-				originRotation.y + Random.Range(-temp_shake_intensity, temp_shake_intensity) * .2f,
-				originRotation.z + Random.Range(-temp_shake_intensity, temp_shake_intensity) * .2f,
-				originRotation.w + Random.Range(-temp_shake_intensity, temp_shake_intensity) * .2f);
-			temp_shake_intensity -= shake_decay;
-		}
-	}
+            elapsed += Time.deltaTime;
+            float z = Random.value * shakeRange - (shakeRange / 2);
+            objectToShake.gameObject.transform.eulerAngles = new Vector3(originalRotation.x, originalRotation.y, originalRotation.z + z);
+            yield return null;
+        }
 
-	public void Shake()
-	{
-		originPosition = transform.position;
-		originRotation = transform.rotation;
-		temp_shake_intensity = shake_intensity;
-
-	}
+        objectToShake.gameObject.transform.localRotation = originalRotation;
+    }
 }
