@@ -16,12 +16,12 @@ public class SaveObject
 
     //Saved Wheel Value;
     public float WheelValue;
-    //Saved FillImage Value;
     public float FillImageValue;
 
     //Saved Settings.
     public bool CanPlayMusic;
     public bool CanPlaySFX;
+    public bool CanPlayHaptics;
 
     //Saved Character type.
     public int CharacterTypeIndex;

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MoreMountains.NiceVibrations;
 
-
 public class UIManager : MonoBehaviour
 {
     //--------------------------------------------------------------------------------------------------------------------------------//
@@ -257,8 +256,9 @@ public class UIManager : MonoBehaviour
     public void CollectGiftCallBack()
     {
         //1.
-        IdiomsGameManager.Instance.hintsManager.currentHintsNumber += 1;
-        IdiomsGameManager.Instance.hintsManager.SaveHintsValue();
+        IdiomsGameManager.Instance.cashManager.CurrentCash += 100;
+        IdiomsGameManager.Instance.SaveManager.SaveObject.PlayerCash = IdiomsGameManager.Instance.cashManager.CurrentCash;
+        IdiomsGameManager.Instance.SaveManager.Save();
 
         //2.disable claim gift ui & gift obj.
         ClaimGiftCanvas.SetActive(false);
@@ -489,6 +489,9 @@ public class UIManager : MonoBehaviour
     {
         //1.Show Hint Letter.
         IdiomsGameManager.Instance.ShowAllHintLetters();
+
+        //2.Disable Hint Button.
+        SkipButton.SetActive(false);
     }
     #endregion
 

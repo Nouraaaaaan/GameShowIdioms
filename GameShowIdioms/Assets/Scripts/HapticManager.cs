@@ -24,8 +24,10 @@ public class HapticManager : MonoBehaviour
 
     public void HapticPulse(HapticTypes hapticType)
     {
-        //if (CanPlayHaptic)
-            MMVibrationManager.Haptic(hapticType);
+        if(CanPlayHaptic)
+        {
+           MMVibrationManager.Haptic(hapticType);
+        }
     }
 
     public void RumbleHapticPulse(HapticTypes hapticType)
@@ -53,10 +55,14 @@ public class HapticManager : MonoBehaviour
     public void TurnOnHaptic()
     {
         CanPlayHaptic = true;
+        IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlayHaptics = true;
+        IdiomsGameManager.Instance.SaveManager.Save();
     }
 
     public void TurnOffHaptic()
     {
         CanPlayHaptic = false;
+        IdiomsGameManager.Instance.SaveManager.SaveObject.CanPlayHaptics = false;
+        IdiomsGameManager.Instance.SaveManager.Save();
     }
 }

@@ -86,6 +86,9 @@ public class IdiomsGameManager : MonoBehaviour
     [Header("CrownImages")]
     public Image[] Crowns;
 
+    [Header("Skip Button Attributes")]
+    private IEnumerator SkipButtonCorotinue;
+
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
 
@@ -143,6 +146,9 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.SetAvatarImage(RoundSpawnedCharacters[0]);
         UIManager.SetAvatarScoreText(SaveManager.SaveObject.PlayersScore);
         SetFirstPlayerCrown(UIManager.AvatarsScoreText);
+
+        //
+        SkipButtonCorotinue = SkipButtonCounter();
     }
     #endregion
     
@@ -310,7 +316,6 @@ public class IdiomsGameManager : MonoBehaviour
         //Play Round Number Animation.
         yield return new WaitForSeconds(1f);
         
-
         //Translate Camera To Presenter.
         yield return new WaitForSeconds(0.8f);
         TranslateCamera(PresenterCameraTransform, 0.5f);
@@ -339,8 +344,12 @@ public class IdiomsGameManager : MonoBehaviour
         UIManager.ScreenCanvas.SetActive(true);
         UIManager.SettingsCanvas.SetActive(true);
         UIManager.CoinsCanvas.SetActive(true);
-        
-        StartCoroutine(CounterCorotinue());       
+
+        //Start Round Counter. 
+        StartCoroutine(CounterCorotinue());
+
+        //Start Skip Button Counter. 
+        StartCoroutine(SkipButtonCounter());
     }
     #endregion
 
@@ -379,7 +388,7 @@ public class IdiomsGameManager : MonoBehaviour
             SFXManager.Instance.PlaySoundEffect(9);
         }
         UpdateCorrectAnswersNumber();
-        CheckForShowSkipButton();
+        //CheckForShowSkipButton();
         yield return new WaitForSeconds(1f);
 
         //2.Reset.
@@ -395,6 +404,7 @@ public class IdiomsGameManager : MonoBehaviour
         //3.Disable Previous Idiom.
         CurrentIdiom.IdiomCanvas.SetActive(false);
         LeanTween.scale(IdiomImage.gameObject, new Vector3(0f, 0f, 0f), 0.2f); //fade IdiomImage.
+        UIManager.SkipButton.SetActive(false);
 
         //4.Generate new random Idiom.
         yield return new WaitForSeconds(0.2f);
@@ -409,7 +419,11 @@ public class IdiomsGameManager : MonoBehaviour
         CurrentIdiom.Words[0].Caret.SetActive(true);
 
         KeyBoardManager.CanEditText = true;
-        InputField.Select();        
+        InputField.Select();
+
+        //6.Start Skip Button Counter. 
+        StopCoroutine(SkipButtonCounter());
+        StartCoroutine(SkipButtonCounter());
     }
 
     public void ShowResult()
@@ -500,18 +514,32 @@ public class IdiomsGameManager : MonoBehaviour
         }
     }
 
-    private void CheckForShowSkipButton()
+    //private void CheckForShowSkipButton()
+    //{
+    //    if (!CheckAnswer())
+    //    {
+    //        NumberOfWrongAnswers++;
+    //    }
+
+    //    if(NumberOfWrongAnswers >= 2)
+    //    {
+    //        Debug.Log("You have 2 or more wrong answers !!!");
+    //        UIManager.SkipButton.SetActive(true);
+    //    }
+    //}
+
+    private IEnumerator SkipButtonCounter()
     {
-        if (!CheckAnswer())
+        int time = 10;
+
+        while (time > 0)
         {
-            NumberOfWrongAnswers++;
+            time -= 1;
+            yield return new WaitForSeconds(1f);
         }
 
-        if(NumberOfWrongAnswers >= 2)
-        {
-            Debug.Log("You have 2 or more wrong answers !!!");
-            UIManager.SkipButton.SetActive(true);
-        }
+        Debug.Log("10 sec passed !");
+        UIManager.SkipButton.SetActive(true);
     }
 
     private Character.CharacterPrizeDegree AnswersResult()
