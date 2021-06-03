@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using MoreMountains.NiceVibrations;
 
 
 public class UIManager : MonoBehaviour
@@ -93,10 +94,17 @@ public class UIManager : MonoBehaviour
     [Header("Skip Button Attributes")]
     public GameObject SkipButton;
 
+    [Header("Cash Animation Attributes")]
+    public GameObject[] CashImages;
+    public Transform DestinationPosition;
+
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
     public void OnclickStartButton()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
         //Translate Camera.
         IdiomsGameManager.Instance.StartRound();
 
@@ -285,11 +293,17 @@ public class UIManager : MonoBehaviour
 
     public void onClickAdsHintButton()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
         AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.ShowOneLetter);
     }
 
     public void OnClickShowOneHintLetter()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
         if (IdiomsGameManager.Instance.cashManager.CurrentCash >= 100)
         {
             //1.Show Hint Letter.
@@ -316,6 +330,9 @@ public class UIManager : MonoBehaviour
 
     public void OnClickShowAllHintLetters()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
         if (IdiomsGameManager.Instance.cashManager.CurrentCash >= 200)
         {
             //1.Show Hint Letter.
@@ -342,6 +359,9 @@ public class UIManager : MonoBehaviour
 
     public void OnClickShowOneWord()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
+
         if (IdiomsGameManager.Instance.cashManager.CurrentCash >= 300)
         {
             //1.Show Hint Letter.
@@ -384,12 +404,9 @@ public class UIManager : MonoBehaviour
 
     #region Avatar Image&Text Region
 
-    public void SetAvatarImage(Character[] characters)
+    public void SetAvatarImage(Character character)
     {
-        for (int i = 0; i < AvatarsImages.Length; i++)
-        {
-            AvatarsImages[i].sprite = characters[i].CharacterSprite;
-        }
+        AvatarsImages[0].sprite = character.CharacterSprite;
     }
 
     public void SetAvatarScoreText(int[] scores)
@@ -405,15 +422,14 @@ public class UIManager : MonoBehaviour
     #region LeaderBoard Region
 
     public void UpdateLeaderBoardNames()
-    {
-        
-        for (int i = 0; i < IdiomsGameManager.Instance.Characters.Length; i++)
+    {     
+        for (int i = 0; i < IdiomsGameManager.Instance.RoundSpawnedCharacters.Length; i++)
         {
-            if (IdiomsGameManager.Instance.Characters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.First))
+            if (IdiomsGameManager.Instance.RoundSpawnedCharacters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.First))
             {
                 LeaderBoardNames[0].text = IdiomsGameManager.Instance.CharactersNamesText[i].text;
             }
-            else if(IdiomsGameManager.Instance.Characters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.Second))
+            else if(IdiomsGameManager.Instance.RoundSpawnedCharacters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.Second))
             {
                 LeaderBoardNames[1].text = IdiomsGameManager.Instance.CharactersNamesText[i].text;
             }
@@ -444,13 +460,17 @@ public class UIManager : MonoBehaviour
 
     public void OnclickChangeAvatarButtton()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
+        //Load first scene.
         StartCoroutine(ReloadSceneCorotinue());
     }
 
     private IEnumerator ReloadSceneCorotinue()
     {
         StartScreenFadeout(0.2f);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(0);
     }
     #endregion
@@ -459,6 +479,9 @@ public class UIManager : MonoBehaviour
 
     public void OnclickSkipButton()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
         AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.SkipButton);
     }
 
@@ -467,5 +490,30 @@ public class UIManager : MonoBehaviour
         //1.Show Hint Letter.
         IdiomsGameManager.Instance.ShowAllHintLetters();
     }
+    #endregion
+
+    #region Coins Spawning Region
+
+    public void SpawnCoins()
+    {
+        StartCoroutine(SpawnCoinsCorotinue());
+    }
+    IEnumerator SpawnCoinsCorotinue()
+    {
+        yield return new WaitForSeconds(0f);
+
+        foreach (var item in CashImages)
+        {
+            item.SetActive(true);
+
+            LeanTween.move(item, DestinationPosition, 0.8f);
+            LeanTween.scale(item, new Vector3(0f, 0f, 0f), 1f);
+
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        yield return new WaitForSeconds(1f);
+    }
+
     #endregion
 }

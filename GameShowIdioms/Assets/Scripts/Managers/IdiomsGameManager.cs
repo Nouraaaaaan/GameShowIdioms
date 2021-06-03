@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using MoreMountains.NiceVibrations;
 
 public class IdiomsGameManager : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class IdiomsGameManager : MonoBehaviour
 
     [Header("Characters Atrributes")]
     public Character[] Characters;
+    public Character[] RoundSpawnedCharacters;
     public Character.CharacterType ChoosenCharacterType;
     private int choosenCharacterIndex;
     public Transform[] CharactersPositions;            //from right to left.
@@ -83,8 +85,6 @@ public class IdiomsGameManager : MonoBehaviour
 
     [Header("CrownImages")]
     public Image[] Crowns;
-
-    
 
     //--------------------------------------------------------------------------------------------------------------------------------//
     //Methods.
@@ -118,18 +118,8 @@ public class IdiomsGameManager : MonoBehaviour
         CurrentIdiom = Idioms[randomList[0]];
         SetIdiomImage();
 
-        //Set Characters.
-        SetChoosenCharacterType((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex);
-        SwapChoosenCharacter(SetChoosenCharacterIndex((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex));
-        SetCharactersPostions();
-        SetCharactersNames(SaveManager.SaveObject.PlayerName);     
-        UIManager.SetAvatarImage(Characters);
-        UIManager.SetAvatarScoreText(SaveManager.SaveObject.PlayersScore);
-        SetFirstPlayerCrown(UIManager.AvatarsScoreText);
-
         //Set Cash.
         cashManager.LoadSavedCashValue();
-        //UIManager.UpdateHintButtons(cashManager.CurrentCash);
 
         //Set Round Number.
         UIManager.SetRoundNumber();
@@ -144,9 +134,18 @@ public class IdiomsGameManager : MonoBehaviour
         {
             UIManager.InputFieldCanvas.SetActive(false);
         }
+
+        //Set Characters.
+        SetChoosenCharacterType((Character.CharacterType)SaveManager.SaveObject.CharacterTypeIndex);
+        SetMainPlayerCharacter();
+        SetOtherCharacters();
+        SetCharactersNames(SaveManager.SaveObject.PlayerName);
+        UIManager.SetAvatarImage(RoundSpawnedCharacters[0]);
+        UIManager.SetAvatarScoreText(SaveManager.SaveObject.PlayersScore);
+        SetFirstPlayerCrown(UIManager.AvatarsScoreText);
     }
     #endregion
-
+    
     #region Setting Current Idiom Region
 
     private void SetIdiomImage()
@@ -179,17 +178,75 @@ public class IdiomsGameManager : MonoBehaviour
         ChoosenCharacterType = characterType;
     }
 
+    private void SetMainPlayerCharacter()
+    {
+        var playerCharacter = Characters[SaveManager.SaveObject.CharacterTypeIndex];   //setting player character.
+        playerCharacter.transform.position = CharactersPositions[0].position;
+        RoundSpawnedCharacters[0] = playerCharacter;
+        playerCharacter.gameObject.SetActive(true);
+        CurrentPlayerAnimator = RoundSpawnedCharacters[0].gameObject.GetComponent<Animator>();
+    }
+
+    private void SetOtherCharacters()
+    {
+        if (SaveManager.SaveObject.RoundNumber <= 1)
+        {
+            int randomIndex = Random.Range(0, Characters.Length);                         //setting 2nd character.
+            while (randomIndex == SaveManager.SaveObject.CharacterTypeIndex)
+            {
+                randomIndex = Random.Range(0, Characters.Length);
+            }
+            var playerCharacter2 = Characters[randomIndex];
+            playerCharacter2.transform.position = CharactersPositions[1].position;
+            RoundSpawnedCharacters[1] = playerCharacter2;
+            playerCharacter2.gameObject.SetActive(true);
+            CharactersNamesText[1].text = playerCharacter2.DefaultNames[Random.Range(0, playerCharacter2.DefaultNames.Length)];
+            SaveManager.SaveObject.PlayersNames[1] = CharactersNamesText[1].text;
+
+            int randomIndex2 = Random.Range(0, Characters.Length);                         //setting 3rd character.
+            while ((randomIndex2 == SaveManager.SaveObject.CharacterTypeIndex) || (randomIndex2 == randomIndex))
+            {
+                randomIndex2 = Random.Range(0, Characters.Length);
+            }
+            var playerCharacter3 = Characters[randomIndex2];
+            playerCharacter3.transform.position = CharactersPositions[2].position;
+            RoundSpawnedCharacters[2] = playerCharacter3;
+            playerCharacter3.gameObject.SetActive(true);
+            CharactersNamesText[2].text = playerCharacter3.DefaultNames[Random.Range(0, playerCharacter3.DefaultNames.Length)];
+            SaveManager.SaveObject.PlayersNames[2] = CharactersNamesText[2].text;
+
+            SaveManager.SaveObject.PlayersIndex[1] = randomIndex;
+            SaveManager.SaveObject.PlayersIndex[2] = randomIndex2;
+            SaveManager.Save();
+        }
+        else
+        {           
+            var playerCharacter2 = Characters[SaveManager.SaveObject.PlayersIndex[1]];
+            playerCharacter2.transform.position = CharactersPositions[1].position;
+            RoundSpawnedCharacters[1] = playerCharacter2;
+            playerCharacter2.gameObject.SetActive(true);
+            CharactersNamesText[1].text = SaveManager.SaveObject.PlayersNames[1];
+
+            var playerCharacter3 = Characters[SaveManager.SaveObject.PlayersIndex[2]];
+            playerCharacter3.transform.position = CharactersPositions[2].position;
+            RoundSpawnedCharacters[2] = playerCharacter3;
+            playerCharacter3.gameObject.SetActive(true);
+            CharactersNamesText[2].text = SaveManager.SaveObject.PlayersNames[2];
+        }
+        
+    }
+
     private int SetChoosenCharacterIndex(Character.CharacterType characterType)
     {
         switch (characterType)
         {
-            case Character.CharacterType.NerdGirl:
+            case Character.CharacterType.BladMan:
                 choosenCharacterIndex = 0;
                 break;
             case Character.CharacterType.FakeGirl:
                 choosenCharacterIndex = 1;
                 break;
-            case Character.CharacterType.BladMan:
+            case Character.CharacterType.NerdGirl:
                 choosenCharacterIndex = 2;
                 break;
             default:
@@ -197,13 +254,6 @@ public class IdiomsGameManager : MonoBehaviour
         }
 
         return choosenCharacterIndex;
-    }
-
-    private void SwapChoosenCharacter(int choosenCharacterIndex)
-    {
-        Character temp = Characters[0];
-        Characters[0] = Characters[choosenCharacterIndex];
-        Characters[choosenCharacterIndex] = temp;
     }
 
     public void SetCharactersPostions()
@@ -231,23 +281,10 @@ public class IdiomsGameManager : MonoBehaviour
 
     public void SetCharactersNames(string playerName)
     {
-        int otherCharactersIndex = 1;
-
-        foreach (var character in Characters)
-        {
-            if (character.characterType == this.ChoosenCharacterType)
-            {
-                if(playerName != "")
-                   CharactersNamesText[0].text = playerName;
-                else
-                    CharactersNamesText[0].text = "You";
-            }
-            else
-            {
-                CharactersNamesText[otherCharactersIndex].text = character.DefaultNames[Random.Range(0, character.DefaultNames.Length)];
-                otherCharactersIndex++;
-            }
-        }
+          if(playerName != "")
+             CharactersNamesText[0].text = playerName;
+           else
+             CharactersNamesText[0].text = "You";  
     }
     #endregion
 
@@ -325,7 +362,9 @@ public class IdiomsGameManager : MonoBehaviour
     private IEnumerator DisplayNextIdiomCorotinue()
     {
         //1.Color Text.
-        ColorAllTextTest();       
+        ColorAllTextTest();
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
         if (CheckAnswer())
         {
             SFXManager.Instance.PlaySoundEffect(8);
@@ -384,6 +423,8 @@ public class IdiomsGameManager : MonoBehaviour
 
         //1.Color Text.
         ColorAllTextTest();
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
         if (CheckAnswer())
         {
             SFXManager.Instance.PlaySoundEffect(8);
@@ -428,7 +469,7 @@ public class IdiomsGameManager : MonoBehaviour
         TranslateCamera(PlayerCameraTransform, 0.3f);
 
         //4.
-        if (Characters[0].characterPrizeDegree == Character.CharacterPrizeDegree.First)
+        if (RoundSpawnedCharacters[0].characterPrizeDegree == Character.CharacterPrizeDegree.First)
         {
             ConfettiShower.Play();
             CurrentPlayerAnimator.SetBool("dance", true);
@@ -686,23 +727,24 @@ public class IdiomsGameManager : MonoBehaviour
     //Setting RandomPrizeDegree.
     private void SetRandomPrizeDegree()
     {
-        Characters[0].characterPrizeDegree = AnswersResult();
+        RoundSpawnedCharacters[0].characterPrizeDegree = AnswersResult();
 
-        switch (Characters[0].characterPrizeDegree)
+        switch (RoundSpawnedCharacters[0].characterPrizeDegree)
         {
             case Character.CharacterPrizeDegree.First:
-                Characters[1].characterPrizeDegree = Character.CharacterPrizeDegree.Third;
-                Characters[2].characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                RoundSpawnedCharacters[1].characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+                RoundSpawnedCharacters[2].characterPrizeDegree = Character.CharacterPrizeDegree.Second;
                 break;
             case Character.CharacterPrizeDegree.Second:
-                Characters[1].characterPrizeDegree = Character.CharacterPrizeDegree.Third;
-                Characters[2].characterPrizeDegree = Character.CharacterPrizeDegree.First;
+                RoundSpawnedCharacters[1].characterPrizeDegree = Character.CharacterPrizeDegree.Third;
+                RoundSpawnedCharacters[2].characterPrizeDegree = Character.CharacterPrizeDegree.First;
                 break;
             case Character.CharacterPrizeDegree.Third:
-                Characters[1].characterPrizeDegree = Character.CharacterPrizeDegree.First;
-                Characters[2].characterPrizeDegree = Character.CharacterPrizeDegree.Second;
+                RoundSpawnedCharacters[1].characterPrizeDegree = Character.CharacterPrizeDegree.First;
+                RoundSpawnedCharacters[2].characterPrizeDegree = Character.CharacterPrizeDegree.Second;
                 break;
         }
+
         SettingPrizesSprites();
         SettingPrizesScores();
     }
@@ -711,20 +753,21 @@ public class IdiomsGameManager : MonoBehaviour
     //Setting Prizes Sprites.
     private void SettingPrizesSprites()
     {     
-        foreach (var character in Characters)
+        for (int i = 0; i < RoundSpawnedCharacters.Length; i++)
         {
-            switch (character.characterPrizeDegree)
+            if (RoundSpawnedCharacters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.First))
             {
-                case Character.CharacterPrizeDegree.First:
-                    CharactersPrizeImages[character.CharacterIndex].sprite = GoldenPrizeSprite;
-                    break;
-                case Character.CharacterPrizeDegree.Second:
-                    CharactersPrizeImages[character.CharacterIndex].sprite = SliverPrizeSprite;
-                    break;
-                case Character.CharacterPrizeDegree.Third:
-                    CharactersPrizeImages[character.CharacterIndex].sprite = BronzePrizeSprite;
-                    break;
+                CharactersPrizeImages[i].sprite = GoldenPrizeSprite;
             }
+            else if (RoundSpawnedCharacters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.Second))
+            {
+                CharactersPrizeImages[i].sprite = SliverPrizeSprite;
+            }
+            else if (RoundSpawnedCharacters[i].characterPrizeDegree.Equals(Character.CharacterPrizeDegree.Third))
+            {
+                CharactersPrizeImages[i].sprite = BronzePrizeSprite;
+            }
+
         }
         
     }
@@ -733,8 +776,12 @@ public class IdiomsGameManager : MonoBehaviour
     {
         foreach (var image in CharactersPrizeImages)
         {
+            //Scale.
             LeanTween.scale(image.gameObject, new Vector3(0.001403027f, 0.001403027f, 0.001403027f), 0.3f);
+            //SFX.
             SFXManager.Instance.PlaySoundEffect(4);
+            //Haptics.
+            HapticManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
             yield return new WaitForSeconds(0.4f);
         }
     }
@@ -753,9 +800,9 @@ public class IdiomsGameManager : MonoBehaviour
         }
         
 
-        for (int i = 1; i < Characters.Length; i++)
+        for (int i = 1; i < RoundSpawnedCharacters.Length; i++)
         {
-            switch (Characters[i].characterPrizeDegree)
+            switch (RoundSpawnedCharacters[i].characterPrizeDegree)
             {
                 case Character.CharacterPrizeDegree.First:
                     CharactersScoresText[i].text = "100";
@@ -808,6 +855,15 @@ public class IdiomsGameManager : MonoBehaviour
     #region Cash Region
     public void OnclickEnoughButton()
     {
+        StartCoroutine(OnclickEnoughButtonCorotinue());
+    }
+
+    private IEnumerator OnclickEnoughButtonCorotinue()
+    {
+        UIManager.SpawnCoins();
+
+        yield return new WaitForSeconds(1f);
+
         int newCashValue = cashManager.CurrentCash + int.Parse(CharactersScoresText[0].text);
         cashManager.UpdateCashValue(newCashValue);
         cashManager.SaveCashValue();
@@ -822,6 +878,15 @@ public class IdiomsGameManager : MonoBehaviour
 
     public void TripleCoinsCallBack()
     {
+        StartCoroutine(TripleCoinsCallBackCorotinue());
+    }
+
+    private IEnumerator TripleCoinsCallBackCorotinue()
+    {
+        UIManager.SpawnCoins();
+
+        yield return new WaitForSeconds(1f);
+
         int newCashValue = cashManager.CurrentCash + (int.Parse(CharactersScoresText[0].text) * 3);
         cashManager.UpdateCashValue(newCashValue);
         cashManager.SaveCashValue();
@@ -883,7 +948,7 @@ public class IdiomsGameManager : MonoBehaviour
         }
         else
         {
-            GameObject crown = Characters[GetFirstPlayer(playersScoreText)].Crown;
+            GameObject crown = RoundSpawnedCharacters[GetFirstPlayer(playersScoreText)].Crown;
             crown.SetActive(true);
             LeanTween.rotateAround(crown, crown.transform.up, 360, 10f).setLoopClamp();
             //UIManager.AvatarsImages[GetFirstPlayer(playersScoreText)].gameObject.transform.GetChild(2).gameObject.SetActive(true);

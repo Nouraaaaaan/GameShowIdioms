@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MoreMountains.NiceVibrations;
 
 public class KeyBoardManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class KeyBoardManager : MonoBehaviour
 
         //2.Add Letter
         AddNewLetter(letter);
+
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
     }
 
     public void OnclickBackSpace()
@@ -28,6 +32,9 @@ public class KeyBoardManager : MonoBehaviour
 
         //2.
         AddBackSpace();
+
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
     }
 
     public void AddNewLetter(string letter)

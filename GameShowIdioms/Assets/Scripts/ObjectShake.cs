@@ -14,17 +14,16 @@ public class ObjectShake : MonoBehaviour
     private IEnumerator ShakeCorotinue(GameObject objectToShake, float damageTime, float shakeRange)
     {
         float elapsed = 0.0f;
-        Quaternion originalRotation = objectToShake.gameObject.transform.localRotation;
 
         while (elapsed < damageTime)
         {
 
             elapsed += Time.deltaTime;
             float z = Random.value * shakeRange - (shakeRange / 2);
-            objectToShake.gameObject.transform.eulerAngles = new Vector3(originalRotation.x, originalRotation.y, originalRotation.z + z);
+            objectToShake.gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f + z);
             yield return null;
         }
 
-        objectToShake.gameObject.transform.localRotation = originalRotation;
+        objectToShake.gameObject.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
     }
 }

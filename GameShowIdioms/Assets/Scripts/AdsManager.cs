@@ -21,35 +21,35 @@ public class AdsManager : MonoBehaviour
 
     #region AD_IDs
 
-    //#if UNITY_ANDROID   // test ids
-    //    private readonly string videoAdMobId = "ca-app-pub-3940256099942544/5224354917";    //test id
-    //    private readonly string bannerUniteID = "ca-app-pub-3940256099942544/6300978111";    // test id
-    //    private readonly string interstitialUnitID = "ca-app-pub-3940256099942544/1033173712"; // test id
-    //#elif UNITY_IPHONE
-    //              private readonly string videoAdMobId = "ca-app-pub-8505877826751443/9780697346";
-    //              private readonly string adbannerUniteIDUnitId = "ca-app-pub-8505877826751443/1677994018";
-    //              private readonly string interstitialUnitID = "ca-app-pub-8505877826751443/3154727210";
-    //#else
-    //            private readonly string videoAdMobId = "unexpected_platform";
-    //              private readonly string adbannerUniteIDUnitId = "unexpected_platform";
-    //              private readonly string interstitialUnitID = "unexpected_platform";
-    //#endif
-
-
-
-#if UNITY_ANDROID   // real ids
-    private readonly string videoAdMobId = "ca-app-pub-9860273259136456/9813146698";
-    private readonly string bannerUniteID = "ca-app-pub-9860273259136456/3954864095";
-    private readonly string interstitialUnitID = "ca-app-pub-9860273259136456/7378555044";
+#if UNITY_ANDROID   // test ids
+    private readonly string videoAdMobId = "ca-app-pub-3940256099942544/5224354917";    //test id
+    private readonly string bannerUniteID = "ca-app-pub-3940256099942544/6300978111";    // test id
+    private readonly string interstitialUnitID = "ca-app-pub-3940256099942544/1033173712"; // test id
 #elif UNITY_IPHONE
-          private readonly string videoAdMobId = "ca-app-pub-9860273259136456/4205596793";
-          private readonly string bannerUniteID = "ca-app-pub-9860273259136456~1771005144";
-          private readonly string interstitialUnitID = "ca-app-pub-9860273259136456/6831760138";
+                  private readonly string videoAdMobId = "ca-app-pub-8505877826751443/9780697346";
+                  private readonly string adbannerUniteIDUnitId = "ca-app-pub-8505877826751443/1677994018";
+                  private readonly string interstitialUnitID = "ca-app-pub-8505877826751443/3154727210";
 #else
-        private readonly string videoAdMobId = "unexpected_platform";
-          private readonly string adbannerUniteIDUnitId = "unexpected_platform";
-          private readonly string interstitialUnitID = "unexpected_platform";
+                private readonly string videoAdMobId = "unexpected_platform";
+                  private readonly string adbannerUniteIDUnitId = "unexpected_platform";
+                  private readonly string interstitialUnitID = "unexpected_platform";
 #endif
+
+
+
+    //#if UNITY_ANDROID   // real ids
+    //    private readonly string videoAdMobId = "ca-app-pub-9860273259136456/9813146698";
+    //    private readonly string bannerUniteID = "ca-app-pub-9860273259136456/3954864095";
+    //    private readonly string interstitialUnitID = "ca-app-pub-9860273259136456/7378555044";
+    //#elif UNITY_IPHONE
+    //          private readonly string videoAdMobId = "ca-app-pub-9860273259136456/4205596793";
+    //          private readonly string bannerUniteID = "ca-app-pub-9860273259136456~1771005144";
+    //          private readonly string interstitialUnitID = "ca-app-pub-9860273259136456/6831760138";
+    //#else
+    //        private readonly string videoAdMobId = "unexpected_platform";
+    //          private readonly string adbannerUniteIDUnitId = "unexpected_platform";
+    //          private readonly string interstitialUnitID = "unexpected_platform";
+    //#endif
 
 
     #endregion

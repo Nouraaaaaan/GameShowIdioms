@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using MoreMountains.NiceVibrations;
 
 public class CharacterChoosingManager : MonoBehaviour
 {
@@ -50,28 +51,31 @@ public class CharacterChoosingManager : MonoBehaviour
     #region Arrow Buttons Region
     public void OnclickRightArrowButton()
     {
-        //SFXManager.Instance.PlaySoundEffect(0);
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
 
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
         
         CurrentCharacterIndex++;
+        Debug.Log("CurrentCharacterIndex : "+ CurrentCharacterIndex);
 
-        if (CurrentCharacterIndex < CharactersGroups.Length)
+        if (CurrentCharacterIndex < Characters.Length)
         {
             Characters[CurrentCharacterIndex].gameObject.SetActive(true);
         }
         else
         {
             CurrentCharacterIndex = 0;
+            Debug.Log("CurrentCharacterIndex : " + CurrentCharacterIndex);
             Characters[CurrentCharacterIndex].gameObject.SetActive(true);
         }
-
-        //SetAllDotsWhite();
-        //SetDotToBlack(CurrentCharacterIndex);
     }
 
     public void OnclickLeftArrowButton()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.LightImpact);
+
         //SFXManager.Instance.PlaySoundEffect(0);
 
         Characters[CurrentCharacterIndex].gameObject.SetActive(false);
@@ -84,7 +88,7 @@ public class CharacterChoosingManager : MonoBehaviour
         }
         else
         {
-            CurrentCharacterIndex = CharactersGroups.Length - 1;
+            CurrentCharacterIndex = Characters.Length - 1;
             Characters[CurrentCharacterIndex].gameObject.SetActive(true);
         }
 
@@ -121,6 +125,9 @@ public class CharacterChoosingManager : MonoBehaviour
 
     public void OnClickStartButton()
     {
+        //Haptics.
+        HapticManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
+
         //save Choosen CharacterType
         SaveChoosenCharacterType();
 
@@ -150,8 +157,8 @@ public class CharacterChoosingManager : MonoBehaviour
 
     public void SaveChoosenCharacterType()
     {
-        SaveManager.SaveObject.CharacterTypeIndex = (int)Characters[GetChoosenCharacterIndex()].characterType;
+        //SaveManager.SaveObject.CharacterTypeIndex = (int)Characters[GetChoosenCharacterIndex()].characterType;
+        SaveManager.SaveObject.CharacterTypeIndex = GetChoosenCharacterIndex();
         SaveManager.Save();
-
     }
 }

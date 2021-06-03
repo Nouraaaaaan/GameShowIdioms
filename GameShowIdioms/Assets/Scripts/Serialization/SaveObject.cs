@@ -33,4 +33,10 @@ public class SaveObject
 
     //Saved PlayersScore
     public int[] PlayersScore;
+
+    //Saved PlayersCharacters
+    public int[] PlayersIndex;
+
+    //Saved PlayersNames
+    public string[] PlayersNames;
 }

@@ -15,11 +15,11 @@ D:/GameShowIdioms/GameShowIdioms
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54236
+62357
 Successfully changed project path to: D:/GameShowIdioms/GameShowIdioms
 D:/GameShowIdioms/GameShowIdioms
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 104.39 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 96.73 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.5f1 (8095aa901b9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -36,631 +36,252 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56416
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56180
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002022 seconds.
+Registered in 0.002063 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 57.87 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 58.05 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.185 seconds
+- Completed reload, in  2.148 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.552441 seconds.
+Registered in 0.008244 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.48 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.53 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.939 seconds
+- Completed reload, in  1.226 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.53 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2501 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 169.5 MB.
-System memory in use after: 169.7 MB.
+System memory in use before: 171.3 MB.
+System memory in use after: 171.5 MB.
 
-Unloading 136 unused Assets to reduce memory usage. Loaded Objects now: 2828.
-Total: 3.819800 ms (FindLiveObjects: 0.437200 ms CreateObjectMapping: 0.245700 ms MarkObjects: 2.947400 ms  DeleteObjects: 0.187400 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/MMFeedbacks
-  artifactKey: Guid(e6fdc44da2249984fa0d67844d45b31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MMFeedbacks using Guid(e6fdc44da2249984fa0d67844d45b31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3392dab8062ad5f51977ceb928784554') in 0.071191 seconds
-  Import took 0.080869 seconds .
+Unloading 140 unused Assets to reduce memory usage. Loaded Objects now: 2836.
+Total: 7.073500 ms (FindLiveObjects: 0.556200 ms CreateObjectMapping: 0.322000 ms MarkObjects: 6.074500 ms  DeleteObjects: 0.118900 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.189246 seconds.
-  path: Assets/MMFeedbacks
-  artifactKey: Guid(e6fdc44da2249984fa0d67844d45b31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/MMFeedbacks using Guid(e6fdc44da2249984fa0d67844d45b31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3392dab8062ad5f51977ceb928784554') in 0.001791 seconds
-  Import took 0.006008 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007902 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.51 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-Mono: successfully reloaded assembly
-- Completed reload, in  1.176 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.61 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2471 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 167.7 MB.
-System memory in use after: 167.9 MB.
-
-Unloading 139 unused Assets to reduce memory usage. Loaded Objects now: 2834.
-Total: 6.623300 ms (FindLiveObjects: 0.462200 ms CreateObjectMapping: 0.350400 ms MarkObjects: 5.751100 ms  DeleteObjects: 0.057200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007407 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.47 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.267 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 158.2 MB.
-System memory in use after: 158.3 MB.
-
-Unloading 540 unused Assets to reduce memory usage. Loaded Objects now: 2428.
-Total: 6.375700 ms (FindLiveObjects: 0.274800 ms CreateObjectMapping: 0.137600 ms MarkObjects: 5.791900 ms  DeleteObjects: 0.169200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 215.160370 seconds.
   path: Assets/Scenes/Game Show scene.unity
   artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3035bbb790025a6000f90f41a60c9577') in 0.029741 seconds
-  Import took 0.033737 seconds .
+Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5be219c95ca568ec0d37bea939989279') in 0.081516 seconds
+  Import took 0.104704 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.015487 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3035bbb790025a6000f90f41a60c9577') in 0.002520 seconds
-  Import took 0.007547 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010121 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.194 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.37 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 156.0 MB.
-System memory in use after: 156.1 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2431.
-Total: 6.040200 ms (FindLiveObjects: 0.235700 ms CreateObjectMapping: 0.099600 ms MarkObjects: 5.652600 ms  DeleteObjects: 0.050700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 481.956426 seconds.
-  path: Assets/Fonts/COMMSB__.ttf
-  artifactKey: Guid(1368054cb36109040a081816e8032298) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/COMMSB__.ttf using Guid(1368054cb36109040a081816e8032298) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21cb901f4fcad8eceb12e63e53490e81') in 0.458670 seconds
-  Import took 0.462619 seconds .
+  Time since last request: 4735.959923 seconds.
+  path: Assets/Sprites/Idioms/54-min.jpg
+  artifactKey: Guid(35d2e5823c254d245a61202db0df525d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/54-min.jpg using Guid(35d2e5823c254d245a61202db0df525d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff9e2b7eae23d1e3e56cde9d96d46be3') in 1.541751 seconds
+  Import took 1.549073 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000328 seconds.
-  path: Assets/Fonts/use_extrabold_ONLY.ttc
-  artifactKey: Guid(cceac35c188ff3943b56cf3082a64ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/use_extrabold_ONLY.ttc using Guid(cceac35c188ff3943b56cf3082a64ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b767003b1d4a417868ba21f381280b1') in 0.018470 seconds
-  Import took 0.022340 seconds .
+  Time since last request: 18.236910 seconds.
+  path: Assets/Sprites/Idioms/54-min.jpg
+  artifactKey: Guid(35d2e5823c254d245a61202db0df525d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/54-min.jpg using Guid(35d2e5823c254d245a61202db0df525d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7592a88425b4bdecf5a7954ef61865f2') in 0.169174 seconds
+  Import took 0.174149 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000274 seconds.
-  path: Assets/Fonts
-  artifactKey: Guid(8002003d464d08e49a890a4820fcf832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts using Guid(8002003d464d08e49a890a4820fcf832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb0606f615563ac2b52915be6d22a6a4') in 0.007126 seconds
-  Import took 0.011625 seconds .
+  Time since last request: 366.274051 seconds.
+  path: Assets/Sprites/Idioms/31-min.jpg
+  artifactKey: Guid(88a06bce7b942784185d5eddc72142f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/31-min.jpg using Guid(88a06bce7b942784185d5eddc72142f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8114843e6ef660a82714298307186efe') in 0.689978 seconds
+  Import took 0.694825 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.025912 seconds.
-  path: Assets/Fonts
-  artifactKey: Guid(8002003d464d08e49a890a4820fcf832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts using Guid(8002003d464d08e49a890a4820fcf832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb0606f615563ac2b52915be6d22a6a4') in 0.022367 seconds
-  Import took 0.025726 seconds .
+  Time since last request: 9.056381 seconds.
+  path: Assets/Sprites/Idioms/31-min.jpg
+  artifactKey: Guid(88a06bce7b942784185d5eddc72142f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/31-min.jpg using Guid(88a06bce7b942784185d5eddc72142f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c8ddca97b8afdfba006c058c29919a') in 0.017537 seconds
+  Import took 0.022101 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 14.956794 seconds.
-  path: Assets/Fonts/MuktaMahee
-  artifactKey: Guid(7d5331189bfa23742bc18dbb16553c71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/MuktaMahee using Guid(7d5331189bfa23742bc18dbb16553c71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '587835d6a4918e49c30ab1ba13043ffc') in 0.007106 seconds
-  Import took 0.010564 seconds .
+  Time since last request: 0.022637 seconds.
+  path: Assets/Sprites/Idioms/31-min.jpg
+  artifactKey: Guid(88a06bce7b942784185d5eddc72142f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/31-min.jpg using Guid(88a06bce7b942784185d5eddc72142f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c8ddca97b8afdfba006c058c29919a') in 0.018897 seconds
+  Import took 0.024436 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.409696 seconds.
-  path: Assets/Fonts/Mukta_Mahee
-  artifactKey: Guid(711277228cc37f3418b7c2678d22d826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee using Guid(711277228cc37f3418b7c2678d22d826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6b02ca41ae779af3922c6101f6d7f68') in 0.006398 seconds
-  Import took 0.010014 seconds .
+  Time since last request: 1099.252613 seconds.
+  path: Assets/Sprites/Idioms/14-min.jpg
+  artifactKey: Guid(80ef5ae8a7226a646902235bb8173662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/14-min.jpg using Guid(80ef5ae8a7226a646902235bb8173662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba5b9b2c0c5f583864357314e9520e03') in 0.694750 seconds
+  Import took 0.700185 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.622694 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-Bold.ttf
-  artifactKey: Guid(89a92c4f16024994f8f783bb64d8cfa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-Bold.ttf using Guid(89a92c4f16024994f8f783bb64d8cfa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '389076665e934446495380006007353c') in 0.014112 seconds
-  Import took 0.018618 seconds .
+  Time since last request: 14.741105 seconds.
+  path: Assets/Sprites/Idioms/14-min.jpg
+  artifactKey: Guid(80ef5ae8a7226a646902235bb8173662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/14-min.jpg using Guid(80ef5ae8a7226a646902235bb8173662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a07a6e46b436559d32406d3ee60e805') in 0.017157 seconds
+  Import took 0.021908 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000300 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-Medium.ttf
-  artifactKey: Guid(35bcbd8760ee66e4bbfcb4225f47f83c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-Medium.ttf using Guid(35bcbd8760ee66e4bbfcb4225f47f83c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd99709509e980b2ddbf257044049de4e') in 0.013070 seconds
-  Import took 0.016378 seconds .
+  Time since last request: 0.021239 seconds.
+  path: Assets/Sprites/Idioms/14-min.jpg
+  artifactKey: Guid(80ef5ae8a7226a646902235bb8173662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/14-min.jpg using Guid(80ef5ae8a7226a646902235bb8173662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a07a6e46b436559d32406d3ee60e805') in 0.037466 seconds
+  Import took 0.043137 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000244 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-ExtraBold.ttf
-  artifactKey: Guid(a13569180e4ab1f469394c8e794d772c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-ExtraBold.ttf using Guid(a13569180e4ab1f469394c8e794d772c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47eee1c5b23f37d0b010f788efc2bcef') in 0.032208 seconds
-  Import took 0.036022 seconds .
+  Time since last request: 376.695512 seconds.
+  path: Assets/Sprites/Idioms/25-min.jpg
+  artifactKey: Guid(e208edf73be93da49b280ad69dab4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/25-min.jpg using Guid(e208edf73be93da49b280ad69dab4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c20bd93cc26d915be59cc4bb77f57ce5') in 0.689754 seconds
+  Import took 0.695306 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000303 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-Regular.ttf
-  artifactKey: Guid(868ffb3f5f54b034892ea1be57e69700) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-Regular.ttf using Guid(868ffb3f5f54b034892ea1be57e69700) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a19dfcb11f8c2eb2c1564a75ce91f94') in 0.030377 seconds
-  Import took 0.034701 seconds .
+  Time since last request: 9.881605 seconds.
+  path: Assets/Sprites/Idioms/25-min.jpg
+  artifactKey: Guid(e208edf73be93da49b280ad69dab4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/25-min.jpg using Guid(e208edf73be93da49b280ad69dab4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cf32a8151e150e7a3c9d73d6240b558') in 0.017107 seconds
+  Import took 0.021560 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000325 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-SemiBold.ttf
-  artifactKey: Guid(6d75a4a4941415646ad1ee65d0255229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-SemiBold.ttf using Guid(6d75a4a4941415646ad1ee65d0255229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae940e85eadd9d8e7bdc6d14a014336a') in 0.026539 seconds
-  Import took 0.030114 seconds .
+  Time since last request: 0.020616 seconds.
+  path: Assets/Sprites/Idioms/25-min.jpg
+  artifactKey: Guid(e208edf73be93da49b280ad69dab4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/25-min.jpg using Guid(e208edf73be93da49b280ad69dab4a91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cf32a8151e150e7a3c9d73d6240b558') in 0.019583 seconds
+  Import took 0.025585 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000305 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-Light.ttf
-  artifactKey: Guid(36f023e660743be47aa6cad33cfa1864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-Light.ttf using Guid(36f023e660743be47aa6cad33cfa1864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2c1419dc09e53e59c8c8c983186a80d') in 0.027525 seconds
-  Import took 0.031632 seconds .
+  Time since last request: 423.094920 seconds.
+  path: Assets/Sprites/Idioms/38.jpg
+  artifactKey: Guid(063d63a2d594528409d42325999161a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/38.jpg using Guid(063d63a2d594528409d42325999161a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d7eaf7426629687f1b9ce4160419167') in 0.708830 seconds
+  Import took 0.714804 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/Fonts/Mukta_Mahee/MuktaMahee-ExtraLight.ttf
-  artifactKey: Guid(180a2807917c7374e87addeaf2c25588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Mukta_Mahee/MuktaMahee-ExtraLight.ttf using Guid(180a2807917c7374e87addeaf2c25588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd4906cad51f42d3b00e02537648a0b4') in 0.026178 seconds
-  Import took 0.030266 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008069 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.269 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2478.
-Total: 6.722700 ms (FindLiveObjects: 0.282300 ms CreateObjectMapping: 0.104200 ms MarkObjects: 6.278200 ms  DeleteObjects: 0.055500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 415.997022 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f90a8a77fc17ede42060bea781e317a') in 0.011761 seconds
-  Import took 0.015466 seconds .
+  Time since last request: 12.736873 seconds.
+  path: Assets/Sprites/Idioms/38.jpg
+  artifactKey: Guid(063d63a2d594528409d42325999161a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/38.jpg using Guid(063d63a2d594528409d42325999161a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c001f350193a76ede290617e3f72cd4') in 0.019471 seconds
+  Import took 0.023913 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.004303 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f90a8a77fc17ede42060bea781e317a') in 0.002483 seconds
-  Import took 0.007802 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007405 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.41 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.261 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.32 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2481.
-Total: 5.874700 ms (FindLiveObjects: 0.408300 ms CreateObjectMapping: 0.135500 ms MarkObjects: 5.270800 ms  DeleteObjects: 0.058000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007789 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.00 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.340 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2484.
-Total: 5.815600 ms (FindLiveObjects: 0.276200 ms CreateObjectMapping: 0.102400 ms MarkObjects: 5.382500 ms  DeleteObjects: 0.052100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007393 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.170 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.65 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.2 MB.
-System memory in use after: 159.3 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2487.
-Total: 6.554200 ms (FindLiveObjects: 0.604600 ms CreateObjectMapping: 0.177600 ms MarkObjects: 5.713400 ms  DeleteObjects: 0.056500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007368 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.170 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.2 MB.
-System memory in use after: 159.3 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2490.
-Total: 6.486300 ms (FindLiveObjects: 0.445600 ms CreateObjectMapping: 0.184300 ms MarkObjects: 5.794800 ms  DeleteObjects: 0.058400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 1048.496942 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0ddb76f993ed195ad8eb8906e13ab2a') in 0.015796 seconds
-  Import took 0.021086 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007539 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.177 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.44 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.2 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2493.
-Total: 11.825500 ms (FindLiveObjects: 0.717800 ms CreateObjectMapping: 0.367200 ms MarkObjects: 10.661400 ms  DeleteObjects: 0.076200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008927 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.157 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.2 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2496.
-Total: 6.315500 ms (FindLiveObjects: 0.370300 ms CreateObjectMapping: 0.183700 ms MarkObjects: 5.700100 ms  DeleteObjects: 0.057600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.014617 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.36 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.981 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 2.53 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2499.
-Total: 9.995500 ms (FindLiveObjects: 0.497900 ms CreateObjectMapping: 0.185000 ms MarkObjects: 9.229400 ms  DeleteObjects: 0.080100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 320.416296 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca5ba03e6ace336bb2ab2c8afba47fc5') in 0.013891 seconds
-  Import took 0.019284 seconds .
+  Time since last request: 0.024060 seconds.
+  path: Assets/Sprites/Idioms/38.jpg
+  artifactKey: Guid(063d63a2d594528409d42325999161a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/38.jpg using Guid(063d63a2d594528409d42325999161a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c001f350193a76ede290617e3f72cd4') in 0.020350 seconds
+  Import took 0.025651 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 68.217558 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd552e2f7df70a94dc45a1257fa0a057a') in 0.003331 seconds
-  Import took 0.007808 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011613 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.249 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.26 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2502.
-Total: 7.268500 ms (FindLiveObjects: 0.238200 ms CreateObjectMapping: 0.094100 ms MarkObjects: 6.863000 ms  DeleteObjects: 0.071400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011511 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.21 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.000 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 2.29 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
-
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2505.
-Total: 9.188300 ms (FindLiveObjects: 0.460400 ms CreateObjectMapping: 0.167900 ms MarkObjects: 8.473900 ms  DeleteObjects: 0.083900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 108.681545 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8eda8d4349703d5943527b1d2051a260') in 0.016114 seconds
-  Import took 0.025456 seconds .
+  Time since last request: 206.006074 seconds.
+  path: Assets/Sprites/Idioms/48-min.jpg
+  artifactKey: Guid(66be834c2f9c5db42868e081e1c78e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/48-min.jpg using Guid(66be834c2f9c5db42868e081e1c78e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96aa3ddd1748f7f20dc28a67dea1471b') in 0.077507 seconds
+  Import took 0.082383 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.002446 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8eda8d4349703d5943527b1d2051a260') in 0.002722 seconds
-  Import took 0.009569 seconds .
+  Time since last request: 14.779313 seconds.
+  path: Assets/Sprites/Idioms/48-min.jpg
+  artifactKey: Guid(66be834c2f9c5db42868e081e1c78e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/48-min.jpg using Guid(66be834c2f9c5db42868e081e1c78e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd814f699e57dec91dfb5540f417c7fc3') in 0.019260 seconds
+  Import took 0.025062 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 705.687346 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fe83171caa7930ccad41551bc71c739') in 0.002631 seconds
-  Import took 0.007804 seconds .
+  Time since last request: 0.021018 seconds.
+  path: Assets/Sprites/Idioms/48-min.jpg
+  artifactKey: Guid(66be834c2f9c5db42868e081e1c78e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/48-min.jpg using Guid(66be834c2f9c5db42868e081e1c78e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd814f699e57dec91dfb5540f417c7fc3') in 0.018859 seconds
+  Import took 0.024040 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.012372 seconds.
-  path: Assets/Scenes/Game Show scene.unity
-  artifactKey: Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Show scene.unity using Guid(53d0e4dae02805e489a0509c61e51d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fe83171caa7930ccad41551bc71c739') in 0.002344 seconds
-  Import took 0.007111 seconds .
+  Time since last request: 1312.833532 seconds.
+  path: Assets/Sprites/Idioms/52-min.jpg
+  artifactKey: Guid(9976b495fc6b1674bb6ef8ce02bf3710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/52-min.jpg using Guid(9976b495fc6b1674bb6ef8ce02bf3710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33ad16f1b1cf27b329104a44dcf0dd35') in 0.727620 seconds
+  Import took 0.742148 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007526 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.225 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.52 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
+Received Import Request.
+  Time since last request: 11.642877 seconds.
+  path: Assets/Sprites/Idioms/52-min.jpg
+  artifactKey: Guid(9976b495fc6b1674bb6ef8ce02bf3710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/52-min.jpg using Guid(9976b495fc6b1674bb6ef8ce02bf3710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af617b5262ee324afe99acaa0367defc') in 0.018662 seconds
+  Import took 0.023747 seconds .
 
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2508.
-Total: 6.217600 ms (FindLiveObjects: 0.268100 ms CreateObjectMapping: 0.121500 ms MarkObjects: 5.768900 ms  DeleteObjects: 0.057000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007615 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.35 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.259 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
+Received Import Request.
+  Time since last request: 0.018437 seconds.
+  path: Assets/Sprites/Idioms/52-min.jpg
+  artifactKey: Guid(9976b495fc6b1674bb6ef8ce02bf3710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/52-min.jpg using Guid(9976b495fc6b1674bb6ef8ce02bf3710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af617b5262ee324afe99acaa0367defc') in 0.019216 seconds
+  Import took 0.025218 seconds .
 
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2511.
-Total: 6.130100 ms (FindLiveObjects: 0.288400 ms CreateObjectMapping: 0.112900 ms MarkObjects: 5.675700 ms  DeleteObjects: 0.051600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010520 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.232 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(589824) extendedPlatform(0)
-Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
-Refreshing native plugins compatible for Editor in 2.55 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 159.3 MB.
-System memory in use after: 159.4 MB.
+Received Import Request.
+  Time since last request: 244.431156 seconds.
+  path: Assets/Sprites/Idioms/47-min.jpg
+  artifactKey: Guid(87416e4682e73534389a432f4f50b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/47-min.jpg using Guid(87416e4682e73534389a432f4f50b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d0ec359b7c4d176098ee2a391bfcb5c') in 0.738114 seconds
+  Import took 0.743081 seconds .
 
-Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 2514.
-Total: 7.952000 ms (FindLiveObjects: 0.757600 ms CreateObjectMapping: 0.195500 ms MarkObjects: 6.942800 ms  DeleteObjects: 0.053200 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 9.552946 seconds.
+  path: Assets/Sprites/Idioms/47-min.jpg
+  artifactKey: Guid(87416e4682e73534389a432f4f50b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/47-min.jpg using Guid(87416e4682e73534389a432f4f50b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4057e3b324e3e988d14f13b9cbf65ac3') in 0.018471 seconds
+  Import took 0.023227 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 0.021238 seconds.
+  path: Assets/Sprites/Idioms/47-min.jpg
+  artifactKey: Guid(87416e4682e73534389a432f4f50b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/47-min.jpg using Guid(87416e4682e73534389a432f4f50b4eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4057e3b324e3e988d14f13b9cbf65ac3') in 0.020985 seconds
+  Import took 0.026422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 484.694664 seconds.
+  path: Assets/Sprites/Idioms/53-min.jpg
+  artifactKey: Guid(f385f82b334709c4faa8e1d2c8df842f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/53-min.jpg using Guid(f385f82b334709c4faa8e1d2c8df842f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd54aa44aa8e7335c8b10208b439ee4ad') in 0.718020 seconds
+  Import took 0.723455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.263141 seconds.
+  path: Assets/Sprites/Idioms/53-min.jpg
+  artifactKey: Guid(f385f82b334709c4faa8e1d2c8df842f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/53-min.jpg using Guid(f385f82b334709c4faa8e1d2c8df842f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d59adb344cc4848c7e844f480c84460') in 0.019085 seconds
+  Import took 0.023412 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.022984 seconds.
+  path: Assets/Sprites/Idioms/53-min.jpg
+  artifactKey: Guid(f385f82b334709c4faa8e1d2c8df842f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Idioms/53-min.jpg using Guid(f385f82b334709c4faa8e1d2c8df842f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d59adb344cc4848c7e844f480c84460') in 0.019360 seconds
+  Import took 0.025422 seconds .
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

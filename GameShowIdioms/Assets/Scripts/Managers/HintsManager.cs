@@ -30,15 +30,9 @@ public class HintsManager : MonoBehaviour
 
         //Update CurrentCash Variable.
         currentHintsNumber = IdiomsGameManager.Instance.SaveManager.SaveObject.HintsNumber;
-
-        //Update Cash Text.
-        UpdateCashText(currentHintsNumber);
     }
 
-    public void UpdateCashText(int hintsValue)
-    {
-        HintsText.text = hintsValue.ToString();
-    }
+    
 
     #endregion
 

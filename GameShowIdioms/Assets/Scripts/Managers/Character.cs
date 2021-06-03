@@ -8,9 +8,15 @@ public class Character : MonoBehaviour
     //Character Type.
     public enum CharacterType
     {
-        NerdGirl,
+        BladMan,
         FakeGirl,
-        BladMan
+        NerdGirl,      
+        Girl1,
+        Guy1,
+        Girl2,
+        Guy2,
+        Girl3,
+        Guy3
     }
     public CharacterType characterType;
 

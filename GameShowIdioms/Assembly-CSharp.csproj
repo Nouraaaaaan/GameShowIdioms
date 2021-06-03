@@ -73,6 +73,7 @@
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Enums.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Wrapper\GA_tvOSWrapper.cs" />
     <Compile Include="Assets\Scripts\Caret.cs" />
+    <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoBall.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LTSeq.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Utilities\GA_MiniJson.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
     <Compile Include="Assets\Packages\LeanTween\Framework\LeanAudio.cs" />
+    <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoButton.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Events\GA_Ads.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\Scripts\Managers\KeyboardManager.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathBezier.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathSpline.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\Scripts\HapticManager.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Wrapper\GA_UWPWrapper.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\IsRemoteConfigsReady.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\SendProgressionEvent.cs" />
@@ -135,6 +138,7 @@
     <Compile Include="Assets\Scripts\KeyBoardManager.cs" />
     <Compile Include="Assets\Scripts\Gift.cs" />
     <Compile Include="Assets\Scripts\Idiom.cs" />
+    <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoGhost.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\Events\GA_SpecialEvents.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\SendResourceEvent.cs" />
     <Compile Include="Assets\Packages\LeanTween\Examples\Scripts\PathBezier2d.cs" />
@@ -177,6 +181,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\GameAnalytics\Plugins\WSA\ARM\GameAnalytics.UWP.dll" />
      <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX Free.txt" />
+     <None Include="Assets\MMFeedbacks\NiceVibrations\OlderVersions\v2.0.1\NiceVibrations-v-2-0-1-readme.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\Packages\LeanTween\License.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -184,21 +189,28 @@
      <None Include="Assets\GameAnalytics\Plugins\WSA\x86\GameAnalytics.UWP.dll" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\MMFeedbacks\NiceVibrations\ThirdParty\Newtonsoft\NewtonsoftJsonLicense.txt" />
+     <None Include="Assets\MMFeedbacks\readme.txt" />
+     <None Include="Assets\MMFeedbacks\license.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\MMFeedbacks\NiceVibrations\Common\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\Fonts\Communist\Freeware License.txt" />
      <None Include="Assets\GameAnalytics\Plugins\Windows\x86\sqlite3.dll" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\MMFeedbacks\NiceVibrations\OlderVersions\v1.7\NiceVibrations-v-1-7-readme.txt" />
      <None Include="Assets\GameAnalytics\Plugins\Windows\x64\sqlite3.dll" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\Animations\Bald_Man\Bald_Man_ Animation_Nots.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\MMFeedbacks\NiceVibrations\readme.txt" />
      <None Include="Assets\GameAnalytics\Plugins\WSA\x64\GameAnalytics.UWP.dll" />
      <None Include="Assets\Packages\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
+     <None Include="Assets\MMFeedbacks\NiceVibrations\license.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -821,13 +833,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
+      <Project>{EAAEE028-9C57-4857-B6CB-B42C4DA387A4}</Project>
+      <Name>MoreMountains.Tools.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.csproj">
+      <Project>{0C07CB5A-AF9B-F743-60F8-361F3B256A21}</Project>
+      <Name>MoreMountains.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
+      <Project>{FD458B42-603D-0093-A79D-0341C22D3654}</Project>
+      <Name>MoreMountains.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Editor.csproj">
+      <Project>{A1165762-0795-43E9-2992-F26BD6C29294}</Project>
+      <Name>MoreMountains.Feedbacks.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Haptics.csproj">
+      <Project>{39FA9800-06A5-3893-A4C7-D930FA807996}</Project>
+      <Name>MoreMountains.NiceVibrations.Haptics</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Demos.csproj">
+      <Project>{48636BF2-C365-94CF-82E8-F91800F44D27}</Project>
+      <Name>MoreMountains.NiceVibrations.Demos</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.NiceVibrations.csproj">
+      <Project>{7A509D73-246C-EE16-706A-2F60FE88ECF7}</Project>
+      <Name>MoreMountains.Feedbacks.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
+      <Project>{6DF26816-C715-5D8A-C5DD-8B5AFBA35780}</Project>
+      <Name>MoreMountains.Tools.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.Editor.csproj">
+      <Project>{33F2D45E-3507-0490-3F34-64E76CE46C78}</Project>
+      <Name>MoreMountains.Tools.Feedbacks.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.csproj">
       <Project>{AA39768F-9617-8821-D51F-50405EBFFB0B}</Project>
       <Name>GoogleMobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Editor.csproj">
+      <Project>{BE5A6B1E-6376-8EF4-DADC-8FE5565BB3D2}</Project>
+      <Name>MoreMountains.NiceVibrations.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
+      <Project>{6DF7A2B1-55C3-3F67-C655-1C147269A777}</Project>
+      <Name>MoreMountains.Feedbacks.MMTools</Name>
+    </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.Editor.csproj">
       <Project>{1FB9A3A6-5D04-3025-6E68-C24B5136E99C}</Project>
       <Name>GoogleMobileAds.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.csproj">
+      <Project>{12FC2505-EFB7-CB06-8893-0A210CB6CB87}</Project>
+      <Name>MoreMountains.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
